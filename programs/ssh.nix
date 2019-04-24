@@ -1,4 +1,4 @@
-{lib, pkgs}:
+{config, modulesPath, lib, options, pkgs}:
 
 {
   programs.ssh.agentTimeout = "1h";

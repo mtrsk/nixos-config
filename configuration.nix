@@ -11,17 +11,15 @@
 
       # Programs
       ./programs/zsh.nix
+      ./programs/ssh.nix
 
       # Services
       ./services/compton.nix
-      #./services/dnscrypt.nix
-      #./services/emacs/emacs.nix
       ./services/fail2ban.nix
+      ./services/i3wm.nix
       ./services/localization.nix
       ./services/audio/mpd.nix
       ./services/openssh.nix
-
-      ./services/i3wm/i3wm.nix
 
       # Virtualisation
       ./virtualisation/docker.nix
@@ -102,11 +100,13 @@
 
   nix.gc = {
     automatic = true;
-    dates = "Tue,Thu,Sat *-*-* 23:00:00";
-    options = "--delete-generations +4";
+    dates = "*-*-* 23:00:00";
+    options = "--delete-older-than 3d";
   };
 
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
 
   nixpkgs.overlays = [
     (import ./overlays/conky.nix)
@@ -125,6 +125,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 
+  programs.dconf.enable = true;
+  services.dbus.packages = [ pkgs.gnome3.dconf ];
+
   environment = {
     systemPackages = (with pkgs; [
       curl
@@ -134,8 +137,10 @@
       git
       glxinfo
       gnumake
+      gparted
       haveged
       htop
+      jq
       libpcap     # tcpdump
       libnotify
       lm_sensors
@@ -149,15 +154,17 @@
       nix-prefetch-git
       openssl
       pciutils    # lspci
-      psmisc      # killall, pstree, fuser
+      psmisc      # pkill, killall, pstree, fuser
       sshfs
       tmux
       tree
-      unzip
       usbutils    # lsusb
       xorg.xmodmap
       xorg.xev
       wget
+      # Unzip
+      p7zip
+      unzip
       zip
       # Text Editors
       emacs
@@ -167,7 +174,6 @@
       lynis
       # Terminal Emulators
       kitty
-      st
     ]);
 
     # Environment Variables

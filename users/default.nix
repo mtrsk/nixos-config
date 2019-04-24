@@ -1,6 +1,10 @@
 { config, lib, pkgs, ...}:
 
 {
+  imports = [
+    ../systemd/ipfs-service.nix
+  ];
+
   users.groups = {
     usul = {
       gid = 1000;
@@ -24,6 +28,9 @@
       ];
       # The set of packages that should be made availabe to the user.
       packages = (with pkgs; [
+        # Base Packages
+        home-manager
+        bind
         # Deamons
         earlyoom
         # Libs
@@ -33,42 +40,34 @@
         newsboat
         zathura
         # Browsing
-        firefox
-        qutebrowser
-        tor
-        tor-browser-bundle-bin
+        #firefox
         # Utils
         gimp
         ranger
         transmission-gtk
-        tomb
+        #tomb
         tmate
         youtube-dl
         # Gaming
         discord
-        #playonlinux
         steam
+        retroarch
         # Chatting
         weechat
         tdesktop
-        # Media
-        feh
-        ffmpegthumbnailer
-        mpd
-        mpv
-        ncmpcpp
+        # Development
+        direnv
+        heroku
+        ipfs
+        # Etc...
+        arandr
+        scrot
+        xclip
         # Rice
         conky
         neofetch
         polybar
         pywal
-        # Development
-        direnv
-        heroku
-        # Etc...
-        arandr
-        scrot
-        xclip
       ]);
       shell = pkgs.zsh;
     };

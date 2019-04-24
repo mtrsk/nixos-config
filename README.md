@@ -1,13 +1,15 @@
 # NixOS Configuration
 
-My NixOS configuration files, this also includes:
-
-* A Neovim configuration totally not stolen from someone on the internet
-* Some i3wm configuration done through nix itself with some (soon to be automated) pywal
+My NixOS configuration files.
 
 ## How to use it?
 
-<TODO>
+* Clone this repo in whatever place you find better
+* Make a symlink to `/etc/nixos/configuration.nix`
+    ```
+    $ cd nixos-config
+    $ sudo ln -s $PWD/configuration.nix /etc/nixos/configuration.nix
+    ```
 
 ## Why should I use it?
 
