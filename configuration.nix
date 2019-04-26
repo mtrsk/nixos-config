@@ -110,10 +110,10 @@
 
   nixpkgs.overlays = [
     (import ./overlays/conky.nix)
+    (import ./overlays/home-manager.nix)
     (import ./overlays/ncmpcpp.nix)
     (import ./overlays/nvim/neovim.nix)
     (import ./overlays/polybar.nix)
-    (import ./overlays/tmux.nix)
   ];
 
   # ++++++++++++++++++++++++++++++++ #
@@ -156,7 +156,6 @@
       pciutils    # lspci
       psmisc      # pkill, killall, pstree, fuser
       sshfs
-      tmux
       tree
       usbutils    # lsusb
       xorg.xmodmap

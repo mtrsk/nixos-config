@@ -36,11 +36,6 @@
         # Libs
         poppler_utils
         djvulibre
-        # Reading/RSS
-        newsboat
-        zathura
-        # Browsing
-        #firefox
         # Utils
         gimp
         ranger
@@ -52,17 +47,10 @@
         discord
         steam
         retroarch
-        # Chatting
-        weechat
-        tdesktop
         # Development
         direnv
         heroku
         ipfs
-        # Etc...
-        arandr
-        scrot
-        xclip
         # Rice
         conky
         neofetch
