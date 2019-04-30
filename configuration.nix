@@ -23,6 +23,7 @@
 
       # Virtualisation
       ./virtualisation/docker.nix
+      ./virtualisation/rkt.nix
 
       # Shared
       ./users
@@ -110,7 +111,7 @@
 
   nixpkgs.overlays = [
     (import ./overlays/conky.nix)
-    (import ./overlays/home-manager.nix)
+    (import ./overlays/home-manager)
     (import ./overlays/ncmpcpp.nix)
     (import ./overlays/nvim/neovim.nix)
     (import ./overlays/polybar.nix)
@@ -137,6 +138,7 @@
       git
       glxinfo
       gnumake
+      gnupg
       gparted
       haveged
       htop
@@ -156,6 +158,7 @@
       pciutils    # lspci
       psmisc      # pkill, killall, pstree, fuser
       sshfs
+      smartmontools
       tree
       usbutils    # lsusb
       xorg.xmodmap
@@ -171,6 +174,8 @@
       # Security
       dirb
       lynis
+      pass
+      pwgen
       # Terminal Emulators
       kitty
     ]);
@@ -201,6 +206,9 @@
 
   # SSH-Agent
   programs.ssh.startAgent = true;
+
+  # GPG-Agent
+  programs.gnupg.agent.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

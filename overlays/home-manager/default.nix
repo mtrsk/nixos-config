@@ -1,15 +1,23 @@
 self: super:
 
+let
+  json = builtins.fromJSON (builtins.readFile ./version.json);
+  date = json.date;
+  home-manager-src = super.fetchFromGitHub {
+    owner = "rycee";
+    repo = "home-manager";
+    rev = json.rev;
+    sha256 = json.sha256;
+  };
+in
 {
   home-manager = super.home-manager.overrideAttrs ( old: rec {
     name = "home-manager-${version}";
-    version = "2019-04-23";
-    src = super.fetchFromGitHub {
-      owner = "rycee";
-      repo = "home-manager";
-      rev = "ba0375bf06e0e0c3b2377edf913b7fddfd5a0b40";
-      sha256 = "1ksr8fw5p5ai2a02whppc0kz9b3m5363hvfjghkzkd623kfh9073";
-    };
+    version = with super;
+      builtins.head (
+        builtins.match "([0-9]{4}-[0-9]{2}-[0-9]{2}).*" date
+      );
+    src = home-manager-src;
     installPhase = with super; ''
       install -v -D -m755 ${src}/home-manager/home-manager $out/bin/home-manager
 
