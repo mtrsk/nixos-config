@@ -5,5 +5,6 @@ self: super:
     i3GapsSupport = true;
     mpdSupport = true;
     pulseSupport = true;
+    alsaSupport = true;
   };
 }

@@ -137,6 +137,12 @@ map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
 map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
 
 "*****************************************************************************
+" Assembly
+"*****************************************************************************
+
+au BufRead,BufNewFile *.asm set filetype=nasm
+
+"*****************************************************************************
 " Haskell
 "*****************************************************************************
 
