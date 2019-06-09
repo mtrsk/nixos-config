@@ -18,12 +18,11 @@
       ./services/fail2ban.nix
       ./services/i3wm.nix
       ./services/localization.nix
-      ./services/audio/mpd.nix
       ./services/openssh.nix
 
       # Virtualisation
       ./virtualisation/docker.nix
-      ./virtualisation/rkt.nix
+      ./virtualisation/libvirtd.nix
 
       # Shared
       ./users
@@ -77,9 +76,6 @@
   hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
 
-  # Pulseaudio
-  hardware.pulseaudio.support32Bit = true;
-
   # ++++++++++++++++++++++++++++++++ #
   # ||         Networking         || #
   # ++++++++++++++++++++++++++++++++ #
@@ -95,9 +91,9 @@
 
   # Nixpkgs Configuration
 
-  nix = {
-    package = pkgs.nixUnstable;
-  };
+  #nix = {
+  #  package = pkgs.nixUnstable;
+  #};
 
   nix.gc = {
     automatic = true;
@@ -115,6 +111,7 @@
     (import ./overlays/ncmpcpp.nix)
     (import ./overlays/nvim/neovim.nix)
     (import ./overlays/polybar.nix)
+    (import ./overlays/tmp.nix)
   ];
 
   # ++++++++++++++++++++++++++++++++ #
@@ -131,6 +128,7 @@
 
   environment = {
     systemPackages = (with pkgs; [
+      bind
       curl
       dmenu
       exiftool
@@ -215,9 +213,6 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
-
-  # Enable sound.
-  sound.enable = true;
 
   # Xserver
   services.xserver = {

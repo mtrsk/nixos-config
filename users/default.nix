@@ -3,6 +3,7 @@
 {
   imports = [
     ../systemd/ipfs-service.nix
+    ../services/audio/pulseaudio.nix
   ];
 
   users.groups = {
@@ -30,27 +31,16 @@
       packages = (with pkgs; [
         # Base Packages
         home-manager
-        bind
         # Deamons
         earlyoom
         # Libs
         poppler_utils
         djvulibre
         # Utils
-        gimp
         ranger
-        transmission-gtk
-        #tomb
+        tomb
         tmate
         youtube-dl
-        # Gaming
-        discord
-        steam
-        retroarch
-        # Development
-        direnv
-        heroku
-        ipfs
         # Rice
         conky
         neofetch

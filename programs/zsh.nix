@@ -15,7 +15,6 @@
       "mix"
       "npm"
       "python"
-      "tmux"
       "vi-mode"
     ];
     ohMyZsh.theme = "lambda-mod";
