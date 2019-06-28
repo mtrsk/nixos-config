@@ -7,6 +7,11 @@
     ../services/pulseaudio.nix
   ];
 
+  # For Home-Manager's ZSH
+  environment.pathsToLink = [
+    "/share/zsh"
+  ];
+
   users.groups = {
     usul = {
       gid = 1000;
@@ -32,9 +37,6 @@
       packages = (with pkgs; [
         # Base Packages
         home-manager
-        # Libs
-        poppler_utils
-        djvulibre
         # Utils
         ranger
         # Rice

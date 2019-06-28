@@ -2,6 +2,7 @@
 
 let
   repo = "https://github.com/rycee/home-manager.git";
+  cmd = "${pkgs.nix-prefetch-git}/bin/nix-prefetch-git";
 in
 {
   systemd.timers.home-manager-update = {
@@ -9,7 +10,7 @@ in
     wantedBy = [ "timers.target" ];
     partOf = [ "home-manager-update.service" ];
     timerConfig = {
-      OnCalendar = "*-*-* 00:00:00";
+      OnCalendar = "*-*-* 23:01:00";
     };
   };
 
@@ -21,7 +22,7 @@ in
       User = "usul";
     };
     script = ''
-      nix-prefetch-git ${repo} > ${builtins.toString ../overlays/home-manager/version.json}
+      ${cmd} ${repo} > ${builtins.toString ../overlays/home-manager/version.json}
     '';
   };
 
