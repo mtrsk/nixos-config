@@ -36,6 +36,10 @@ set backspace=indent,eol,start
 set nobackup
 set noswapfile
 
+" Clipboard
+
+set clipboard=unnamedplus
+
 "*****************************************************************************
 " Visual Settings
 "*****************************************************************************
@@ -74,6 +78,13 @@ vnoremap <Up> <Nop>
 vnoremap <Down> <Nop>
 vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
+
+" Clipboard
+
+" noremap <Leader>y "*y
+" noremap <Leader>p "*p
+" noremap <Leader>Y "+y
+" noremap <Leader>P "+p
 
 "*****************************************************************************
 " Neomake
