@@ -111,7 +111,6 @@
     (import ./overlays/ncmpcpp.nix)
     (import ./overlays/nvim/neovim.nix)
     (import ./overlays/polybar.nix)
-    (import ./overlays/tmp.nix)
   ];
 
   # ++++++++++++++++++++++++++++++++ #
