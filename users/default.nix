@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../systemd/ipfs-service.nix
+    #../systemd/ipfs-service.nix
     ../systemd/home-manager-update.nix
     ../services/pulseaudio.nix
   ];

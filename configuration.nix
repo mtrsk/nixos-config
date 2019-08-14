@@ -22,7 +22,7 @@
 
       # Virtualisation
       ./virtualisation/docker.nix
-      ./virtualisation/kubernetes.nix
+      #./virtualisation/kubernetes.nix
       ./virtualisation/libvirtd.nix
 
       # Shared

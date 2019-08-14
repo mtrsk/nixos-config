@@ -104,8 +104,17 @@ nnoremap <silent> <C-t> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
 
 "*****************************************************************************
+" Deoplete
+"*****************************************************************************
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
+"*****************************************************************************
 " ALE
 "*****************************************************************************
+" help
+" ale-integration-rust
 
 " Error and warning signs.
 let g:ale_sign_error = '⤫'
@@ -117,14 +126,20 @@ let g:ale_linters = {
 \   'javascript': ['standard', 'flow'],
 \   'haskell': ['hlint', 'ghc'],
 \   'latex': ['chktex', 'lacheck'],
+\   'rust': ['rust', 'rustc'],
 \}
 
 let g:ale_haskell_ghc_options = '-fno-code -v0 -isrc'
+
+" Set this variable to 1 to fix files when you save them.
+let g:ale_fix_on_save = 1
 
 let g:ale_fixers = {
 \   'javascript': ['standard'],
 \   'haskell': ['stylish-haskell'],
 \   'latex': ['chktex', 'lacheck'],
+\   'python': ['black', 'isort'],
+\   'rust': ['rustfmt'],
 \}
 
 "*****************************************************************************
@@ -132,20 +147,23 @@ let g:ale_fixers = {
 "*****************************************************************************
 
 let g:LanguageClient_serverCommands = {
-  \ 'haskell' : ['hie-wrapper'],
-  \ 'python': ['pyls'],
-  \ }
-
-let g:LanguageClient_autoStart = 0
+\ 'c': ['ccls', '--log-file=/tmp/cc.log'],
+\ 'cpp': ['ccls', '--log-file=/tmp/cc.log'],
+\ 'cuda': ['ccls', '--log-file=/tmp/cc.log'],
+\ 'objc': ['ccls', '--log-file=/tmp/cc.log'],
+\ 'haskell' : ['hie-wrapper'],
+\ 'python': ['pyls']
+\ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-map <Leader>lk :call LanguageClient#textDocument_hover()<CR>
-map <Leader>lg :call LanguageClient#textDocument_definition()<CR>
-map <Leader>lr :call LanguageClient#textDocument_rename()<CR>
-map <Leader>lf :call LanguageClient#textDocument_formatting()<CR>
-map <Leader>lb :call LanguageClient#textDocument_references()<CR>
-map <Leader>la :call LanguageClient#textDocument_codeAction()<CR>
-map <Leader>ls :call LanguageClient#textDocument_documentSymbol()<CR>
+nnoremap <silent> gh :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> gr :call LanguageClient_textDocument_references()<CR>
+nnoremap <silent> gs :call LanguageClient_textDocument_documentSymbol()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+nnoremap <silent> gf :call LanguageClient_textDocument_formatting()<CR>
+
+let g:LanguageClient_autoStart = 0
 
 "*****************************************************************************
 " Assembly

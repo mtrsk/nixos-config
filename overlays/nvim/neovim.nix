@@ -39,6 +39,8 @@ in
         vim-elixir
         # Elm
         elm-vim
+        # Go
+        #deoplete-go
         # Haskell
         haskell-vim
         intero-neovim
@@ -52,10 +54,10 @@ in
         vim-nix
         # Python
         deoplete-jedi
+        jedi-vim
         # Rust
+        nvim-cm-racer
         deoplete-rust
-        rust-vim
-        vim-racer
       ];
     };
   };
