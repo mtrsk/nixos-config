@@ -10,7 +10,6 @@
       ./hardware-configuration.nix
 
       # Programs
-      ./programs/zsh.nix
       ./programs/ssh.nix
 
       # Services

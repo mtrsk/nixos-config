@@ -136,7 +136,7 @@ let g:ale_fix_on_save = 1
 
 let g:ale_fixers = {
 \   'javascript': ['standard'],
-\   'haskell': ['stylish-haskell'],
+\   'haskell': ['hindent', 'stylish-haskell'],
 \   'latex': ['chktex', 'lacheck'],
 \   'python': ['black', 'isort'],
 \   'rust': ['rustfmt'],
@@ -190,7 +190,7 @@ let g:haskell_indent_case_alternative = 1
 let g:cabal_indent_section = 2
 
 " Hindent
-let g:hindent_on_save = 1
+" let g:hindent_on_save = 0
 
 " Disable haskell-vim omnifunc
 let g:haskellmode_completion_ghc = 0
