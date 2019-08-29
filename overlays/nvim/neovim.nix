@@ -19,6 +19,7 @@ in
         deoplete-nvim
         LanguageClient-neovim
         nerdtree
+        tabular
         supertab
         vim-airline
         vim-commentary

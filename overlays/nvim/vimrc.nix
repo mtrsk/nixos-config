@@ -100,6 +100,7 @@ vnoremap <Right> <Nop>
 
 " NERDTree mappings
 nnoremap <silent> <C-t> :NERDTreeToggle<CR>
+nnoremap <silent> <C-f> :NERDTreeFocus<CR>
 
 let NERDTreeShowHidden=1
 
@@ -242,6 +243,12 @@ fun! TexNoSpell()
   syntax region texNoSpellBraces matchgroup=Delimiter start='{' end='}' contained contains=@NoSpell
 endfun
 autocmd BufRead,BufNewFile *.tex :call TexNoSpell()
+
+"*****************************************************************************
+" Markdown
+"*****************************************************************************
+
+let g:vim_markdown_folding_disabled = 1
 
 "*****************************************************************************
 " Rust
