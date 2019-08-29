@@ -38,12 +38,7 @@
         # Base Packages
         home-manager
         # Utils
-        ranger
-        # Rice
-        conky
-        neofetch
         polybar
-        pywal
       ]);
       shell = pkgs.zsh;
     };
