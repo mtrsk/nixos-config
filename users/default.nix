@@ -2,8 +2,8 @@
 
 {
   imports = [
-    #../systemd/ipfs-service.nix
-    ../systemd/home-manager-update.nix
+    ../modules/ipfs-daemon
+    ../modules/home-manager
     ../services/pulseaudio.nix
   ];
 
@@ -35,12 +35,18 @@
       ];
       # The set of packages that should be made availabe to the user.
       packages = (with pkgs; [
-        # Base Packages
-        home-manager
         # Utils
         polybar
       ]);
       shell = pkgs.zsh;
+    };
+  };
+
+  services.home-manager = {
+    enable = true;
+    auto-update = {
+      enable = true;
+      user = "usul";
     };
   };
 }
