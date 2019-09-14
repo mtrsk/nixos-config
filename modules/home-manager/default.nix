@@ -39,32 +39,35 @@ in
     };
   };
 
-  config = mkIf cfg.enable {
+  config = mkMerge
+    [
+      (mkIf cfg.enable {
+        environment.systemPackages = with pkgs; [
+          home-manager
+        ];
+      })
 
-    environment.systemPackages = with pkgs; [
-      home-manager
+      (mkIf cfg.auto-update.enable {
+        systemd.timers.home-manager-update = {
+          description = "Home-Manager Update Timer";
+          wantedBy = [ "timers.target" ];
+          partOf = [ "home-manager-update.service" ];
+          timerConfig = {
+            OnCalendar = cfg.auto-update.timer;
+          };
+        };
+
+        systemd.services.home-manager-update = {
+          description = "Home-Manager Update Service";
+          after = [ "network.target" ];
+          serviceConfig = {
+            Type = "oneshot";
+            User = cfg.auto-update.user;
+          };
+          script = ''
+            ${cmd} ${repo} > ${builtins.toString ../overlays/home-manager/version.json}
+          '';
+        };
+      })
     ];
-
-    systemd.timers.home-manager-update = {
-      description = "Home-Manager Update Timer";
-      wantedBy = [ "timers.target" ];
-      partOf = [ "home-manager-update.service" ];
-      timerConfig = {
-        OnCalendar = cfg.auto-update.timer;
-      };
-    };
-
-    systemd.services.home-manager-update = {
-      description = "Home-Manager Update Service";
-      after = [ "network.target" ];
-      serviceConfig = {
-        Type = "oneshot";
-        User = cfg.auto-update.user;
-      };
-      script = ''
-        ${cmd} ${repo} > ${builtins.toString ../overlays/home-manager/version.json}
-      '';
-    };
-
-  };
 }
