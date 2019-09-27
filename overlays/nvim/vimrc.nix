@@ -99,10 +99,12 @@ vnoremap <Right> <Nop>
 "*****************************************************************************
 
 " NERDTree mappings
-nnoremap <silent> <C-t> :NERDTreeToggle<CR>
-nnoremap <silent> <C-f> :NERDTreeFocus<CR>
+nmap <leader>nt :NERDTreeToggle<CR>
+nmap <leader>nf :NERDTreeFind<CR>
 
-let NERDTreeShowHidden=1
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 
 "*****************************************************************************
 " Deoplete
@@ -127,7 +129,6 @@ let g:ale_linters = {
 \   'javascript': ['standard', 'flow'],
 \   'haskell': ['hlint', 'ghc'],
 \   'latex': ['chktex', 'lacheck'],
-\   'rust': ['rust', 'rustc'],
 \}
 
 let g:ale_haskell_ghc_options = '-fno-code -v0 -isrc'
@@ -138,7 +139,6 @@ let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   'javascript': ['standard'],
 \   'haskell': ['hindent', 'stylish-haskell'],
-\   'latex': ['chktex', 'lacheck'],
 \   'python': ['black', 'isort'],
 \   'rust': ['rustfmt'],
 \}
@@ -153,7 +153,8 @@ let g:LanguageClient_serverCommands = {
 \ 'cuda': ['ccls', '--log-file=/tmp/cc.log'],
 \ 'objc': ['ccls', '--log-file=/tmp/cc.log'],
 \ 'haskell' : ['hie-wrapper'],
-\ 'python': ['pyls']
+\ 'python': ['pyls'],
+\ 'rust': ['rls'],
 \ }
 
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
@@ -189,6 +190,14 @@ let g:haskell_indent_in = 1
 let g:haskell_indent_guard = 2
 let g:haskell_indent_case_alternative = 1
 let g:cabal_indent_section = 2
+
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
 
 " Hindent
 " let g:hindent_on_save = 0

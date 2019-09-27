@@ -46,7 +46,6 @@ in
         haskell-vim
         intero-neovim
         vim-hindent
-        vim-stylish-haskell
         # Html
         emmet-vim
         # LaTeX

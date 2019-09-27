@@ -21,7 +21,6 @@
 
       # Virtualisation
       ./virtualisation/docker.nix
-      #./virtualisation/kubernetes.nix
       ./virtualisation/libvirtd.nix
 
       # Shared
@@ -64,11 +63,13 @@
   hardware.bluetooth.enable = false;
 
   # Nvidia
-  hardware.nvidia.modesetting.enable = true;
-  hardware.nvidia.optimus_prime = {
-    enable = true;
-    intelBusId = "PCI:0:2:0";
-    nvidiaBusId = "PCI:9:0:0";
+  hardware.nvidia = {
+    modesetting.enable = true;
+    optimus_prime = {
+      enable = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:9:0:0";
+    };
   };
 
   # OpenGL
