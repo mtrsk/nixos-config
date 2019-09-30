@@ -13,10 +13,7 @@
       ./programs/ssh.nix
 
       # Services
-      ./services/compton.nix
       ./services/fail2ban.nix
-      ./services/i3wm.nix
-      ./services/localization.nix
       ./services/openssh.nix
 
       # Virtualisation
@@ -24,7 +21,7 @@
       ./virtualisation/libvirtd.nix
 
       # Shared
-      ./users
+      ./users/usul
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -92,10 +89,6 @@
 
   # Nixpkgs Configuration
 
-  #nix = {
-  #  package = pkgs.nixUnstable;
-  #};
-
   nix.gc = {
     automatic = true;
     dates = "*-*-* 23:00:00";
@@ -108,7 +101,6 @@
 
   nixpkgs.overlays = [
     (import ./overlays/conky.nix)
-    (import ./overlays/home-manager)
     (import ./overlays/ncmpcpp.nix)
     (import ./overlays/nvim/neovim.nix)
     (import ./overlays/polybar.nix)
@@ -229,7 +221,8 @@
     desktopManager.default = "none";
     desktopManager.xterm.enable = false;
     # Display Manager
-    displayManager.lightdm.enable = true;
+    displayManager.sddm.enable = true;
+    displayManager.sddm.autoLogin.user = "usul";
     displayManager.sessionCommands = ''
       xset s off
       xset -dpms

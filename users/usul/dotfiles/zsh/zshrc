@@ -1,0 +1,25 @@
+# Extra ZSH config
+rusb(){
+  udisksctl power-off -b $1
+}
+
+mountu() {
+  sudo mount -o guid=$1,uid=$2 $3 $4
+}
+
+reload-keys(){
+  ssh-add $HOME/.ssh/git
+}
+
+# completions
+autoload -Uz compinit
+compinit
+
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
+
+# Direnv Hook
+eval "$(direnv hook zsh)"
+
+# Git
+ssh-add $HOME/.ssh/git &> /dev/null

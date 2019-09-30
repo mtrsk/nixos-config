@@ -1,0 +1,66 @@
+conky.config = {
+    -- Colors
+    color0 = '%background',
+    color1 = '%color1',
+    color2 = '%color2',
+    color3 = '%color3',
+    -- ====================
+    alignment = 'top_left',
+    background = true,
+    cpu_avg_samples = 2,
+    default_color = color0,
+    default_outline_color = color1,
+    default_shade_color = color2,
+    draw_borders = false,
+    double_buffer = true,
+    font = 'Hack:size=11',
+    draw_shades = true,
+    gap_x = 30,
+    gap_y = 50,
+    no_buffers = true,
+    own_window = true,
+    own_window_type = 'override',
+    own_window_transparent = false,
+    own_window_argb_visual = true,
+    own_window_argb_value = 220,
+    own_window_colour = '%background',
+    update_interval = 1.0,
+    use_xft = true,
+    minimum_width = 400,
+}
+
+conky.text = [[
+${color1}${alignc}@${nodename}$color ⊢ ${color2}${execi 3600 awk -F'=' '/PRETTY_NAME/{print substr($2,2,11)}' /etc/os-release}$color ⊣ ${color3}${sysname}-${kernel}$color
+${hr 2}
+${execpi 1800 DA=`date +%_d`; cal | awk '{print "                 ", $0}'  | sed s/"\(^\|[^0-9]\)$DA"'\b'/'\1${color2}'"$DA"'$color'/}
+Disks ${hr 2}
+${alignc}/dev/sda
+${offset 65}${fs_used /}\
+    ${goto 260}${fs_used /boot}
+${offset 10}/${goto 60}${fs_bar 7,60 /}${offset 10}${fs_size /}\
+    ${offset 10}/boot${goto 255}${fs_bar 7,60 /boot}${offset 10}${fs_size /boot}
+
+${hr 2}
+
+
+${offset 10}CPU${offset 180}MEMORY${offset 57}${memmax}
+${offset 10}0 [${hwmon 1 temp 1}°C]${offset 5}❰${cpu cpu1}%❱${goto 100}\
+   ${cpubar cpu1 7,70}${offset 25}RAM  ${memperc}%${goto 290}${membar 7,95}
+${offset 10}1 [${hwmon 1 temp 2}°C]${offset 5}❰${cpu cpu2}%❱ ${goto 100}\
+   ${cpubar cpu2 7,70}${offset 125}${swapmax}
+${offset 10}2 [${hwmon 2 temp 1}°C]${offset 5}❰${cpu cpu3}%❱ ${goto 100}\
+   ${cpubar cpu3 7,70}${offset 25}SWAP ${swapperc}%${goto 290}${swapbar 7,95}
+${offset 10}3 [${hwmon 2 temp 2}°C]${offset 5}❰${cpu cpu4}%❱ ${goto 100}\
+   ${cpubar cpu4 7,70}
+
+Processes: $processes ${offset 48} Load: ${loadavg}
+
+Top Memory${offset 88}MEM%${offset 30}CPU%${offset 30}PID
+${offset 10}${top_mem name 1} ${offset 10} ${top_mem mem 1}  ${top_mem cpu 1} ${offset 10} ${top_mem pid 1}
+${offset 10}${top_mem name 2} ${offset 10} ${top_mem mem 2}  ${top_mem cpu 2} ${offset 10} ${top_mem pid 2}
+${offset 10}${top_mem name 3} ${offset 10} ${top_mem mem 3}  ${top_mem cpu 3} ${offset 10} ${top_mem pid 3}
+${offset 10}${top_mem name 4} ${offset 10} ${top_mem mem 4}  ${top_mem cpu 4} ${offset 10} ${top_mem pid 4}
+${offset 10}${top_mem name 5} ${offset 10} ${top_mem mem 5}  ${top_mem cpu 5} ${offset 10} ${top_mem pid 5}
+${offset 10}${top_mem name 6} ${offset 10} ${top_mem mem 6}  ${top_mem cpu 6} ${offset 10} ${top_mem pid 6}
+${hr 2}
+]]
