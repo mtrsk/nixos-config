@@ -10,10 +10,12 @@
     ../../services/localization.nix
     ../../services/pulseaudio.nix
     # Home-Manger
-    "${builtins.fetchGit {
-      ref = "master";
-      url = "https://github.com/rycee/home-manager";
-    }}/nixos"
+    (import (
+      builtins.fetchGit {
+        ref = "master";
+        url = "https://github.com/rycee/home-manager";
+      }
+    ){}).nixos
   ];
 
   # For Home-Manager's ZSH

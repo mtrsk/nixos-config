@@ -1,8 +1,7 @@
 {pkgs, home, ...}:
 
 {
-  manual.manpages.enable = true;
-
+  manual.manpages.enable = false;
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -47,7 +46,6 @@
     dmenu
     i3lock-fancy
     # Libs
-    poppler_utils
     djvulibre
     # Media
     feh
@@ -58,7 +56,7 @@
     transmission-gtk
     # Gaming
     discord
-    #lutris
+    lutris
     #retroarch
     steam
     # Utils
@@ -71,6 +69,9 @@
     # Tools
     alacritty
     shellcheck
+    # Remove later
+    ffmpegthumbnailer
+    poppler_utils
   ];
 
   programs.direnv = {
@@ -177,19 +178,21 @@
 
   services.polybar = {
     enable = true;
-    extraConfig = builtins.readFile ./dotfiles/polybar/polybarc;
+    extraConfig = builtins.readFile ./dotfiles/polybar/config;
     package = pkgs.polybar.override {
       i3GapsSupport = true;
       mpdSupport = true;
       pulseSupport = true;
       alsaSupport = true;
     };
-    script = builtins.readFile ./dotfiles/polybar/polybar-launch.sh;
+    script = builtins.readFile ./dotfiles/polybar/launch.sh;
   };
 
   # Dotfiles
+  home.file.".ncmpcpp/config".source = "${builtins.toString ./dotfiles/ncmpcpp/config}";
+
   xdg.configFile = {
-    "conky/conkyrc".source = "${builtins.toString ./dotfiles/conky/conkyrc}";
+    "conky".source = "${builtins.toString ./dotfiles/conky}";
     "kitty/kitty.conf".source = "${builtins.toString ./dotfiles/kitty/kitty.conf}";
     "i3/config".text = import ./dotfiles/i3wm/config.nix {};
   };

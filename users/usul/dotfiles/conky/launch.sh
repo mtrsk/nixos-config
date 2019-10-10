@@ -3,4 +3,4 @@ killall -q -r conky
 
 $(pwd)/update.sh
 
-conky -c $HOME/.config/conky/conkyrc
+conky -c $HOME/.config/conky/config

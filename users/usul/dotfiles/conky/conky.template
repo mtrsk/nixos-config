@@ -44,14 +44,14 @@ ${hr 2}
 
 
 ${offset 10}CPU${offset 180}MEMORY${offset 57}${memmax}
-${offset 10}0 [${hwmon 1 temp 1}°C]${offset 5}❰${cpu cpu1}%❱${goto 100}\
+${offset 10}1 [${hwmon 0 temp 1}°C]${offset 5}❰${cpu cpu1}%❱${goto 100}\
    ${cpubar cpu1 7,70}${offset 25}RAM  ${memperc}%${goto 290}${membar 7,95}
-${offset 10}1 [${hwmon 1 temp 2}°C]${offset 5}❰${cpu cpu2}%❱ ${goto 100}\
+${offset 10}2 [${hwmon 0 temp 2}°C]${offset 5}❰${cpu cpu2}%❱ ${goto 100}\
    ${cpubar cpu2 7,70}${offset 125}${swapmax}
-${offset 10}2 [${hwmon 2 temp 1}°C]${offset 5}❰${cpu cpu3}%❱ ${goto 100}\
+${offset 10}3 [${hwmon 0 temp 3}°C]${offset 5}❰${cpu cpu3}%❱ ${goto 100}\
    ${cpubar cpu3 7,70}${offset 25}SWAP ${swapperc}%${goto 290}${swapbar 7,95}
-${offset 10}3 [${hwmon 2 temp 2}°C]${offset 5}❰${cpu cpu4}%❱ ${goto 100}\
-   ${cpubar cpu4 7,70}
+--${offset 10}4 [${hwmon 2 temp 4}°C]${offset 5}❰${cpu cpu4}%❱ ${goto 100}\
+--   ${cpubar cpu4 7,70}
 
 Processes: $processes ${offset 48} Load: ${loadavg}
 
