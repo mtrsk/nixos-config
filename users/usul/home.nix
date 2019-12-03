@@ -1,7 +1,7 @@
 {pkgs, home, ...}:
 
 {
-  manual.manpages.enable = false;
+  manual.manpages.enable = true;
 
   nixpkgs.config = {
     allowUnfree = true;
@@ -12,7 +12,6 @@
     (import ../../overlays/conky.nix)
     (import ../../overlays/ncmpcpp.nix)
     (import ../../overlays/nvim/neovim.nix)
-    (import ../../overlays/polybar.nix)
   ];
 
   home.packages = with pkgs; [
@@ -26,12 +25,14 @@
     ipfs
     earlyoom
     # Development
-    aws
-    dbeaver
+    awscli
+    #dbeaver
     dotnet-sdk
+    gitlab-runner
     google-cloud-sdk
     heroku
-    postman
+    insomnia
+    #postman
     siege
     travis
     vscodium
@@ -45,18 +46,15 @@
     # i3-related
     dmenu
     i3lock-fancy
-    # Libs
-    djvulibre
     # Media
     feh
-    ffmpegthumbnailer
     mpv
     ncmpcpp
     # Torrents
     transmission-gtk
     # Gaming
     discord
-    lutris
+    #lutris
     #retroarch
     steam
     # Utils
@@ -68,10 +66,14 @@
     pywal
     # Tools
     alacritty
+    haskellPackages.hadolint
     shellcheck
     # Remove later
     ffmpegthumbnailer
+    djvulibre
     poppler_utils
+    # Other
+	keepass
   ];
 
   programs.direnv = {
@@ -88,7 +90,7 @@
   };
 
   programs.newsboat = {
-    enable = true;
+    enable = false;
   };
 
   programs.zsh = {
@@ -176,15 +178,22 @@
     '';
   };
 
+  #services.polybar = {
+  #  enable = true;
+  #  extraConfig = builtins.readFile ./dotfiles/polybar/config;
+  #  package = pkgs.polybar.override {
+  #    i3GapsSupport = true;
+  #    mpdSupport = true;
+  #    pulseSupport = true;
+  #    alsaSupport = true;
+  #  };
+  #  script = builtins.readFile ./dotfiles/polybar/launch.sh;
+  #};
+
   services.polybar = {
     enable = true;
     extraConfig = builtins.readFile ./dotfiles/polybar/config;
-    package = pkgs.polybar.override {
-      i3GapsSupport = true;
-      mpdSupport = true;
-      pulseSupport = true;
-      alsaSupport = true;
-    };
+    package = pkgs.polybarFull;
     script = builtins.readFile ./dotfiles/polybar/launch.sh;
   };
 

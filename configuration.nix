@@ -103,7 +103,6 @@
     (import ./overlays/conky.nix)
     (import ./overlays/ncmpcpp.nix)
     (import ./overlays/nvim/neovim.nix)
-    (import ./overlays/polybar.nix)
   ];
 
   # ++++++++++++++++++++++++++++++++ #
@@ -136,6 +135,7 @@
       libpcap     # tcpdump
       libnotify
       lm_sensors
+      lsd
       lshw
       lsof
       man

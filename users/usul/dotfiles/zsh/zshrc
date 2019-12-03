@@ -4,11 +4,22 @@ rusb(){
 }
 
 mountu() {
-  sudo mount -o guid=$1,uid=$2 $3 $4
+  sudo mount -o gid=$GID,uid=$UID $1 $2
 }
 
 reload-keys(){
-  ssh-add $HOME/.ssh/git
+  ssh-add -D
+  case $1 in
+    "dev")
+      ssh-add "$HOME/.ssh/git"
+      ;;
+    "work")
+      ssh-add "$HOME/.ssh/work"
+      ;;
+    *)
+      echo "invalid option"
+      ;;
+  esac
 }
 
 # completions
@@ -20,6 +31,3 @@ kitty + complete setup zsh | source /dev/stdin
 
 # Direnv Hook
 eval "$(direnv hook zsh)"
-
-# Git
-ssh-add $HOME/.ssh/git &> /dev/null

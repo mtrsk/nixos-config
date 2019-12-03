@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-list=("Messages\nDev\nGames\nGraphics")
+list=("Messages\nDev\nGames\nGraphics\nUtils")
 category=$(echo -e "$list" | dmenu)
 
 case "$category" in
@@ -19,12 +19,20 @@ case "$category" in
     esac
     ;;
   "Dev")
-    mlist=("Dbeaver\nPostman")
+    mlist=("Dbeaver\nInsomnia\nKeepass\nPostman")
     choice=$(echo -e "$mlist" | dmenu)
     case "$choice" in
       Dbeaver)
         dbeaver
         notify-send "Dbeaver launched"
+        ;;
+      Insomnia)
+        insomnia
+        notify-send "launched"
+        ;;
+      Keepass)
+        keepass
+        notify-send "Keepass launched"
         ;;
       Postman)
         postman
@@ -61,6 +69,20 @@ case "$category" in
       "Krita")
         krita
         notify-send "Krita launched"
+        ;;
+    esac
+    ;;
+  "Utils")
+    glist=("Chromium\nTransmission")
+    choice=$(echo -e "$glist" | dmenu)
+    case "$choice" in
+      "Chromium")
+        chromium
+        notify-send "Chromium launched"
+        ;;
+      "Transmission")
+        transmission-gtk
+        notify-send "Transmission launched"
         ;;
     esac
     ;;

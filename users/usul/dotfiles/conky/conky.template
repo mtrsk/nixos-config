@@ -50,8 +50,8 @@ ${offset 10}2 [${hwmon 0 temp 2}°C]${offset 5}❰${cpu cpu2}%❱ ${goto 100}\
    ${cpubar cpu2 7,70}${offset 125}${swapmax}
 ${offset 10}3 [${hwmon 0 temp 3}°C]${offset 5}❰${cpu cpu3}%❱ ${goto 100}\
    ${cpubar cpu3 7,70}${offset 25}SWAP ${swapperc}%${goto 290}${swapbar 7,95}
---${offset 10}4 [${hwmon 2 temp 4}°C]${offset 5}❰${cpu cpu4}%❱ ${goto 100}\
---   ${cpubar cpu4 7,70}
+${offset 10}4 [${hwmon 4 temp 2}°C]${offset 5}❰${cpu cpu4}%❱ ${goto 100}\
+   ${cpubar cpu4 7,70}
 
 Processes: $processes ${offset 48} Load: ${loadavg}
 
@@ -62,5 +62,6 @@ ${offset 10}${top_mem name 3} ${offset 10} ${top_mem mem 3}  ${top_mem cpu 3} ${
 ${offset 10}${top_mem name 4} ${offset 10} ${top_mem mem 4}  ${top_mem cpu 4} ${offset 10} ${top_mem pid 4}
 ${offset 10}${top_mem name 5} ${offset 10} ${top_mem mem 5}  ${top_mem cpu 5} ${offset 10} ${top_mem pid 5}
 ${offset 10}${top_mem name 6} ${offset 10} ${top_mem mem 6}  ${top_mem cpu 6} ${offset 10} ${top_mem pid 6}
+${offset 10}${top_mem name 7} ${offset 10} ${top_mem mem 7}  ${top_mem cpu 7} ${offset 10} ${top_mem pid 7}
 ${hr 2}
 ]]
