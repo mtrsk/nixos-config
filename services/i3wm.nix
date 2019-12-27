@@ -10,6 +10,7 @@
         i3lock-fancy
       ];
     };
-    default = "i3";
+    #default = "i3";
   };
+  services.xserver.displayManager.defaultSession = "none+i3";
 }

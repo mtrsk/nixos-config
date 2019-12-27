@@ -1,0 +1,33 @@
+# Extra ZSH config
+rusb(){
+  udisksctl power-off -b $1
+}
+
+mountu() {
+  sudo mount -o gid=$GID,uid=$UID $1 $2
+}
+
+reload-keys(){
+  ssh-add -D
+  case $1 in
+    "dev")
+      ssh-add "$HOME/.ssh/git"
+      ;;
+    "work")
+      ssh-add "$HOME/.ssh/work"
+      ;;
+    *)
+      echo "invalid option"
+      ;;
+  esac
+}
+
+# completions
+autoload -Uz compinit
+compinit
+
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
+
+# Direnv Hook
+eval "$(direnv hook zsh)"

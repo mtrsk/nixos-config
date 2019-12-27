@@ -2,7 +2,7 @@
 
 {
   # Select internationalisation properties.
-  i18n.consoleUseXkbConfig = true;
+  console.useXkbConfig = true;
 
   # Defining the correct keyboard layout
   services.xserver = {
