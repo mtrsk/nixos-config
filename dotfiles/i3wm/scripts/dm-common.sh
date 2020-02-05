@@ -9,12 +9,12 @@ case "$category" in
     choice=$(echo -e "$mlist" | dmenu)
     case "$choice" in
       Discord)
-        Discord
         notify-send "Discord launched"
+        Discord
         ;;
       Telegram)
-        telegram-desktop
         notify-send "telegram-desktop launched"
+        telegram-desktop
         ;;
     esac
     ;;
@@ -23,20 +23,20 @@ case "$category" in
     choice=$(echo -e "$mlist" | dmenu)
     case "$choice" in
       Dbeaver)
-        dbeaver
         notify-send "Dbeaver launched"
+        dbeaver
         ;;
       Insomnia)
-        insomnia
         notify-send "launched"
+        insomnia
         ;;
       Keepass)
-        keepass
         notify-send "Keepass launched"
+        keepass
         ;;
       Postman)
-        postman
         notify-send "Postman launched"
+        postman
         ;;
     esac
     ;;
@@ -45,16 +45,16 @@ case "$category" in
     choice=$(echo -e "$glist" | dmenu)
     case "$choice" in
       "Lutris")
-        lutris
         notify-send "Lutris launched"
+        lutris
         ;;
       "RetroArch")
-        retroarch
         notify-send "RetroArch launched"
+        retroarch
         ;;
       "Steam")
-        steam
         notify-send "Steam launched"
+        steam
         ;;
     esac
     ;;
@@ -63,26 +63,30 @@ case "$category" in
     choice=$(echo -e "$glist" | dmenu)
     case "$choice" in
       "Gimp")
-        gimp
         notify-send "Gimp launched"
+        gimp
         ;;
       "Krita")
-        krita
         notify-send "Krita launched"
+        krita
         ;;
     esac
     ;;
   "Utils")
-    glist=("Chromium\nTransmission")
+    glist=("Brave\nChromium\nTransmission")
     choice=$(echo -e "$glist" | dmenu)
     case "$choice" in
-      "Chromium")
-        chromium
+      "Brave")
         notify-send "Chromium launched"
+        brave
+        ;;
+      "Chromium")
+        notify-send "Chromium launched"
+        chromium
         ;;
       "Transmission")
-        transmission-gtk
         notify-send "Transmission launched"
+        transmission-gtk
         ;;
     esac
     ;;

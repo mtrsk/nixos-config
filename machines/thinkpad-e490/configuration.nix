@@ -13,7 +13,7 @@
       ../../programs/ssh.nix
 
       # Services
-      ../../services/fail2ban.nix
+      #../../services/fail2ban.nix
       ../../services/openssh.nix
 
       # Virtualisation
@@ -35,19 +35,22 @@
   boot.cleanTmpDir = true;
 
   # Always pick the latest stable Kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # LUKS config
-  boot.initrd.luks.devices = [
-    {
-      name = "root";
+  boot.initrd.luks.devices = {
+    root = {
       device = "/dev/sda2";
       preLVM = true;
-    }
-  ];
+    };
+  };
 
   boot = {
-    kernelModules = [ "acpi_call" ];
+    kernelModules = [
+      "acpi_call"
+      "coretemp"
+      "iwlwifi"
+    ];
     extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
   };
 
@@ -59,6 +62,9 @@
 
   # Intel
   hardware.cpu.intel.updateMicrocode = true;
+
+  #hardware.enableAllFirmware = true;
+  hardware.enableRedistributableFirmware = true;
 
   # Disable Bluetooth
   hardware.bluetooth.enable = false;
@@ -78,6 +84,11 @@
   networking.useDHCP = false;
   networking.interfaces.enp4s0.useDHCP = true;
   networking.interfaces.wlp5s0.useDHCP = true;
+
+  # networking.wireless.enable = true;
+  # networking.wireless.networks = {
+  #     AP_NAME = { psk = "PSK_PASSWD" };
+  # };
 
   networking.networkmanager.enable = true;
   networking.hostName = "arrakis";
@@ -167,7 +178,6 @@
       dirb
       lynis
       pass
-      pwgen
       # Terminal Emulators
       kitty
     ]);
@@ -207,6 +217,12 @@
   services.journald.extraConfig = ''
     MaxRetentionSec=14day
   '';
+
+  services.xserver = {
+    layout = "br";
+    xkbModel = "thinkpad60";
+    xkbOptions = "terminate:ctrl_alt_bksp";
+  };
 
   # Xserver
   services.xserver = {

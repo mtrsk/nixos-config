@@ -1,9 +1,9 @@
 conky.config = {
     -- Colors
-    color0 = '010101',
-    color1 = '1332A2',
-    color2 = '103CDB',
-    color3 = '113DE5',
+    color0 = '19060f',
+    color1 = '009696',
+    color2 = '2B888B',
+    color3 = '00A1A1',
     -- ====================
     alignment = 'top_left',
     background = true,
@@ -23,7 +23,7 @@ conky.config = {
     own_window_transparent = false,
     own_window_argb_visual = true,
     own_window_argb_value = 220,
-    own_window_colour = '010101',
+    own_window_colour = '19060f',
     update_interval = 1.0,
     use_xft = true,
     minimum_width = 400,

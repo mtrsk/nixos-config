@@ -101,7 +101,7 @@ handle_image() {
                   && exit 6 || exit 1;;
 
         # Image
-        image/*)
+        image/png | image/jpeg) 
             local orientation
             orientation="$( identify -format '%[EXIF:Orientation]\n' -- "${FILE_PATH}" )"
             # If orientation data is present and the image actually

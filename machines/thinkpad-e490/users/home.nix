@@ -1,5 +1,8 @@
 {pkgs, home, ...}:
 
+let
+  dotfiles = ../../../dotfiles;
+in
 {
   manual.manpages.enable = true;
 
@@ -16,16 +19,21 @@
 
   home.packages = with pkgs; [
     arandr
+    dict
     scrot
     tomb
     tmate
     shellcheck
     xclip
+    # Browser
+    brave
     # Daemons
     # ipfs
     earlyoom
     # Development
     awscli
+    aws-vault
+    vault
     #dbeaver
     dotnet-sdk
     gitlab-runner
@@ -74,6 +82,7 @@
     poppler_utils
     # Other
 	keepass
+	waifu2x-converter-cpp
   ];
 
   programs.direnv = {
@@ -97,24 +106,26 @@
     enable = true;
     enableAutosuggestions = true;
     enableCompletion = true;
-    oh-my-zsh = {
-      enable = true;
-      theme = "af-magic";
-      plugins = [
-        "command-not-found"
-        "docker"
-        "docker-compose"
-        "heroku"
-        "vi-mode"
-      ];
-    };
+    #oh-my-zsh = {
+    #  enable = true;
+    #  #theme = "spaceship";
+    #  plugins = [
+    #    "aws"
+    #    "command-not-found"
+    #    "colored-man-pages"
+    #    "docker"
+    #    "docker-compose"
+    #    "git"
+    #    "heroku"
+    #    "vi-mode"
+    #  ];
+    #};
     shellAliases = {
       icat="kitty +kitten icat";
       hstat="curl -o /dev/null --silent --head --write-out '%{http_code}\n' $1";
       ls="ls -h --group-directories-first --color=auto";
       la="ls -lAh --group-directories-first --color=auto";
       r="ranger";
-      stow="stow -v";
       svim="sudo vim";
       xcc="xclip -sel clipboard";
     };
@@ -122,7 +133,50 @@
       size = 5000;
       ignoreDups = true;
     };
-    initExtra = builtins.readFile ./dotfiles/zsh/zshrc;
+    initExtra = builtins.readFile "${dotfiles}/zsh/zshrc";
+  };
+
+  programs.starship = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    settings = {
+      add_newline = false;
+      directory = {
+        prefix = "";
+      };
+      prompt_order = [
+        "username"
+        "hostname"
+        "directory"
+        # Git
+        "git_branch"
+        "git_commit"
+        "git_state"
+        # Langs/Tools
+        "dotnet"
+        "haskell"
+        "nix_shell"
+        "nodejs"
+        "python"
+        "rust"
+        "terraform"
+        "line_break"
+        "character"
+      ];
+      # Git
+      git_commit = {
+        disabled = false;
+      };
+      # Hostname
+      hostname = {
+        ssh_only = false;
+        prefix = "⟪";
+        suffix = "⟫";
+      };
+      # Username
+      username.show_always = true;
+    };
   };
 
   programs.tmux = {
@@ -155,6 +209,10 @@
     enable = true;
   };
 
+  services.dunst = {
+    enable = true;
+  };
+
   services.mpd = {
     enable = true;
     dataDir = builtins.toPath "/home/usul/.mpd";
@@ -178,31 +236,25 @@
     '';
   };
 
-  #services.polybar = {
-  #  enable = true;
-  #  extraConfig = builtins.readFile ./dotfiles/polybar/config;
-  #  package = pkgs.polybar.override {
-  #    i3GapsSupport = true;
-  #    mpdSupport = true;
-  #    pulseSupport = true;
-  #    alsaSupport = true;
-  #  };
-  #  script = builtins.readFile ./dotfiles/polybar/launch.sh;
-  #};
-
   services.polybar = {
     enable = true;
-    extraConfig = builtins.readFile ./dotfiles/polybar/config;
+    extraConfig = builtins.readFile "${dotfiles}/polybar/config";
     package = pkgs.polybarFull;
-    script = builtins.readFile ./dotfiles/polybar/launch.sh;
+    script = builtins.readFile "${dotfiles}/polybar/launch.sh";
   };
 
   # Dotfiles
-  home.file.".ncmpcpp/config".source = "${builtins.toString ./dotfiles/ncmpcpp/config}";
+  home.file.".ncmpcpp/config".source = builtins.toString "${dotfiles}/ncmpcpp/config}";
+
+  home.sessionVariables = {
+    EDITOR = "vim";
+    # Spaceship related
+    SPACESHIP_EXIT_CODE_SHOW = "true";
+  };
 
   xdg.configFile = {
-    "conky".source = "${builtins.toString ./dotfiles/conky}";
-    "kitty/kitty.conf".source = "${builtins.toString ./dotfiles/kitty/kitty.conf}";
-    "i3/config".text = import ./dotfiles/i3wm/config.nix {};
+    "conky".source = builtins.toString "${dotfiles}/conky}";
+    "kitty/kitty.conf".source = builtins.toString "${dotfiles}/kitty/kitty.conf";
+    "i3/config".text = import "${dotfiles}/i3wm/config.nix" {};
   };
 }

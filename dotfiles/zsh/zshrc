@@ -11,9 +11,14 @@ reload-keys(){
   ssh-add -D
   case $1 in
     "dev")
-      ssh-add "$HOME/.ssh/git"
+      git config --global user.email "marcos.schonfinkel@protonmail.com"
+      git config --global user.name "Marcos Benevides"
+      ssh-add "$HOME/.ssh/gitlab"
+      ssh-add "$HOME/.ssh/github"
       ;;
     "work")
+      git config --global user.email "marcos.benevides@datarisk.io"
+      git config --global user.name "Marcos Benevides"
       ssh-add "$HOME/.ssh/work"
       ;;
     *)
