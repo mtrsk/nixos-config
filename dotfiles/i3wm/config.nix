@@ -1,5 +1,6 @@
 pkgs:
 let
+  conky = import ../conky/conky.nix { };
   scriptsPath = ./scripts;
   dotfilesPath = ./..;
 in
@@ -240,6 +241,6 @@ client.background       $bg
 
 exec_always wal -i "$(< "$HOME/.cache/wal/wal")"
 
-exec_always --no-startup-id ${builtins.toString dotfilesPath}/conky/launch.sh
+exec_always --no-startup-id ${conky}
 exec_always --no-startup-id ${builtins.toString dotfilesPath}/polybar/launch.sh
 ''

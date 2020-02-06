@@ -253,7 +253,6 @@ in
   };
 
   xdg.configFile = {
-    "conky".source = builtins.toString "${dotfiles}/conky}";
     "kitty/kitty.conf".source = builtins.toString "${dotfiles}/kitty/kitty.conf";
     "i3/config".text = import "${dotfiles}/i3wm/config.nix" {};
   };
