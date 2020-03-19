@@ -13,11 +13,12 @@
       ../../programs/ssh.nix
 
       # Services
-      #../../services/fail2ban.nix
-      ../../services/openssh.nix
+      ../../services/fail2ban.nix
+      #../../services/openssh.nix
 
       # Virtualisation
       ../../virtualisation/docker.nix
+      #../../virtualisation/lxc.nix
       #../../virtualisation/libvirtd.nix
 
       # Users
@@ -35,7 +36,7 @@
   boot.cleanTmpDir = true;
 
   # Always pick the latest stable Kernel
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   # LUKS config
   boot.initrd.luks.devices = {
@@ -145,6 +146,7 @@
       gparted
       haveged
       htop
+      iotop
       libpcap     # tcpdump
       libnotify
       lm_sensors
@@ -252,9 +254,6 @@
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

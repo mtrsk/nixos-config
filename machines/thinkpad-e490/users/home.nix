@@ -47,7 +47,7 @@ in
     # Chat
     weechat
     tdesktop
-    zoom-us
+    #zoom-us
     # Graphics/Design
     gimp
     krita
@@ -66,6 +66,7 @@ in
     #retroarch
     steam
     # Utils
+    obs-studio
     youtube-dl
     ranger
     # Rice
@@ -74,14 +75,13 @@ in
     pywal
     # Tools
     alacritty
-    haskellPackages.hadolint
+    #hadolint
     shellcheck
     # Remove later
     ffmpegthumbnailer
     djvulibre
     poppler_utils
     # Other
-	keepass
 	waifu2x-converter-cpp
   ];
 
@@ -106,20 +106,7 @@ in
     enable = true;
     enableAutosuggestions = true;
     enableCompletion = true;
-    #oh-my-zsh = {
-    #  enable = true;
-    #  #theme = "spaceship";
-    #  plugins = [
-    #    "aws"
-    #    "command-not-found"
-    #    "colored-man-pages"
-    #    "docker"
-    #    "docker-compose"
-    #    "git"
-    #    "heroku"
-    #    "vi-mode"
-    #  ];
-    #};
+    #defaultKeymap = "vicmd";
     shellAliases = {
       icat="kitty +kitten icat";
       hstat="curl -o /dev/null --silent --head --write-out '%{http_code}\n' $1";
@@ -179,32 +166,6 @@ in
     };
   };
 
-  programs.tmux = {
-    enable = true;
-    shortcut = "a";
-    customPaneNavigationAndResize = true;
-    historyLimit = 5000;
-    keyMode = "vi";
-    plugins = with pkgs; [
-      {
-        plugin = tmuxPlugins.continuum;
-        extraConfig = ''
-          set -g @continuum-boot 'on'
-          set -g @continuum-restore 'on'
-          set -g @continuum-save-interval '0'
-        '';
-      }
-      {
-        plugin = tmuxPlugins.resurrect;
-        extraConfig = ''
-          set -g @resurrect-save-shell-history 'on'
-          set -g @resurrect-capture-pane-contents 'on'
-          set -g @resurrect-strategy-nvim 'session'
-        '';
-      }
-    ];
-  };
-
   programs.zathura = {
     enable = true;
   };
@@ -255,5 +216,9 @@ in
   xdg.configFile = {
     "kitty/kitty.conf".source = builtins.toString "${dotfiles}/kitty/kitty.conf";
     "i3/config".text = import "${dotfiles}/i3wm/config.nix" {};
+    "ranger" = {
+      source = builtins.toString "${dotfiles}/ranger";
+      recursive = true;
+    };
   };
 }
