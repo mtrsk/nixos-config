@@ -32,8 +32,8 @@ conky.config = {
     own_window_transparent = false,
     own_window_argb_visual = true,
     own_window_argb_value = 220,
-    own_window_colour = '19060f',
-    update_interval = 3.0,
+    own_window_colour = color5,
+    update_interval = 2.0,
     use_xft = true,
     minimum_width = 350,
 }
