@@ -26,7 +26,9 @@ in
         vim-devicons
         vim-fugitive
         vim-markdown
+        vim-test
         vim-trailing-whitespace
+        vim-surround
         wal-vim
         # ----------------------
         # Misc. Language Support
