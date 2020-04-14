@@ -2,6 +2,8 @@
 
 let
   dotfiles = ../../../dotfiles;
+  # Convert a string to dotfiles path format
+  dpath = p: builtins.toString "${dotfiles}/${p}";
 in
 {
   manual.manpages.enable = true;
@@ -39,15 +41,13 @@ in
     gitlab-runner
     google-cloud-sdk
     heroku
-    insomnia
-    #postman
+    poetry
     siege
     travis
     vscodium
     # Chat
     weechat
     tdesktop
-    #zoom-us
     # Graphics/Design
     gimp
     krita
@@ -94,10 +94,6 @@ in
     enable = true;
   };
 
-  programs.chromium = {
-    enable = true;
-  };
-
   programs.newsboat = {
     enable = false;
   };
@@ -110,8 +106,11 @@ in
     shellAliases = {
       icat="kitty +kitten icat";
       hstat="curl -o /dev/null --silent --head --write-out '%{http_code}\n' $1";
+      l="ls -l";
       ls="ls -h --group-directories-first --color=auto";
       la="ls -lAh --group-directories-first --color=auto";
+      pss="pass show";
+      pssc="pass show --clip";
       r="ranger";
       svim="sudo vim";
       xcc="xclip -sel clipboard";
@@ -174,6 +173,8 @@ in
     enable = true;
   };
 
+  services.lorri.enable = true;
+
   services.mpd = {
     enable = true;
     dataDir = builtins.toPath "/home/usul/.mpd";
@@ -204,21 +205,23 @@ in
     script = builtins.readFile "${dotfiles}/polybar/launch.sh";
   };
 
-  # Dotfiles
-  home.file.".ncmpcpp/config".source = builtins.toString "${dotfiles}/ncmpcpp/config}";
-
   home.sessionVariables = {
     EDITOR = "vim";
     # Spaceship related
     SPACESHIP_EXIT_CODE_SHOW = "true";
   };
 
+  # Home Dotfiles
+  home.file.".ncmpcpp/config".source = dpath "ncmpcpp/config";
+
+  # ~/.config
   xdg.configFile = {
-    "kitty/kitty.conf".source = builtins.toString "${dotfiles}/kitty/kitty.conf";
+    "kitty/kitty.conf".source = dpath "kitty/kitty.conf";
     "i3/config".text = import "${dotfiles}/i3wm/config.nix" {};
     "ranger" = {
-      source = builtins.toString "${dotfiles}/ranger";
+      source = dpath "ranger";
       recursive = true;
     };
+    "zathura/zathurarc".source = dpath "zathura/zathurarc";
   };
 }

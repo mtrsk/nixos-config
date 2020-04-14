@@ -14,12 +14,13 @@
 
       # Services
       ../../services/fail2ban.nix
-      #../../services/openssh.nix
+      ../../services/openssh.nix
 
       # Virtualisation
       ../../virtualisation/docker.nix
       #../../virtualisation/lxc.nix
       #../../virtualisation/libvirtd.nix
+      ../../virtualisation/podman.nix
 
       # Users
       ./users
@@ -36,7 +37,8 @@
   boot.cleanTmpDir = true;
 
   # Always pick the latest stable Kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_5_5;
 
   # LUKS config
   boot.initrd.luks.devices = {
@@ -86,6 +88,8 @@
   networking.interfaces.enp4s0.useDHCP = true;
   networking.interfaces.wlp5s0.useDHCP = true;
 
+  networking.enableIPv6 = false;
+
   # networking.wireless.enable = true;
   # networking.wireless.networks = {
   #     AP_NAME = { psk = "PSK_PASSWD" };
@@ -119,6 +123,13 @@
     (import ../../overlays/ncmpcpp.nix)
     (import ../../overlays/nvim/neovim.nix)
   ];
+
+  # Adding NUR
+  nixpkgs.config.packageOverrides = pkgs: {
+    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+      inherit pkgs;
+    };
+  };
 
   # ++++++++++++++++++++++++++++++++ #
   # ||        Environment         || #
@@ -202,9 +213,6 @@
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
 
   # List services that you want to enable:
-
-  # SSH-Agent
-  programs.ssh.startAgent = true;
 
   # GPG-Agent
   programs.gnupg.agent.enable = true;
