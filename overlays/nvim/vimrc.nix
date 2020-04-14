@@ -80,12 +80,11 @@ vnoremap <Left> <Nop>
 vnoremap <Right> <Nop>
 
 " Tabs
-nnoremap <C-S-tab> :tabprevious<CR>
-nnoremap <C-tab>   :tabnext<CR>
 nnoremap <C-t>     :tabnew<CR>
-inoremap <C-S-tab> <Esc>:tabprevious<CR>i
-inoremap <C-tab>   <Esc>:tabnext<CR>i
 inoremap <C-t>     <Esc>:tabnew<CR>
+
+nnoremap <C-h> :tabprevious<CR>
+nnoremap <C-l> :tabnext<CR>
 
 " Terminal Mode
 tnoremap <Esc> <C-\><C-n>
@@ -96,13 +95,6 @@ nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
-
-" Clipboard
-
-" noremap <Leader>y "*y
-" noremap <Leader>p "*p
-" noremap <Leader>Y "+y
-" noremap <Leader>P "+p
 
 "*****************************************************************************
 " Neomake

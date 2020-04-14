@@ -17,6 +17,7 @@ in
         # Base
         ale
         deoplete-nvim
+        direnv-vim
         LanguageClient-neovim
         nerdtree
         tabular
