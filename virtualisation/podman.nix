@@ -5,7 +5,7 @@
     # A tool which facilitates building OCI images
     buildah
     # An OCI container runtime monitor
-	conmon
+    conmon
     # FUSE implementation for overlayfs
     fuse-overlayfs
     # A program for managing pods, containers and container images
