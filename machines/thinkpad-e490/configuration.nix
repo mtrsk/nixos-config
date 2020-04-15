@@ -37,8 +37,8 @@
   boot.cleanTmpDir = true;
 
   # Always pick the latest stable Kernel
-  #boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_5_5;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_5_5;
 
   # LUKS config
   boot.initrd.luks.devices = {
