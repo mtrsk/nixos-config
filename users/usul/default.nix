@@ -3,12 +3,12 @@
 {
   imports = [
     # Custom Modules
-    ../../../modules/ipfs-daemon
+    ../../modules/ipfs-daemon
     # Extra Services
-    ../../../services/compton.nix
-    ../../../services/i3wm.nix
-    ../../../services/localization.nix
-    ../../../services/pulseaudio.nix
+    ../../services/compton.nix
+    ../../services/i3wm.nix
+    ../../services/localization.nix
+    ../../services/pulseaudio.nix
     # Home-Manger
     (import (
       builtins.fetchGit {

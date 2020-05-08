@@ -23,7 +23,7 @@
       ../../virtualisation/podman.nix
 
       # Users
-      ./users
+      ../../users/usul
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -38,7 +38,6 @@
 
   # Always pick the latest stable Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
-  #boot.kernelPackages = pkgs.linuxPackages_5_5;
 
   # LUKS config
   boot.initrd.luks.devices = {
@@ -118,12 +117,6 @@
     allowUnfree = true;
   };
 
-  nixpkgs.overlays = [
-    (import ../../overlays/conky.nix)
-    (import ../../overlays/ncmpcpp.nix)
-    (import ../../overlays/nvim/neovim.nix)
-  ];
-
   # Adding NUR
   nixpkgs.config.packageOverrides = pkgs: {
     nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
@@ -184,9 +177,6 @@
       p7zip
       unzip
       zip
-      # Text Editors
-      emacs
-      neovim
       # Security
       dirb
       lynis
@@ -194,15 +184,13 @@
       # Terminal Emulators
       kitty
     ]);
-
-    # Environment Variables
-    variables.EDITOR = "vim";
   };
 
   programs.bash.enableCompletion = true;
 
   fonts.fonts = with pkgs; [
     font-awesome_5
+	jetbrains-mono
     powerline-fonts
     symbola
   ];

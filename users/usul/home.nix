@@ -1,7 +1,7 @@
 {pkgs, home, ...}:
 
 let
-  dotfiles = ../../../dotfiles;
+  dotfiles = ../../dotfiles;
   # Convert a string to dotfiles path format
   dpath = p: builtins.toString "${dotfiles}/${p}";
 in
@@ -14,9 +14,9 @@ in
   };
 
   nixpkgs.overlays = [
-    (import ../../../overlays/conky.nix)
-    (import ../../../overlays/ncmpcpp.nix)
-    (import ../../../overlays/nvim/neovim.nix)
+    (import ../../overlays/conky.nix)
+    (import ../../overlays/ncmpcpp.nix)
+    (import ../../overlays/nvim/neovim.nix)
   ];
 
   home.packages = with pkgs; [
@@ -43,6 +43,7 @@ in
     heroku
     poetry
     siege
+    stack
     travis
     vscodium
     # Chat

@@ -43,8 +43,6 @@ in
         vim-elixir
         # Elm
         elm-vim
-        # Go
-        #deoplete-go
         # Haskell
         haskell-vim
         intero-neovim
@@ -58,6 +56,7 @@ in
         # Python
         deoplete-jedi
         jedi-vim
+        vim-pydocstring
         # Rust
         nvim-cm-racer
         deoplete-rust
