@@ -144,6 +144,7 @@
       exiftool
       file
       git
+      git-lfs
       glxinfo
       gnumake
       gnupg
@@ -174,7 +175,6 @@
       xorg.xev
       wget
       # Unzip
-      p7zip
       unzip
       zip
       # Security
