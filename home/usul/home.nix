@@ -14,14 +14,17 @@ in
   };
 
   nixpkgs.overlays = [
-    (import ../../overlays/conky.nix)
     (import ../../overlays/ncmpcpp.nix)
     (import ../../overlays/nvim/neovim.nix)
   ];
 
   home.packages = with pkgs; [
+    # the one true editor
+    neovim
+    #
     arandr
     dict
+    graphviz
     scrot
     tomb
     tmate
@@ -76,8 +79,10 @@ in
     pywal
     # Tools
     alacritty
-    #hadolint
+    cachix
+    hadolint
     shellcheck
+    sqlcheck
     # Remove later
     ffmpegthumbnailer
     djvulibre
@@ -92,6 +97,10 @@ in
   };
 
   programs.firefox = {
+    enable = true;
+  };
+
+  programs.chromium = {
     enable = true;
   };
 

@@ -56,7 +56,7 @@ in
         # Python
         deoplete-jedi
         jedi-vim
-        vim-pydocstring
+        #vim-pydocstring
         # Rust
         nvim-cm-racer
         deoplete-rust

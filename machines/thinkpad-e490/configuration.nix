@@ -23,7 +23,7 @@
       ../../virtualisation/podman.nix
 
       # Users
-      ../../users/usul
+      ../../home/usul
     ];
 
   # Use the systemd-boot EFI boot loader.
