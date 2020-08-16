@@ -53,7 +53,7 @@
       "coretemp"
       "iwlwifi"
     ];
-    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
+    # extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
   };
 
   boot.blacklistedKernelModules = [ "bluetooth" ];
@@ -123,6 +123,8 @@
       inherit pkgs;
     };
   };
+
+  nix.trustedUsers = [ "root" "usul" ];
 
   # ++++++++++++++++++++++++++++++++ #
   # ||        Environment         || #
@@ -222,6 +224,9 @@
     xkbOptions = "terminate:ctrl_alt_bksp";
   };
 
+  # AMD
+  # boot.kernelParams = [ "amd_iommu=pt" "ivrs_ioapic[32]=00:14.0" "iommu=soft" ];
+
   # Xserver
   services.xserver = {
     enable = true;
@@ -238,8 +243,7 @@
     desktopManager.xterm.enable = false;
     # Display Manager
     displayManager.sddm.enable = true;
-    displayManager.sddm.autoLogin.user = "usul";
-    #desktopManager.plasma5.enable = true;
+    #displayManager.autoLogin.user = "usul";
     displayManager.sessionCommands = ''
       xset s off
       xset -dpms

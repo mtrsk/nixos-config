@@ -32,18 +32,21 @@ in
     xclip
     # Browser
     brave
+    vimb
     # Daemons
     # ipfs
     earlyoom
     # Development
     awscli
     aws-vault
+    sbt
     vault
     #dbeaver
     dotnet-sdk
     gitlab-runner
     google-cloud-sdk
     heroku
+    insomnia
     poetry
     siege
     stack
@@ -66,7 +69,7 @@ in
     transmission-gtk
     # Gaming
     discord
-    #lutris
+    lutris
     #retroarch
     steam
     # Utils

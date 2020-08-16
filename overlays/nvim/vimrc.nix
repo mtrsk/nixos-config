@@ -225,43 +225,6 @@ let g:intero_backend = {
 " LaTeX
 "*****************************************************************************
 
-let g:vimtex_view_method="zathura"
-let g:vimtex_indent_on_ampersands=0
-let g:vimtex_indent_on_ampersands=0
-let g:vimtex_quickfix_open_on_warning=0
-let latexmk_options = '-pdf -verbose -file-line-error -synctex=1 -interaction=nonstopmode'
-command! LatexShellescape let g:vimtex_latexmk_options = latexmk_options . ' -shell-escape'
-command! LatexShellescapeOff let g:vimtex_latexmk_options = latexmk_options
-" Ignore spelling inside tabular {}
-fun! TexNoSpell()
-  syntax region texNoSpell
-    \ start="\\thref{"rs=s
-    \ end="}\|%stopzone\>"re=e
-    \ contains=@NoSpell,texStatement,texHperref
-  syntax region texNoSpell
-    \ start="\\coordinate"rs=s
-    \ end=")\|%stopzone\>"re=e
-    \ contains=@NoSpell,texStatement
-  syntax region texNoSpell
-    \ start="\\begin{tabular}{"rs=s
-    \ end="}\|%stopzone\>"re=e
-    \ contains=@NoSpell,texBeginEnd
-  syntax match texTikzParen /(.\+)/ contained contains=@NoSpell transparent
-  syntax region texTikz
-    \ start="\\begin{tikzpicture}"rs=s
-    \ end="\\end{tikzpicture}\|%stopzone\>"re=e
-    \ keepend
-    \ transparent
-    \ contains=texStyle,@texPreambleMatchGroup,texTikzParen
-  syntax region texNoSpellBrace
-    \ start="\\begin{tikzpicture}{"rs=s
-    \ end="}\|%stopzone\>"re=e
-  syntax match texStatement '\\setcounter' nextgroup=texNoSpellBraces
-  syntax match texStatement '\\newcounter' nextgroup=texNoSpellBraces
-  syntax match texStatement '\\value' nextgroup=texNoSpellBraces
-  syntax region texNoSpellBraces matchgroup=Delimiter start='{' end='}' contained contains=@NoSpell
-endfun
-autocmd BufRead,BufNewFile *.tex :call TexNoSpell()
 
 "*****************************************************************************
 " Markdown

@@ -50,7 +50,6 @@ in
         # Html
         emmet-vim
         # LaTeX
-        vimtex
         # Nix
         vim-nix
         # Python
