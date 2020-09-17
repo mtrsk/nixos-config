@@ -2,8 +2,6 @@
 
 {
   imports = [
-    # Custom Modules
-    ../../modules/ipfs-daemon
     # Extra Services
     ../../services/compton.nix
     ../../services/i3wm.nix
@@ -47,7 +45,36 @@
   # Home-Manager config
   home-manager.users.usul = { pkgs, ... }: {
     imports = [
-      ./home.nix
+      ../browsers.nix
+      ../chats.nix
+      ../development.nix
+      ../editors.nix
+      ../gaming.nix
+      ../media.nix
+      ../rice.nix
+    ];
+
+    nixpkgs.config = {
+      allowUnfree = true;
+      nix.useSandbox = true;
+    };
+
+    nixpkgs.overlays = [
+      (import ../../overlays/ncmpcpp.nix)
+    ];
+
+    home.packages = with pkgs; [
+      arandr
+      dict
+      scrot
+      xclip
+      # Daemons
+      earlyoom
+      # Graphics/Design
+      gimp
+      krita
+      # Torrents
+      transmission-gtk
     ];
   };
 }
