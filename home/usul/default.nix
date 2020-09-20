@@ -43,7 +43,7 @@
   };
 
   # Home-Manager config
-  home-manager.users.usul = { pkgs, ... }: {
+  home-manager.users.usul = { pkgs, home, ... }: {
     imports = [
       ../browsers.nix
       ../chats.nix
@@ -51,7 +51,10 @@
       ../editors.nix
       ../gaming.nix
       ../media.nix
-      ../rice.nix
+      (import ../rice.nix {
+        user="usul";
+        inherit home pkgs;
+      })
     ];
 
     nixpkgs.config = {

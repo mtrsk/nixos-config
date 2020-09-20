@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    #lutris
+    lutris
     #retroarch
     steam
   ];

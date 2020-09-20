@@ -1,4 +1,4 @@
-{pkgs, home, ...}:
+{pkgs, home, user, ...}:
 
 let
   dotfiles = ../dotfiles;
@@ -89,7 +89,10 @@ in
 
   xdg.configFile = {
     "kitty/kitty.conf".source = dpath "kitty/kitty.conf";
-    "i3/config".text = import "${dotfiles}/i3wm/config.nix" {};
+    "i3/config".text = import "${dotfiles}/i3wm/config.nix" {
+      user=user;
+      inherit pkgs;
+    };
   };
 
   home.sessionVariables = {
