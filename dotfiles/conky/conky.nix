@@ -1,7 +1,7 @@
-{ pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> {}, user }:
 
 let
-  json = import ../wal-colors.nix {};
+  json = import ../wal-colors.nix { user=user; };
   conky-config = import ./conky-config.nix {
     inherit json;
   };

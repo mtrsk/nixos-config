@@ -1,9 +1,23 @@
 #!/usr/bin/env bash
 
-list=("Messages\nDev\nGames\nGraphics\nUtils")
+list=("Browsers\nDev\nGames\nGraphics\nMessages\nTools")
 category=$(echo -e "$list" | dmenu)
 
 case "$category" in
+  "Browsers")
+    glist=("Brave\nChromium\nTransmission")
+    choice=$(echo -e "$glist" | dmenu)
+    case "$choice" in
+      "Brave")
+        notify-send "Chromium launched"
+        brave
+        ;;
+      "Vimb")
+        notify-send "Vimb launched"
+        vimb
+        ;;
+    esac
+    ;;
   "Messages")
     mlist=("Discord\nTelegram")
     choice=$(echo -e "$mlist" | dmenu)
@@ -19,24 +33,16 @@ case "$category" in
     esac
     ;;
   "Dev")
-    mlist=("Dbeaver\nInsomnia\nKeepass\nPostman")
+    mlist=("DBeaver\nInsomnia")
     choice=$(echo -e "$mlist" | dmenu)
     case "$choice" in
-      Dbeaver)
-        notify-send "Dbeaver launched"
+      DBeaver)
+        notify-send "DBeaver launched"
         dbeaver
         ;;
       Insomnia)
-        notify-send "launched"
+        notify-send "Insomnia launched"
         insomnia
-        ;;
-      Keepass)
-        notify-send "Keepass launched"
-        keepass
-        ;;
-      Postman)
-        notify-send "Postman launched"
-        postman
         ;;
     esac
     ;;
@@ -72,18 +78,10 @@ case "$category" in
         ;;
     esac
     ;;
-  "Utils")
-    glist=("Brave\nChromium\nTransmission")
+  "Tools")
+    glist=("Transmission\n")
     choice=$(echo -e "$glist" | dmenu)
     case "$choice" in
-      "Brave")
-        notify-send "Chromium launched"
-        brave
-        ;;
-      "Chromium")
-        notify-send "Chromium launched"
-        chromium
-        ;;
       "Transmission")
         notify-send "Transmission launched"
         transmission-gtk

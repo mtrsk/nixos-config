@@ -1,4 +1,4 @@
-{ user ? "usul" }:
+{ user }:
 
 let
   path = "/home/${user}/.cache/wal/colors.json";
