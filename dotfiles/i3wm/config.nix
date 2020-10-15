@@ -22,12 +22,15 @@ for_window [class="^.*"] border pixel 2
 new_window 1pixel
 
 # Correct handling of floating dialogs
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="task_dialog"] floating enable
-for_window [window_role="About"] floating enable
-for_window [title="Steam Guard - Computer Authorization Required"] floating enable
+for_window [window_role="pop-up"]                       floating enable
+for_window [window_role="bubble"]                       floating enable
+for_window [window_role="task_dialog"]                  floating enable
+for_window [window_role="Preferences"]                  floating enable
+for_window [window_type="dialog"]                       floating enable
+for_window [window_type="menu"]                         floating enable
+for_window [class="^Steam$"] floating enable
+for_window [class="^Steam$" title="^Steam$"] floating disable
 
-#for_window [name="Steam Guard - Computer Authorization Required"] float enable
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.

@@ -1,10 +1,9 @@
-{pkgs, home, ...}:
+{pkgs, home, user, ...}:
 
 let
   dotfiles = ../dotfiles;
   # Convert a string to dotfiles path format
   dpath = p: builtins.toString "${dotfiles}/${p}";
-  user = builtins.getEnv "USER";
 in
 {
   nixpkgs.overlays = [

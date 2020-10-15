@@ -5,7 +5,7 @@ category=$(echo -e "$list" | dmenu)
 
 case "$category" in
   "Browsers")
-    glist=("Brave\nChromium\nTransmission")
+    glist=("Brave\nVimb")
     choice=$(echo -e "$glist" | dmenu)
     case "$choice" in
       "Brave")
@@ -15,6 +15,10 @@ case "$category" in
       "Vimb")
         notify-send "Vimb launched"
         vimb
+        ;;
+      "Ungoogled-Chromium")
+        notify-send "ungoogled-chromium launched"
+        ungoogled-chromium
         ;;
     esac
     ;;

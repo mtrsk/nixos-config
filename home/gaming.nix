@@ -5,5 +5,6 @@
     lutris
     #retroarch
     steam
+	steam-run
   ];
 }

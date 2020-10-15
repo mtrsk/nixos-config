@@ -12,8 +12,8 @@
     vault
     # languages tooling
     cachix
-    sbt
     poetry
+    sbt
     # linters
     hadolint
     shellcheck
@@ -27,6 +27,20 @@
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
+  };
+
+  programs.git = {
+    enable = true;
+    aliases = {
+      list-staged = "diff --staged";
+      list-conflicts = "diff --name-only --diff-filter=U | grep -oE '[^/ ]+$'";
+    };
+    delta = {
+      enable = true;
+    };
+    lfs = {
+      enable = true;
+    };
   };
 
   services.lorri.enable = true;

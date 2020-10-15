@@ -11,7 +11,7 @@
     (import (
       builtins.fetchGit {
         ref = "master";
-        url = "https://github.com/rycee/home-manager";
+        url = "https://github.com/nix-community/home-manager";
       }
     ){}).nixos
   ];
@@ -50,7 +50,10 @@
       ../development.nix
       ../editors.nix
       ../gaming.nix
-      ../media.nix
+      (import ../media.nix {
+        user="usul";
+        inherit home pkgs;
+      })
       (import ../rice.nix {
         user="usul";
         inherit home pkgs;
@@ -61,10 +64,6 @@
       allowUnfree = true;
       nix.useSandbox = true;
     };
-
-    nixpkgs.overlays = [
-      (import ../../overlays/ncmpcpp.nix)
-    ];
 
     home.packages = with pkgs; [
       arandr

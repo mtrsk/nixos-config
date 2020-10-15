@@ -106,11 +106,16 @@
   # ++++++++++++++++++++++++++++++++ #
 
   # Nixpkgs Configuration
-
-  nix.gc = {
-    automatic = true;
-    dates = "*-*-* 23:00:00";
-    options = "--delete-older-than 3d";
+  nix = {
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+    gc = {
+      automatic = true;
+      dates = "*-*-* 23:00:00";
+      options = "--delete-older-than 3d";
+    };
   };
 
   nixpkgs.config = {
@@ -137,6 +142,9 @@
 
   #programs.dconf.enable = true;
   #services.dbus.packages = [ pkgs.gnome3.dconf ];
+
+  programs.dconf.enable = true;
+
 
   environment = {
     systemPackages = (with pkgs; [
@@ -185,6 +193,8 @@
       pass
       # Terminal Emulators
       kitty
+      # Gnome
+      gnome3.adwaita-icon-theme
     ]);
   };
 
@@ -196,13 +206,6 @@
     powerline-fonts
     symbola
   ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
-
-  # List services that you want to enable:
 
   # GPG-Agent
   programs.gnupg.agent.enable = true;
