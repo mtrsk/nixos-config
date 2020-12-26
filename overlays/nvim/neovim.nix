@@ -7,7 +7,6 @@ in
   neovim = super.neovim.override {
     withPython3 = true;
     withPython = true;
-    vimAlias = true;
     configure = {
       customRC = import ./vimrc.nix super;
       packages.plugins.start = with (self.pkgs.vimPlugins) // (vimPrivatePlugins); [
@@ -16,6 +15,7 @@ in
       plug.plugins = with (self.pkgs.vimPlugins) // (vimPrivatePlugins); [
         # Base
         ale
+        csv-vim
         deoplete-nvim
         direnv-vim
         LanguageClient-neovim

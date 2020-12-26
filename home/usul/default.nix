@@ -21,6 +21,11 @@
     "/share/zsh"
   ];
 
+  networking.extraHosts = let
+    hostsPath = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn/hosts";
+    hostsFile = builtins.fetchurl hostsPath;
+  in builtins.readFile "${hostsFile}";
+
   users.groups.usul.gid = 1000;
 
   users.users = {
@@ -50,6 +55,7 @@
       ../development.nix
       ../editors.nix
       ../gaming.nix
+      ../security.nix
       (import ../media.nix {
         user="usul";
         inherit home pkgs;

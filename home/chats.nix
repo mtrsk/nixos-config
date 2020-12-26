@@ -4,8 +4,8 @@
   home.packages = with pkgs; [
     discord
     #ripcord
-    signal-desktop
+    #signal-desktop
     tdesktop
-    weechat
+    #weechat
   ];
 }

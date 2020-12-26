@@ -149,7 +149,7 @@ let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   'javascript': ['standard'],
 \   'haskell': ['hindent', 'stylish-haskell'],
-\   'python': ['black', 'isort'],
+\   'python': ['isort'],
 \   'rust': ['rustfmt'],
 \}
 

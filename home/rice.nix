@@ -28,8 +28,9 @@ in
       pss="pass show";
       pssc="pass show --clip";
       r="ranger";
-      svim="sudo vim";
       xcc="xclip -sel clipboard";
+      vi="nvim";
+      vim="nvim";
     };
     history = {
       size = 5000;
@@ -45,27 +46,9 @@ in
     settings = {
       add_newline = false;
       directory = {
-        prefix = "";
+        truncation_length = 2;
+        format = "[$path]($style)[$read_only]($read_only_style) ";
       };
-      prompt_order = [
-        "username"
-        "hostname"
-        "directory"
-        # Git
-        "git_branch"
-        "git_commit"
-        "git_state"
-        # Langs/Tools
-        "dotnet"
-        "haskell"
-        "nix_shell"
-        "nodejs"
-        "python"
-        "rust"
-        "terraform"
-        "line_break"
-        "character"
-      ];
       # Git
       git_commit = {
         disabled = false;
@@ -73,8 +56,7 @@ in
       # Hostname
       hostname = {
         ssh_only = false;
-        prefix = "⟪";
-        suffix = "⟫";
+        format = "⟪[$hostname]($style)⟫ ";
       };
       username.show_always = true;
     };

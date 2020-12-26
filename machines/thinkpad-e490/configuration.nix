@@ -9,12 +9,9 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
-      # Programs
-      ../../programs/ssh.nix
-
       # Services
       ../../services/fail2ban.nix
-      ../../services/openssh.nix
+      # ../../services/openssh.nix
 
       # Virtualisation
       ../../virtualisation/docker.nix
@@ -50,6 +47,7 @@
   boot = {
     kernelModules = [
       "acpi_call"
+      "amdgpu"
       "coretemp"
       "iwlwifi"
     ];
@@ -75,6 +73,14 @@
   hardware.opengl.enable = true;
   hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
+
+  hardware.opengl.extraPackages = with pkgs; [
+     amdvlk
+  ];
+  # For 32 bit applications
+  hardware.opengl.extraPackages32 = with pkgs; [
+    driversi686Linux.amdvlk
+  ];
 
   # ++++++++++++++++++++++++++++++++ #
   # ||         Networking         || #
@@ -145,19 +151,14 @@
 
   programs.dconf.enable = true;
 
-
   environment = {
     systemPackages = (with pkgs; [
       bind
       curl
-      dmenu
       exiftool
       file
-      git
-      git-lfs
       glxinfo
       gnumake
-      gnupg
       gparted
       haveged
       htop
@@ -190,7 +191,6 @@
       # Security
       dirb
       lynis
-      pass
       # Terminal Emulators
       kitty
       # Gnome
@@ -206,9 +206,6 @@
     powerline-fonts
     symbola
   ];
-
-  # GPG-Agent
-  programs.gnupg.agent.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

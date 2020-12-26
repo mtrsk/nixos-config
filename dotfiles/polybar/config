@@ -46,7 +46,7 @@ color07 = ${xrdb:color7}
 color15 = ${xrdb:color14}
 
 [bar/top]
-monitor =
+monitor = ${env:MONITOR:}
 width = 100%
 height = 27
 fixed-center = true
@@ -74,45 +74,6 @@ font-3 = "Font Awesome 5 Brands Regular:style=Regular:pixelsize=8;1"
 modules-left = i3
 modules-center = date
 modules-right = wired-network wireless-network pulseaudio battery xkeyboard
-
-tray-position = right
-tray-padding = 2
-
-cursor-click = pointer
-cursor-scroll = ns-resize
-
-[bar/bot]
-monitor =
-; Put the bar at the bottom of the screen
-bottom = true
-
-width = 100%
-height = 27
-fixed-center = true
-
-background = ${colors.background}
-foreground = ${colors.foreground}
-
-line-size = 2
-line-color = ${colors.color07}
-
-border-size = 0
-border-color = ${colors.background}
-
-padding-left = 2
-padding-right = 2
-
-module-margin-left = 1
-module-margin-right = 1
-
-font-0 = hack:pixelsize=10;1
-font-1 = "Font Awesome 5 Free:style=Regular:pixelsize=8;1"
-font-2 = "Font Awesome 5 Free Solid:style=Solid:pixelsize=8;1"
-font-3 = "Font Awesome 5 Brands Regular:style=Regular:pixelsize=8;1"
-
-modules-left =
-modules-center = mpd
-modules-right =
 
 tray-position = right
 tray-padding = 2

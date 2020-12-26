@@ -5,20 +5,12 @@ category=$(echo -e "$list" | dmenu)
 
 case "$category" in
   "Browsers")
-    glist=("Brave\nVimb")
+    glist=("Brave\n")
     choice=$(echo -e "$glist" | dmenu)
     case "$choice" in
       "Brave")
-        notify-send "Chromium launched"
+        notify-send "Brave launched"
         brave
-        ;;
-      "Vimb")
-        notify-send "Vimb launched"
-        vimb
-        ;;
-      "Ungoogled-Chromium")
-        notify-send "ungoogled-chromium launched"
-        ungoogled-chromium
         ;;
     esac
     ;;
@@ -40,11 +32,11 @@ case "$category" in
     mlist=("DBeaver\nInsomnia")
     choice=$(echo -e "$mlist" | dmenu)
     case "$choice" in
-      DBeaver)
+      "DBeaver")
         notify-send "DBeaver launched"
         dbeaver
         ;;
-      Insomnia)
+      "Insomnia")
         notify-send "Insomnia launched"
         insomnia
         ;;

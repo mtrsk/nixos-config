@@ -147,6 +147,10 @@ bindsym $mod+Shift+8 move container to workspace $workspace8
 bindsym $mod+Shift+9 move container to workspace $workspace9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
+# move worspaces between monitors
+bindsym $mod+Control+m move workspace to output primary
+bindsym $mod+Control+s move workspace to output HDMI1
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -242,8 +246,8 @@ client.placeholder      $bg      $bg      $fg      $color6   $color6
 
 client.background       $bg
 
-exec_always wal -i "$(< "$HOME/.cache/wal/wal")"
-
+exec_always --no-startup-id ${builtins.toString dotfilesPath}/i3wm/scripts/wallpaper.sh
 exec_always --no-startup-id ${conky}
+exec_always --no-startup-id ${builtins.toString dotfilesPath}/i3wm/scripts/two-monitors.sh
 exec_always --no-startup-id ${builtins.toString dotfilesPath}/polybar/launch.sh
 ''

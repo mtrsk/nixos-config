@@ -15,6 +15,7 @@ in
     ffmpegthumbnailer
     mpv
     ncmpcpp
+    # polar-bookshelf
     poppler_utils
     obs-studio
     ranger
@@ -59,6 +60,10 @@ in
   home.file.".ncmpcpp/config".source = dpath "ncmpcpp/config";
 
   xdg.configFile = {
+    "mpv" = {
+      source = dpath "mpv";
+      recursive = true;
+    };
     "ranger" = {
       source = dpath "ranger";
       recursive = true;

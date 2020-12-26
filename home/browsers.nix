@@ -3,11 +3,11 @@
 {
   home.packages = with pkgs; [
     brave
-    vimb
+    firefox-bin
     ungoogled-chromium
   ];
 
-  programs.firefox = {
-    enable = true;
-  };
+  #programs.firefox = {
+  #  enable = true;
+  #};
 }
