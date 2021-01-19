@@ -96,6 +96,11 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Git
+nnoremap <leader>gd :G<CR>
+nnoremap gh :diffget //2<CR>
+nnoremap gf :diffget //3<CR>
+
 "*****************************************************************************
 " Neomake
 "*****************************************************************************

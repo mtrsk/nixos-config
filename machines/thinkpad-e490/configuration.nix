@@ -252,6 +252,14 @@
     '';
   };
 
+  services.clamav = {
+    daemon.enable = false;
+    updater = {
+      enable = false;
+      interval = "daily";
+    };
+  };
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 

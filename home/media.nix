@@ -20,7 +20,7 @@ in
     obs-studio
     ranger
     youtube-dl
-    waifu2x-converter-cpp
+    # waifu2x-converter-cpp
   ];
 
   programs.newsboat = {

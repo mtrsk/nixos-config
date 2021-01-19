@@ -59,6 +59,8 @@ in
         # Rust
         nvim-cm-racer
         deoplete-rust
+        # Extra
+        vim-taskjuggler
       ];
     };
   };

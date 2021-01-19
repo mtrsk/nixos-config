@@ -32,22 +32,6 @@ function git-mr-cherry-pick () {
     git branch -D "$tmpbranch"
 }
 
-reload-keys(){
-  ssh-add -D
-  case $1 in
-    "dev")
-      ssh-add "$HOME/.ssh/gitlab"
-      ssh-add "$HOME/.ssh/github"
-      ;;
-    "work")
-      ssh-add "$HOME/.ssh/work"
-      ;;
-    *)
-      echo "invalid option"
-      ;;
-  esac
-}
-
 # completions
 autoload -Uz compinit
 compinit
