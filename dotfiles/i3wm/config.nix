@@ -248,6 +248,6 @@ client.background       $bg
 
 exec_always --no-startup-id ${builtins.toString dotfilesPath}/i3wm/scripts/wallpaper.sh
 exec_always --no-startup-id ${conky}
-exec_always --no-startup-id ${builtins.toString dotfilesPath}/i3wm/scripts/two-monitors.sh
+# exec_always --no-startup-id ${builtins.toString dotfilesPath}/i3wm/scripts/two-monitors.sh
 exec_always --no-startup-id ${builtins.toString dotfilesPath}/polybar/launch.sh
 ''

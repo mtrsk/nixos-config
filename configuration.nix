@@ -8,6 +8,6 @@
   imports =
     [
 	# Pick one of the availiable machines
-	./machines/thinkpad-e490/configuration.nix
+	./machines/workstation/configuration.nix
     ];
 }

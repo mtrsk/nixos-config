@@ -59,6 +59,8 @@ in
         # Rust
         nvim-cm-racer
         deoplete-rust
+        # Terraform
+        vim-terraform
         # Extra
         vim-taskjuggler
       ];

@@ -6,13 +6,12 @@
   home.packages = with pkgs; [
     # clis
     awscli
-    aws-vault
-    google-cloud-sdk
+    azure-cli
     heroku
+    terraform_0_13
     vault
     # languages tooling
     cachix
-    poetry
     # linters
     hadolint
     shellcheck
@@ -24,7 +23,6 @@
     # other stuff
     siege
     taskjuggler
-    vscodium
   ];
 
   programs.direnv = {
@@ -34,6 +32,9 @@
 
   programs.git = {
     enable = true;
+
+    userEmail = "marcos.schonfinkel@protonmail.com";
+    userName = "Marcos Benevides";
 
     aliases = {
       list-staged = "diff --staged";
@@ -58,49 +59,39 @@
         condition = "gitdir:~/Personal/";
         path = "~/Personal/.gitconfig";
       }
-    ];
 
-    extraConfig = {
-      user = {
-        useConfigOnly = true;
-      };
-    };
+      {
+        condition = "gitdir:~/.password-store/";
+        path = "~/.password-store/.gitconfig";
+      }
+    ];
   };
 
   programs.tmux = {
     enable = true;
 
     keyMode = "vi";
-    shell = "${pkgs.zsh}/bin/zsh";
+    # shell = "${pkgs.zsh}/bin/zsh";
 
     extraConfig = ''
 # Setting the prefix from C-b to C-a
 set -g prefix C-a
-
 # Free the original Ctrl-b prefix keybinding
 unbind C-b
-
 # Setting the delay between prefix and command
 set -s escape-time 1
-
 # Ensure that we can send Ctrl-a to other apps
 bind C-a send-prefix
-
 # readline beginning-of-line behaviour Ctrl-a a
 bind a send-prefix
-
 # history buffer - max number of lines for each window
 set -g history-limit 10000
-
 # Set Terminal Emulator Titles - OFF by default
 # set -g set-titles on
-
 # Set the base index for windows to 1 instead of 0
 set -g base-index 1
-
 # Set the base index for panes to 1 instead of 0
 setw -g pane-base-index 1
-
 # Switch to last window
 unbind l
 bind-key C-a last-window

@@ -4,7 +4,6 @@
   home.packages = with pkgs; [
     brave
     firefox-bin
-    ungoogled-chromium
   ];
 
   #programs.firefox = {

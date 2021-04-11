@@ -73,7 +73,7 @@ font-3 = "Font Awesome 5 Brands Regular:style=Regular:pixelsize=8;1"
 
 modules-left = i3
 modules-center = date
-modules-right = wired-network wireless-network pulseaudio battery xkeyboard
+modules-right = mpd wired-network wireless-network pulseaudio battery xkeyboard
 
 tray-position = right
 tray-padding = 2
@@ -332,7 +332,8 @@ ramp-volume-2 = 
 
 [module/wired-network]
 type = internal/network
-interface = enp4s0
+# interface = enp4s0
+interface = enp8s0
 
 ; Available tags:
 ;   <label-connected> (default)
