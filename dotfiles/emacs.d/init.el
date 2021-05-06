@@ -60,4 +60,9 @@
 (use-package undo-tree
   :init (global-undo-tree-mode))
 
-(set-default-font "Hack")
+;; Set default font
+(set-face-attribute 'default nil
+                    :family "Hack"
+                    :height 150
+                    :weight 'normal
+                    :width 'normal)
