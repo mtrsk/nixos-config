@@ -37,7 +37,7 @@
   };
 
   # Always pick the latest Kernel
-  # boot.kernelPackages = pkgs.linuxPackages_5_10;
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.cleanTmpDir = true;
 
@@ -54,11 +54,14 @@
   hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
 
-  hardware.pulseaudio.enable = true;
-
   # Nix/Nixpkgs
   nixpkgs.config = {
     allowUnfree = true;
+    packageOverrides = pkgs: {
+      nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+        inherit pkgs;
+      };
+    };
   };
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
@@ -130,6 +133,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "20.09"; # Did you read the comment?
-
 }
 

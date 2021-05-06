@@ -17,6 +17,7 @@
     shellcheck
     sqlcheck
     # misc
+    bfg-repo-cleaner
     insomnia
     gitAndTools.gitflow
     gitAndTools.git-subrepo

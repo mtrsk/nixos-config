@@ -34,7 +34,14 @@ in
     createHome = true;
     group = "leto";
     uid = 1000;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "docker"
+      "video"
+      "audio"
+      "disk"
+      "networkmanager"
+    ];
     shell = pkgs.zsh;
   };
   users.groups."${username}".gid = 1000;
@@ -45,11 +52,14 @@ in
       ../browsers.nix
       ../chats.nix
       ../common.nix
+      ../crypto.nix
       ../development.nix
       ../editors.nix
+      ../emacs.nix
       ../gaming.nix
       ../security.nix
       ../terminal-emulators.nix
+      ../udiskie.nix
       ../zshell.nix
       (import ../media.nix {
         user=username;

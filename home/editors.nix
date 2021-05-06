@@ -8,6 +8,7 @@
   home.packages = with pkgs; [
     neovim
     tmate
+    vscode
   ];
 
   home.sessionVariables = {

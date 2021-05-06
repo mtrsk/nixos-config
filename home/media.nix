@@ -15,12 +15,13 @@ in
     ffmpegthumbnailer
     mpv
     ncmpcpp
+    graphviz
     # polar-bookshelf
     poppler_utils
     obs-studio
     ranger
     youtube-dl
-    # waifu2x-converter-cpp
+    waifu2x-converter-cpp
   ];
 
   programs.newsboat = {
