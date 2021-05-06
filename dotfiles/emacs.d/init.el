@@ -5,6 +5,7 @@
   (require 'use-package))
 
 (load-file "~/.emacs.d/ui.el")
+(load-file "~/.emacs.d/evil.el")
 
 (use-package yaml-mode
   :mode ("\\.ya?ml$" . yaml-mode))
