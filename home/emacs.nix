@@ -73,9 +73,9 @@ in {
     # expensive to set during initialization in Emacs lisp. This saves about
     # half a second on startup time. See the following link for more options:
     # https://www.gnu.org/software/emacs/manual/html_node/emacs/Fonts.html#Fonts
-    #"Emacs.menuBar" = false;
-    #"Emacs.toolBar" = false;
-    #"Emacs.verticalScrollBars" = false;
+    "Emacs.menuBar" = false;
+    "Emacs.toolBar" = false;
+    "Emacs.verticalScrollBars" = false;
     #"Emacs.Font" =
     #  "-CYEL-Iosevka-normal-normal-normal-*-16-*-*-*-d-0-iso10646-1";
   };

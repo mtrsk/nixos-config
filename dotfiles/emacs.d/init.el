@@ -7,6 +7,9 @@
 (load-file "~/.emacs.d/ui.el")
 (load-file "~/.emacs.d/evil.el")
 
+(require 'ox-org)
+(setq org-export-backends '(ascii html latex odt beamer taskjuggler org))
+
 (use-package yaml-mode
   :mode ("\\.ya?ml$" . yaml-mode))
 
@@ -60,6 +63,7 @@
 
 (use-package undo-tree
   :init (global-undo-tree-mode))
+
 
 ;; Set default font
 (set-face-attribute 'default nil

@@ -6,12 +6,12 @@
 (setq inhibit-startup-screen t)
 
 ;; Disable menu-bar, tool-bar, and scroll-bar.
-;; (if (fboundp 'menu-bar-mode)
-;;     (menu-bar-mode -1))
-;; (if (fboundp 'tool-bar-mode)
-;;     (tool-bar-mode -1))
-;; (if (fboundp 'scroll-bar-mode)
-;;     (scroll-bar-mode -1))
+(if (fboundp 'menu-bar-mode)
+    (menu-bar-mode -1))
+(if (fboundp 'tool-bar-mode)
+    (tool-bar-mode -1))
+(if (fboundp 'scroll-bar-mode)
+    (scroll-bar-mode -1))
 
 ;; Make *scratch* buffer blank
 (setq initial-scratch-message "")
