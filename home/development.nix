@@ -9,6 +9,7 @@
     azure-cli
     heroku
     terraform_0_13
+    terraformer
     vault
     # languages tooling
     cachix
@@ -21,6 +22,7 @@
     insomnia
     gitAndTools.gitflow
     gitAndTools.git-subrepo
+    git-crypt
     # other stuff
     siege
     taskjuggler

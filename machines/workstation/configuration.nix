@@ -88,7 +88,7 @@
   # Configure keymap in X11
   services.xserver = {
     layout = "br";
-    xkbOptions = "terminate:ctrl_alt_bksp";
+    xkbOptions = "ctrl:nocaps";
     videoDrivers = [ "nvidia" ];
     # Desktop Manager Config
     desktopManager.xterm.enable = false;

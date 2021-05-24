@@ -23,41 +23,40 @@ in {
         # Common
         all-the-icons
         company
-        direnv
-        magit
         use-package
         use-package-chords
-        # Org-related
-        org-drill
-        # See: https://github.com/tigersoldier/company-lsp/issues/147
-        company-lsp
-        flycheck
-        es-mode
+        # Deveopment
+        direnv
+        dockerfile-mode
         elpy
-        rg
-        vimrc-mode
-        projectile
+        magit
+        nix-mode
+        sqlformat
+        yaml-mode
+        # Extra
+        auto-dim-other-buffers
+        atom-one-dark-theme
+        command-log-mode
+        company-lsp
         evil
         evil-collection
-        undo-tree
-        rainbow-delimiters
+        flycheck
+        helpful
+        projectile
         treemacs
         treemacs-evil
         treemacs-projectile
         treemacs-all-the-icons
         treemacs-magit
-        auto-dim-other-buffers
-        atom-one-dark-theme
-        command-log-mode
-        dockerfile-mode
-        nix-mode
         swiper
-        which-key
-        helpful
-        yaml-mode
+        rainbow-delimiters
+        rg
+        undo-tree
+        vimrc-mode
         web-mode
-        sqlformat
-        yang-mode
+        which-key
+        # Org
+        org-drill
       ]));
   };
 
@@ -76,7 +75,5 @@ in {
     "Emacs.menuBar" = false;
     "Emacs.toolBar" = false;
     "Emacs.verticalScrollBars" = false;
-    #"Emacs.Font" =
-    #  "-CYEL-Iosevka-normal-normal-normal-*-16-*-*-*-d-0-iso10646-1";
   };
 }
