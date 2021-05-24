@@ -4,8 +4,11 @@
 (eval-when-compile
   (require 'use-package))
 
-(load-file "~/.emacs.d/ui.el")
+(load-file "~/.emacs.d/custom.el")
+(load-file "~/.emacs.d/edit.el")
 (load-file "~/.emacs.d/evil.el")
+(load-file "~/.emacs.d/ide.el")
+(load-file "~/.emacs.d/ui.el")
 
 (require 'ox-org)
 (setq org-export-backends '(ascii html latex odt beamer taskjuggler org))
@@ -14,7 +17,8 @@
   :mode ("\\.ya?ml$" . yaml-mode))
 
 (use-package direnv
-  :config (direnv-mode))
+ :config
+ (direnv-mode))
 
 (use-package nix-mode
   :mode "\\.nix\\'")

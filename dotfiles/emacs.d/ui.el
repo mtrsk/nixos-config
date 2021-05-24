@@ -1,5 +1,5 @@
-;; ============================ General emacs settings ============================
-;; maximize the emacs window on startup
+;; ========================== General emacs settings ==========================
+;; Maximize the emacs window on startup
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
 ;; Disable startup screen
@@ -19,4 +19,10 @@
 ;; Make window title the buffer name
 (setq-default frame-title-format '("%b"))
 
-;; (set-frame-font "-CYEL-Iosevka-normal-normal-normal-*-18-*-*-*-d-0-iso10646-1")
+;; Show line numbers
+(global-display-line-numbers-mode)
+
+;; Make Emacs respect what is in your truncate-lines variables
+(add-hook 'text-mode-hook #'auto-fill-mode)
+(setq-default fill-column 80)
+;; (setq truncate-partial-width-windows nil)

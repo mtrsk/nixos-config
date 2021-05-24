@@ -210,6 +210,7 @@ bindsym $mod+Shift+p exec firefox -private-window
 bindsym --release $mod+Print exec scrot -s
 
 # Utils - Mod1 + Key
+bindsym Mod1+e exec emacs
 bindsym Mod1+l exec i3lock-fancy
 bindsym Mod1+r exec kitty -e ranger
 bindsym Mod1+n exec kitty -e ncmpcpp
