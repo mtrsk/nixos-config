@@ -4,13 +4,17 @@
   manual.manpages.enable = true;
 
   home.packages = with pkgs; [
-    # clis
+    # CLIs
+    kubectl
+    terraform_0_15
+    vault
+    # Cloud-provider CLIs
     awscli
     azure-cli
     heroku
-    terraform_0_13
-    terraformer
-    vault
+    # Firecracker Micro-VM
+    firecracker
+    firectl
     # languages tooling
     cachix
     # linters
@@ -23,9 +27,11 @@
     gitAndTools.gitflow
     gitAndTools.git-subrepo
     git-crypt
+    python37Packages.poetry
     # other stuff
     siege
     taskjuggler
+    plantuml
   ];
 
   programs.direnv = {

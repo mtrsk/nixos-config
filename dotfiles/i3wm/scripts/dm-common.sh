@@ -28,7 +28,7 @@ case "$category" in
         ;;
       Telegram)
         notify-send "telegram-desktop launched"
-        telegram-desktop
+        env QT_IM_MODULE=xim telegram-desktop
         ;;
     esac
     ;;

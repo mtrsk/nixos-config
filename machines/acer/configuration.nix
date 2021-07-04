@@ -9,6 +9,9 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
+      # Modules
+      ../../modules/suspend.nix
+
       # Services
       ../../services/fail2ban.nix
       ../../services/journald.nix
@@ -84,11 +87,12 @@
   # Enable the X11 windowing system.
 
   services.xserver.enable = true;
+  services.xserver.libinput.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
     layout = "br";
-    xkbOptions = "terminate:ctrl_alt_bksp";
+    xkbOptions = "ctrl:nocaps";
     videoDrivers = [ "intel" ];
     # Desktop Manager Config
     desktopManager.xterm.enable = false;
@@ -98,6 +102,16 @@
       xset s off
       xset -dpms
     '';
+  };
+
+  hardware.nvidia.prime = {
+    offload.enable = true;
+
+    # Bus ID of the Intel GPU. You can find it using lspci, either under 3D or VGA
+    intelBusId = "PCI:0:2:0";
+
+    # Bus ID of the NVIDIA GPU. You can find it using lspci, either under 3D or VGA
+    nvidiaBusId = "PCI:1:0:0";
   };
 
   # List packages installed in system profile. To search, run:
@@ -112,6 +126,12 @@
 
   # Programs
   programs.steam.enable = true;
+
+  # Battery notification
+  services.batteryNotifier = {
+    enable = false;
+    notifyCapacity = 20;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

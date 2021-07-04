@@ -6,7 +6,6 @@ in
 {
   neovim = super.neovim.override {
     withPython3 = true;
-    withPython = true;
     configure = {
       customRC = import ./vimrc.nix super;
       packages.plugins.start = with (self.pkgs.vimPlugins) // (vimPrivatePlugins); [

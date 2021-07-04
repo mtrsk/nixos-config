@@ -30,6 +30,7 @@ in {
         dockerfile-mode
         elpy
         magit
+        plantuml-mode
         nix-mode
         sqlformat
         yaml-mode
@@ -37,7 +38,6 @@ in {
         auto-dim-other-buffers
         atom-one-dark-theme
         command-log-mode
-        company-lsp
         evil
         evil-collection
         flycheck

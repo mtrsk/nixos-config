@@ -333,7 +333,8 @@ ramp-volume-2 = 
 [module/wired-network]
 type = internal/network
 # interface = enp4s0
-interface = enp8s0
+# interface = enp8s0
+interface = enp2s0f1
 
 ; Available tags:
 ;   <label-connected> (default)
@@ -419,7 +420,7 @@ full-at = 99
 
 ; Use the following command to list batteries and adapters:
 ; $ ls -1 /sys/class/power_supply/
-battery = BAT0
+battery = BAT1
 adapter = ADP1
 
 ; If an inotify event haven't been reported in this many

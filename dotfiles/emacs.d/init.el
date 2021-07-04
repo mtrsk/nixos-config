@@ -68,7 +68,6 @@
 (use-package undo-tree
   :init (global-undo-tree-mode))
 
-
 ;; Set default font
 (set-face-attribute 'default nil
                     :family "Hack"

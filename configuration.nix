@@ -8,6 +8,6 @@
   imports =
     [
 	# Pick one of the availiable machines
-	./machines/workstation/configuration.nix
+	./machines/acer/configuration.nix
     ];
 }
