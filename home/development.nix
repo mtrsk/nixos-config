@@ -15,20 +15,21 @@
     # Firecracker Micro-VM
     firecracker
     firectl
-    # languages tooling
+    # Languages
+    go
+    # Languages tooling
     cachix
-    # linters
+    # Linters
     hadolint
     shellcheck
     sqlcheck
-    # misc
+    # Misc
     bfg-repo-cleaner
     insomnia
     gitAndTools.gitflow
     gitAndTools.git-subrepo
     git-crypt
-    python37Packages.poetry
-    # other stuff
+    # Other stuff
     siege
     taskjuggler
     plantuml

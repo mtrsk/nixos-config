@@ -13,7 +13,7 @@ in
     # Home-Manger
     (import (
       builtins.fetchGit {
-        ref = "release-20.09";
+        ref = "release-21.05";
         url = "https://github.com/nix-community/home-manager";
       }
     ){}).nixos
