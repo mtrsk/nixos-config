@@ -55,6 +55,7 @@ in
       ../crypto.nix
       ../development.nix
       ../editors.nix
+      ../email.nix
       ../emacs.nix
       ../security.nix
       ../terminal-emulators.nix

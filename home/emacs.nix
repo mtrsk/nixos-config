@@ -57,6 +57,8 @@ in {
         which-key
         # Org
         org-drill
+        # Email
+        notmuch
       ]));
   };
 

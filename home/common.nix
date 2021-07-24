@@ -20,5 +20,6 @@
     usbutils    # lsusb
     scrot
     wget
+    zip
   ];
 }
