@@ -1,18 +1,22 @@
 {pkgs, home, ...}:
 
+let
+  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
+in
 {
   manual.manpages.enable = true;
 
   home.packages = with pkgs; [
     # CLIs
     kubectl
-    terraform_0_15
+    unstable.terraform
     vault
     # Cloud-provider CLIs
     awscli
     azure-cli
     azure-storage-azcopy
     heroku
+    oci-cli
     # Firecracker Micro-VM
     firecracker
     firectl
