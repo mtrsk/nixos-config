@@ -82,7 +82,6 @@
   ];
 
   # Enable the X11 windowing system.
-
   services.xserver.enable = true;
 
   # Configure keymap in X11
@@ -98,25 +97,12 @@
     displayManager.sessionCommands = ''
       xset s off
       xset -dpms
-
-      #wal -R
     '';
   };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.leto = {
-    isNormalUser = true;
-    createHome = true;
-    group = "leto";
-    uid = 1000;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-  };
-  users.groups.leto.gid = 1000;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    git
     neovim
     networkmanagerapplet
     # Gnome

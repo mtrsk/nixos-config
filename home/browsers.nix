@@ -5,8 +5,4 @@
     brave
     firefox-bin
   ];
-
-  #programs.firefox = {
-  #  enable = true;
-  #};
 }

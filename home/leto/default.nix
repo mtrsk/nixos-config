@@ -32,7 +32,7 @@ in
   users.users."${username}" = {
     isNormalUser = true;
     createHome = true;
-    group = "leto";
+    group = username;
     uid = 1000;
     extraGroups = [
       "wheel"

@@ -7,8 +7,14 @@ let
 in
 {
   home.packages = with pkgs; [
-    fzf
   ];
+
+  programs.fzf = {
+    enable = true;
+    enableBashIntegration = true;
+    enableZshIntegration = true;
+    tmux.enableShellIntegration = true;
+  };
 
   programs.zsh = {
     enable = true;

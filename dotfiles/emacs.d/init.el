@@ -88,3 +88,14 @@
                     :height 150
                     :weight 'normal
                     :width 'normal)
+
+;; <ESC> cancels all
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+
+;; Backup policy
+(setq backup-directory-alist `(("." . "~/.saves")))
+(setq version-control t     ;; Use version numbers for backups.
+      kept-new-versions 5   ;; Number of newest versions to keep.
+      kept-old-versions 0   ;; Number of oldest versions to keep.
+      delete-old-versions t ;; Don't ask to delete excess backup versions.
+      backup-by-copying t)  ;; Copy all files, don't rename them.

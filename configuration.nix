@@ -34,7 +34,6 @@ in
 {
   imports =
     [
-	# Pick one of the availiable machines
-    "${path}/configuration.nix"
+      "${path}/configuration.nix"
     ];
 }

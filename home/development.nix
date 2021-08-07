@@ -9,8 +9,9 @@ in
   home.packages = with pkgs; [
     # CLIs
     kubectl
-    unstable.terraform
     vault
+    unstable.terraform
+    unstable.packer
     # Cloud-provider CLIs
     awscli
     azure-cli
@@ -20,8 +21,6 @@ in
     # Firecracker Micro-VM
     firecracker
     firectl
-    # Languages
-    go
     # Languages tooling
     cachix
     # Linters
@@ -86,7 +85,6 @@ in
     enable = true;
 
     keyMode = "vi";
-    # shell = "${pkgs.zsh}/bin/zsh";
 
     extraConfig = ''
 # Setting the prefix from C-b to C-a

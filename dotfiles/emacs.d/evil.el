@@ -40,3 +40,6 @@
 
 ;; For some reason, setting that in evil's `:config` doesn't work
 (evil-mode 1)
+
+;; Make <TAB> use org-cycle when in org buffers
+(evil-define-key 'normal org-mode-map (kbd "<tab>") #'org-cycle)
