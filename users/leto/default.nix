@@ -49,23 +49,23 @@ in
   # Home-Manager config
   home-manager.users."${username}" = { pkgs, home, ... }: {
     imports = [
-      ../browsers.nix
-      ../chats.nix
-      ../common.nix
-      ../crypto.nix
-      ../development.nix
-      ../editors.nix
-      ../emacs.nix
-      ../gaming.nix
-      ../security.nix
-      ../terminal-emulators.nix
-      ../udiskie.nix
-      ../zshell.nix
-      (import ../media.nix {
+      ../../home/browsers.nix
+      ../../home/chats.nix
+      ../../home/common.nix
+      ../../home/crypto.nix
+      ../../home/development.nix
+      ../../home/editors.nix
+      ../../home/emacs.nix
+      ../../home/gaming.nix
+      ../../home/security.nix
+      ../../home/terminal-emulators.nix
+      ../../home/udiskie.nix
+      ../../home/zshell.nix
+      (import ../../home/media.nix {
         user=username;
         inherit home pkgs;
       })
-      (import ../rice.nix {
+      (import ../../home/rice.nix {
         user=username;
         inherit home pkgs;
       })

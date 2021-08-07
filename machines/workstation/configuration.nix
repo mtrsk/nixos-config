@@ -18,7 +18,7 @@
       ../../virtualisation/docker.nix
 
       # Users
-      ../../home/leto
+      ../../users/leto
     ];
 
   boot.initrd.luks.devices = {
