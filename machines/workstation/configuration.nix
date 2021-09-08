@@ -37,7 +37,7 @@
   };
 
   # Always pick the latest Kernel
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.cleanTmpDir = true;
 
@@ -103,6 +103,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    gparted
     neovim
     networkmanagerapplet
     # Gnome

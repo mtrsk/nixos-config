@@ -51,6 +51,7 @@ in
     userName = "Marcos Benevides";
 
     aliases = {
+      commit = "commit -S";
       list-staged = "diff --staged";
       list-conflicts = "diff --name-only --diff-filter=U";
     };

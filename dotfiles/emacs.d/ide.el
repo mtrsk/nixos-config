@@ -30,6 +30,9 @@
         ;; ("s-p" . projectile-command-map)
         ("C-c p" . projectile-command-map)))
 
+(use-package lsp-ui
+  :commands lsp-ui-mode)
+
 (use-package flycheck
   :commands global-flycheck-mode
   :init

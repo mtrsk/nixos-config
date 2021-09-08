@@ -1,37 +1,3 @@
-# Extra ZSH config
-rusb(){
-  udisksctl power-off -b $1
-}
-
-mountu() {
-  sudo mount -o gid=$GID,uid=$UID $1 $2
-}
-
-function git-mr-cherry-pick () {
-    # ARG1: base branch
-	# ARG2 (optional, default "master"): the repo's main branch
-	#
-    # This function is useful to update branches that are based on a branch
-    # that was just merged to "master".
-    # With "HEAD" at the branch you want to update, issue this command passing
-    # the base branch's name.
-    basebranch=$1
-    mainbranch=${2:-master}
-    currentbranch=$(git rev-parse --abbrev-ref HEAD)
-    tmpbranch="$currentbranch"-TMP
-    # Creating a temporary branch.
-    git branch "$currentbranch"-TMP
-    # Taking the last master version.
-    git checkout $mainbranch
-    git pull origin $mainbranch
-    # Creating a fresh new branch.
-    git branch -D "$currentbranch"
-    git branch "$currentbranch"
-    git checkout "$currentbranch"
-    git cherry-pick $(git rev-parse $basebranch)..$(git rev-parse $tmpbranch)
-    git branch -D "$tmpbranch"
-}
-
 # completions
 autoload -Uz compinit
 compinit

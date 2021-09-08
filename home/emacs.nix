@@ -22,17 +22,26 @@ in {
       (with epkgs; [
         # Common
         all-the-icons
+        auto-complete
+        auto-compile
         company
+        rainbow-delimiters
         use-package
         use-package-chords
+        # Formatting
+        format-all
         # Deveopment
-        direnv
+        ## Languages
         dockerfile-mode
-        elpy
-        magit
-        plantuml-mode
+        haskell-mode
         nix-mode
         sqlformat
+        ## Tooling
+        direnv
+        elpy
+        magit
+        ## Ops
+        plantuml-mode
         yaml-mode
         # Extra
         auto-dim-other-buffers
@@ -55,9 +64,16 @@ in {
         vimrc-mode
         web-mode
         which-key
+        # Notifications
+        alert
         # Org
+        org-books
         org-drill
+        org-elp
+        org-pdftools
+        org-ql
         org-roam
+        org-superstar
         # Email
         notmuch
       ]));

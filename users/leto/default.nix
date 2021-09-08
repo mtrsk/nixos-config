@@ -56,7 +56,6 @@ in
       ../../home/development.nix
       ../../home/editors.nix
       ../../home/emacs.nix
-      ../../home/gaming.nix
       ../../home/security.nix
       ../../home/terminal-emulators.nix
       ../../home/udiskie.nix

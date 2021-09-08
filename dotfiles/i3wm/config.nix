@@ -211,7 +211,6 @@ bindsym --release $mod+Print exec scrot -s
 
 # Utils - Mod1 + Key
 bindsym Mod1+e exec emacs
-bindsym Mod1+l exec i3lock-fancy
 bindsym Mod1+r exec kitty -e ranger
 bindsym Mod1+n exec kitty -e ncmpcpp
 bindsym Mod1+w exec --no-startup-id ${builtins.toString scriptsPath}/dm-common.sh

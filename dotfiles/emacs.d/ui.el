@@ -26,3 +26,5 @@
 (add-hook 'text-mode-hook #'auto-fill-mode)
 (setq-default fill-column 80)
 ;; (setq truncate-partial-width-windows nil)
+
+(use-package all-the-icons)

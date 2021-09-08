@@ -27,9 +27,11 @@ in
       ls="ls -h --group-directories-first --color=auto";
       la="ls -lAh --group-directories-first --color=auto";
       pss="pass show";
-      pssc="pass show --clip";
+      psc="pass --clip";
+      poc="pass otp --clip";
       r="ranger";
       xcc="xclip -sel clipboard";
+      sshk="kitty +kitten ssh";
       vi="nvim";
       vim="nvim";
     };

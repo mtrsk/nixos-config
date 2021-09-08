@@ -7,6 +7,7 @@
 (load-file "~/.emacs.d/custom.el")
 (load-file "~/.emacs.d/edit.el")
 (load-file "~/.emacs.d/evil.el")
+(load-file "~/.emacs.d/git.el")
 (load-file "~/.emacs.d/ide.el")
 (load-file "~/.emacs.d/ui.el")
 

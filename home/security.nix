@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    lynis
     tomb
     zbar # for pass-otp
   ];
