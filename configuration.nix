@@ -11,16 +11,6 @@ let
   extra_config = {
     home_manager_branch = "release-21.05";
     machines = {
-      acer = {
-        config_path = user: "/home/${user}/NixOS/machines/acer";
-        default_user = "vladimir";
-        network_card = "";
-      };
-      thinkpad-e490 = {
-        config_path = user: "/home/${user}/NixOS/machines/thinkpad-e490";
-        default_user = "usul";
-        network_card = "";
-      };
       workstation = {
         config_path = user: "/home/${user}/NixOS/machines/workstation";
         default_user = "leto";
@@ -34,6 +24,8 @@ in
 {
   imports =
     [
+      ./documentation.nix
+      ./fonts.nix
       "${path}/configuration.nix"
     ];
 }

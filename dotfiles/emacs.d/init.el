@@ -14,18 +14,17 @@
 (require 'ox-org)
 (setq org-export-backends '(ascii html latex odt beamer taskjuggler org))
 
-(use-package yaml-mode
-  :mode ("\\.ya?ml$" . yaml-mode))
+(require 'ox-latex)
+(add-to-list 'org-latex-classes
+             '("beamer"
+               "\\documentclass\[presentation\]\{beamer\}"
+               ("\\section\{%s\}" . "\\section*\{%s\}")
+               ("\\subsection\{%s\}" . "\\subsection*\{%s\}")
+               ("\\subsubsection\{%s\}" . "\\subsubsection*\{%s\}")))
 
 (use-package direnv
  :config
  (direnv-mode))
-
-(use-package nix-mode
-  :mode "\\.nix\\'")
-
-(use-package dockerfile-mode
-  :config (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode)))
 
 ;; Allows to see which commands are being called:
 ;; - command-log-mode
@@ -68,14 +67,6 @@
 (use-package rg
   :config (rg-enable-default-bindings))
 
-(use-package sql
-  :config
-  ;; with mariadb, the default regexp used to match the prompt is a bit off. This fixes it.
-  (sql-set-product-feature 'mysql :prompt-regexp "^\\(MariaDB\\|MySQL\\) \\[[_a-zA-Z]*\\]> "))
-
-(use-package sqlformat
-  :config
-  (setq sqlformat-command 'pgformatter))
 
 (use-package vimrc-mode
   :init (add-to-list 'auto-mode-alist '("\\.vim\\(rc\\)?\\'" . vimrc-mode)))

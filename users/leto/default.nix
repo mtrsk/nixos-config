@@ -8,7 +8,6 @@ in
     # Extra Services
     ../../services/compton.nix
     ../../services/i3wm.nix
-    ../../services/localization.nix
     ../../services/pulseaudio.nix
     # Home-Manger
     (import (
@@ -56,6 +55,7 @@ in
       ../../home/development.nix
       ../../home/editors.nix
       ../../home/emacs.nix
+      ../../home/gaming.nix
       ../../home/security.nix
       ../../home/terminal-emulators.nix
       ../../home/udiskie.nix

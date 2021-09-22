@@ -1,17 +1,11 @@
 {pkgs, home, ...}:
 
-let
-  unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
-in
 {
   manual.manpages.enable = true;
 
   home.packages = with pkgs; [
     # CLIs
     kubectl
-    vault
-    unstable.terraform
-    unstable.packer
     # Cloud-provider CLIs
     awscli
     azure-cli
@@ -21,8 +15,15 @@ in
     # Firecracker Micro-VM
     firecracker
     firectl
+    # Hashicorp
+    nomad
+    nomad-autoscaler
+    packer
+    terraform
+    vault
     # Languages tooling
     cachix
+    rnix-lsp
     # Linters
     hadolint
     shellcheck

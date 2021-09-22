@@ -9,6 +9,7 @@
     htop
     gnumake
     jq
+    lsof
     nix-prefetch-git
     pciutils    # lspci
     psmisc      # pkill, killall, pstree, fuser

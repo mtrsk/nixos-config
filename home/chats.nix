@@ -3,9 +3,8 @@
 {
   home.packages = with pkgs; [
     discord
-    #ripcord
+    slack
     signal-desktop
     tdesktop
-    #weechat
   ];
 }

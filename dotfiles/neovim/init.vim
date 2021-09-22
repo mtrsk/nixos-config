@@ -1,4 +1,3 @@
-pkgs: ''
 "*****************************************************************************
 " Basic Setup
 "*****************************************************************************
@@ -117,9 +116,15 @@ nnoremap gf :diffget //3<CR>
 nmap <leader>nt :NERDTreeToggle<CR>
 nmap <leader>nf :NERDTreeFind<CR>
 
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 "*****************************************************************************
 " Deoplete
@@ -252,7 +257,7 @@ let g:terraform_align=1
 " Pywal
 "*****************************************************************************
 
-colorscheme wal
+"colorscheme wal
 
 "*****************************************************************************
 "" Vim-Airline
@@ -295,4 +300,3 @@ else
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
-''

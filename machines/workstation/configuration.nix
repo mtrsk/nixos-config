@@ -23,8 +23,8 @@
 
   boot.initrd.luks.devices = {
     root = {
-	  device = "/dev/sda2";
-	  preLVM = true;
+	    device = "/dev/sda2";
+	    preLVM = true;
     };
   };
 
@@ -38,12 +38,13 @@
 
   # Always pick the latest Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  # boot.kernelPackages = pkgs.linuxPackages_5_13;
+
+  boot.initrd.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-amd" ];
+  boot.extraModulePackages = [ ];
 
   boot.cleanTmpDir = true;
-
-  # Documentations
-
-  documentation.dev.enable = true;
 
   # Hardware
 
@@ -74,13 +75,6 @@
 
   programs.bash.enableCompletion = true;
 
-  fonts.fonts = with pkgs; [
-    font-awesome_5
-    jetbrains-mono
-    powerline-fonts
-    symbola
-  ];
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -89,6 +83,7 @@
     layout = "br";
     xkbOptions = "ctrl:nocaps";
     videoDrivers = [ "nvidia" ];
+    dpi = 100;
     # Desktop Manager Config
     desktopManager.xterm.enable = false;
     # Display Manager
@@ -104,7 +99,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     gparted
-    neovim
     networkmanagerapplet
     # Gnome
     gnome3.adwaita-icon-theme

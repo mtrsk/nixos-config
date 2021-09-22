@@ -21,28 +21,39 @@ in {
     extraPackages = (epkgs:
       (with epkgs; [
         # Common
+        aggressive-indent
         all-the-icons
         auto-complete
         auto-compile
         company
+        rainbow-mode
         rainbow-delimiters
+        rainbow-blocks
         use-package
         use-package-chords
+        s
         # Formatting
         format-all
         # Deveopment
         ## Languages
         dockerfile-mode
+        eshell-syntax-highlighting
+        fsharp-mode
         haskell-mode
         nix-mode
+        python-mode
         sqlformat
         ## Tooling
         direnv
-        elpy
+        lsp-mode
+        lsp-ui
         magit
         ## Ops
         plantuml-mode
+        terraform-mode
         yaml-mode
+        # Email
+        notmuch
         # Extra
         auto-dim-other-buffers
         atom-one-dark-theme
@@ -67,6 +78,7 @@ in {
         # Notifications
         alert
         # Org
+        helm-org-rifle
         org-books
         org-drill
         org-elp
@@ -74,8 +86,8 @@ in {
         org-ql
         org-roam
         org-superstar
-        # Email
-        notmuch
+        # Ricing
+        ewal
       ]));
   };
 

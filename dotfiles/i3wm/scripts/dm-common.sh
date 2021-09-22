@@ -15,12 +15,16 @@ case "$category" in
     esac
     ;;
   "Messages")
-    mlist=("Discord\nSignal\nTelegram")
+    mlist=("Discord\nSlack\nSignal\nTelegram")
     choice=$(echo -e "$mlist" | dmenu)
     case "$choice" in
       Discord)
         notify-send "Discord launched"
         Discord
+        ;;
+      Slack)
+        notify-send "slack launched"
+        slack
         ;;
       Signal)
         notify-send "signal-desktop launched"
@@ -53,10 +57,6 @@ case "$category" in
       "Lutris")
         notify-send "Lutris launched"
         lutris
-        ;;
-      "RetroArch")
-        notify-send "RetroArch launched"
-        retroarch
         ;;
       "Steam")
         notify-send "Steam launched"
