@@ -4,8 +4,8 @@ My NixOS configuration files.
 
 ** How to use it?
 
-* Clone this repo in whatever place you find better
-* Make a symlink to /etc/nixos/configuration.nix
+- Clone this repo in whatever place you find better
+- Make a symlink to /etc/nixos/configuration.nix
     
 #+BEGIN_SRC bash
 cd nixos-config
