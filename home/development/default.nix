@@ -1,86 +1,20 @@
 {pkgs, home, ...}:
 
 {
-  manual.manpages.enable = true;
+  imports =
+    [
+      ./cloud.nix
+      ./git.nix
+      ./iac.nix
+      ./kubernetes.nix
+      ./programming.nix
+    ];
 
-  home.packages = with pkgs; [
-    # CLIs
-    kubectl
-    # Cloud-provider CLIs
-    awscli
-    azure-cli
-    azure-storage-azcopy
-    heroku
-    oci-cli
-    # Firecracker Micro-VM
-    firecracker
-    firectl
-    # Hashicorp
-    nomad
-    nomad-autoscaler
-    packer
-    terraform
-    vault
-    # Languages tooling
-    cachix
-    rnix-lsp
-    # Linters
-    hadolint
-    shellcheck
-    sqlcheck
-    # Misc
-    bfg-repo-cleaner
-    insomnia
-    gitAndTools.gitflow
-    gitAndTools.git-subrepo
-    git-crypt
-    # Other stuff
-    siege
-    taskjuggler
-    plantuml
-  ];
+  manual.manpages.enable = true;
 
   programs.direnv = {
     enable = true;
     enableZshIntegration = true;
-  };
-
-  programs.git = {
-    enable = true;
-
-    userEmail = "marcos.schonfinkel@protonmail.com";
-    userName = "Marcos Benevides";
-
-    aliases = {
-      commit = "commit -S";
-      list-staged = "diff --staged";
-      list-conflicts = "diff --name-only --diff-filter=U";
-    };
-
-    delta = {
-      enable = true;
-    };
-
-    lfs = {
-      enable = true;
-    };
-
-    includes = [
-      {
-        condition = "gitdir:~/Work/";
-        path = "~/Work/.gitconfig";
-      }
-
-      {
-        condition = "gitdir:~/Personal/";
-        path = "~/Personal/.gitconfig";
-      }
-
-      {
-        condition = "gitdir:~/.password-store/";
-        path = "~/.password-store/.gitconfig";
-      }
-    ];
   };
 
   programs.tmux = {

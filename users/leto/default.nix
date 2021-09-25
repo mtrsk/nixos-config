@@ -48,24 +48,8 @@ in
   # Home-Manager config
   home-manager.users."${username}" = { pkgs, home, ... }: {
     imports = [
-      ../../home/browsers.nix
-      ../../home/chats.nix
-      ../../home/common.nix
-      ../../home/crypto.nix
-      ../../home/development.nix
-      ../../home/editors.nix
-      ../../home/emacs.nix
-      ../../home/gaming.nix
-      ../../home/security.nix
-      ../../home/terminal-emulators.nix
-      ../../home/udiskie.nix
-      ../../home/zshell.nix
-      (import ../../home/media.nix {
-        user=username;
-        inherit home pkgs;
-      })
-      (import ../../home/rice.nix {
-        user=username;
+      (import ../../home {
+        username=username;
         inherit home pkgs;
       })
     ];

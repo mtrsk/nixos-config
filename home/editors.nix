@@ -24,8 +24,7 @@ in
 
     extraConfig = builtins.concatStringsSep "\n" [
       (lib.strings.fileContents ../dotfiles/neovim/init.vim)
-      #(lib.strings.fileContents ./plugins.vim)
-      #(lib.strings.fileContents ./lsp.vim)
+      (lib.strings.fileContents ../dotfiles/neovim/ide.vim)
     ];
 
     plugins = with pkgs.vimPlugins; [
@@ -33,16 +32,15 @@ in
       vim-which-key
       # Base
       ale
-      csv-vim
       deoplete-nvim
       direnv-vim
       LanguageClient-neovim
       nerdtree
+      nerdtree-git-plugin
       tabular
       supertab
       vim-airline
       vim-commentary
-      vim-devicons
       vim-fugitive
       vim-markdown
       vim-test
