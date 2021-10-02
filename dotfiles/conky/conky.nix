@@ -1,4 +1,4 @@
-{ pkgs ? import <nixpkgs> {}, user }:
+{ pkgs , user, ... }:
 
 let
   json = import ../wal-colors.nix { user=user; };

@@ -1,7 +1,7 @@
-{ user }:
+{}:
 
 let
-  path = "/home/${user}/.cache/wal/colors.json";
+  path = ./colors.json;
   json = builtins.fromJSON (builtins.readFile path);
 in
   json

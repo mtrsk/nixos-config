@@ -1,19 +1,19 @@
-{pkgs, lib, config, home, ...}:
+{pkgs, lib, config, ...}:
 
-let
-  pluginGit = ref: repo: pkgs.vimUtils.buildVimPluginFrom2Nix {
-    pname = "${lib.strings.sanitizeDerivationName repo}";
-    version = ref;
-    src = builtins.fetchGit {
-      url = "https://github.com/${repo}.git";
-      ref = ref;
-    };
-  };
-
-  # always installs latest version
-  plugin = pluginGit "HEAD";
-
-in
+#let
+#  pluginGit = ref: repo: pkgs.vimUtils.buildVimPluginFrom2Nix {
+#    pname = "${lib.strings.sanitizeDerivationName repo}";
+#    version = ref;
+#    src = builtins.fetchGit {
+#      url = "https://github.com/${repo}.git";
+#      ref = ref;
+#    };
+#  };
+#
+#  # always installs latest version
+#  plugin = pluginGit "HEAD";
+#
+#in
 {
   home.packages = with pkgs; [
     vscode
@@ -74,7 +74,7 @@ in
       # Terraform
       vim-terraform
       # Extras
-      (plugin "kalafut/vim-taskjuggler")
+      #(plugin "kalafut/vim-taskjuggler")
     ];
   };
 

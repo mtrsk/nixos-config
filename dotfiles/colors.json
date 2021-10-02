@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/leto/Pictures/Wallpapers/Wolfe/botns_01.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#0A0301",
+        "foreground": "#ebe3c5",
+        "cursor": "#ebe3c5"
+    },
+    "colors": {
+        "color0": "#0A0301",
+        "color1": "#D26B2D",
+        "color2": "#A47448",
+        "color3": "#B68D59",
+        "color4": "#EB9D4B",
+        "color5": "#D7A35C",
+        "color6": "#337FAC",
+        "color7": "#ebe3c5",
+        "color8": "#a49e89",
+        "color9": "#D26B2D",
+        "color10": "#A47448",
+        "color11": "#B68D59",
+        "color12": "#EB9D4B",
+        "color13": "#D7A35C",
+        "color14": "#337FAC",
+        "color15": "#ebe3c5"
+    }
+}

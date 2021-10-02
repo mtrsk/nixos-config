@@ -1,6 +1,5 @@
-{pkgs, user}:
 let
-  conky = import ../conky/conky.nix { user=user; };
+  conky = import ../conky/conky.nix;
   scriptsPath = ./scripts;
   dotfilesPath = ./..;
 in

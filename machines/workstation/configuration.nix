@@ -10,15 +10,15 @@
       ./hardware-configuration.nix
 
       # Services
+      ../../services/compton.nix
       ../../services/fail2ban.nix
       ../../services/journald.nix
+      ../../services/i3wm.nix
       ../../services/localization.nix
+      ../../services/pulseaudio.nix
 
       # Virtualisation
       ../../virtualisation/docker.nix
-
-      # Users
-      ../../users/leto
     ];
 
   boot.initrd.luks.devices = {
@@ -56,39 +56,49 @@
   hardware.opengl.driSupport32Bit = true;
 
   # Nix/Nixpkgs
+
   nixpkgs.config = {
     allowUnfree = true;
-    packageOverrides = pkgs: {
-      nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-        inherit pkgs;
-      };
-    };
   };
+
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+  };
+
+  # Networking
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
   networking.interfaces.enp8s0.useDHCP = true;
+
   networking.hostName = "caladan";
   networking.networkmanager.enable = true;
+
+  #networking.extraHosts = let
+  #  hostsPath = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn/hosts";
+  #  hostsFile = builtins.fetchurl hostsPath;
+  #in builtins.readFile "${hostsFile}";
+
+  # Misc
 
   programs.bash.enableCompletion = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Configure keymap in X11
+  # Configure X11
   services.xserver = {
     layout = "br";
     xkbOptions = "ctrl:nocaps";
     videoDrivers = [ "nvidia" ];
     dpi = 100;
-    # Desktop Manager Config
     desktopManager.xterm.enable = false;
-    # Display Manager
     displayManager.sddm.enable = true;
-    #displayManager.autoLogin.user = "usul";
     displayManager.sessionCommands = ''
       xset s off
       xset -dpms
@@ -96,7 +106,6 @@
   };
 
   # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     gparted
     networkmanagerapplet
@@ -106,6 +115,30 @@
 
   # Programs
   programs.steam.enable = true;
+
+  # Users
+
+  # For Home-Manager's ZSH
+  environment.pathsToLink = [
+    "/share/zsh"
+  ];
+
+  users.users.leto = {
+    isNormalUser = true;
+    createHome = true;
+    group = "leto";
+    uid = 1000;
+    extraGroups = [
+      "wheel"
+      "docker"
+      "video"
+      "audio"
+      "disk"
+      "networkmanager"
+    ];
+    shell = pkgs.zsh;
+  };
+  users.groups.leto.gid = 1000;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

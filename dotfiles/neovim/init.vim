@@ -115,10 +115,7 @@ nnoremap gf :diffget //3<CR>
 nmap <leader>nt :NERDTreeToggle<CR>
 nmap <leader>nf :NERDTreeFind<CR>
 
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-
-let g:WebDevIconsUnicodeDecorateFolderNodes=1
+" let g:WebDevIconsUnicodeDecorateFolderNodes=1
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeMinimalUI = 1

@@ -1,4 +1,4 @@
-{modulesPath, lib, pkgs, options}:
+{modulesPath, lib, pkgs, options, ...}:
 
 {
   virtualisation.lxc = {

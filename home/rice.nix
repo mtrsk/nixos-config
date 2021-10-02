@@ -1,10 +1,5 @@
-{pkgs, home, user, ...}:
+{pkgs, user, ...}:
 
-let
-  dotfiles = ../dotfiles;
-  # Convert a string to dotfiles path format
-  dpath = p: builtins.toString "${dotfiles}/${p}";
-in
 {
   home.packages = with pkgs; [
     conky
@@ -16,16 +11,9 @@ in
 
   services.polybar = {
     enable = true;
-    extraConfig = builtins.readFile "${dotfiles}/polybar/config";
+    extraConfig = builtins.readFile ../dotfiles/polybar/config;
     package = pkgs.polybarFull;
-    script = builtins.readFile "${dotfiles}/polybar/launch.sh";
-  };
-
-  xdg.configFile = {
-    "i3/config".text = import "${dotfiles}/i3wm/config.nix" {
-      user=user;
-      inherit pkgs;
-    };
+    script = builtins.readFile ../dotfiles/polybar/launch.sh;
   };
 
   home.sessionVariables = {

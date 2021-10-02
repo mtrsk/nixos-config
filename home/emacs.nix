@@ -1,13 +1,6 @@
 { pkgs, home, ... }:
 
-let
-  emacs-overlay = import (builtins.fetchTarball {
-    url =
-      "https://github.com/nix-community/emacs-overlay/archive/master.tar.gz";
-  });
-in {
-  nixpkgs.overlays = [ emacs-overlay ];
-
+{
   # Treemacs requires python3
   home.packages = with pkgs; [
     emacs-all-the-icons-fonts
@@ -26,6 +19,8 @@ in {
         auto-complete
         auto-compile
         company
+        company-quickhelp
+        dired-sidebar
         rainbow-mode
         rainbow-delimiters
         rainbow-blocks
@@ -37,6 +32,7 @@ in {
         # Deveopment
         ## Languages
         dockerfile-mode
+        elpy
         eshell-syntax-highlighting
         fsharp-mode
         haskell-mode

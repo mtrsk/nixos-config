@@ -12,8 +12,10 @@
   fonts.fonts = with pkgs; [
     font-awesome_5
     hack-font
+    iosevka
     jetbrains-mono
     mplus-outline-fonts
+    nerdfonts
     powerline-fonts
     profont
     proggyfonts

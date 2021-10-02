@@ -1,4 +1,4 @@
-{pkgs, home, user, ...}:
+{pkgs, user, ...}:
 
 let
   dotfiles = ../dotfiles;
@@ -6,10 +6,6 @@ let
   dpath = p: builtins.toString "${dotfiles}/${p}";
 in
 {
-  nixpkgs.overlays = [
-    (import ../overlays/ncmpcpp.nix)
-  ];
-
   home.packages = with pkgs; [
     feh
     ffmpegthumbnailer

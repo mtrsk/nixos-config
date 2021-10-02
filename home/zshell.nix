@@ -1,10 +1,5 @@
-{pkgs, home, ...}:
+{pkgs, ...}:
 
-let
-  dotfiles = ../dotfiles;
-  # Convert a string to dotfiles path format
-  dpath = p: builtins.toString "${dotfiles}/${p}";
-in
 {
   home.packages = with pkgs; [
   ];
@@ -36,10 +31,10 @@ in
       vim="nvim";
     };
     history = {
-      size = 5000;
+      size = 2000;
       ignoreDups = true;
     };
-    initExtra = builtins.readFile "${dotfiles}/zsh/zshrc";
+    initExtra = builtins.readFile ../dotfiles/zsh/zshrc;
   };
 
   programs.starship = {

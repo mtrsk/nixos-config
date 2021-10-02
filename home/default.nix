@@ -1,4 +1,4 @@
-{pkgs, home, username, ...}:
+{pkgs, username, ...}:
 
 {
   imports =
@@ -13,11 +13,11 @@
       ./gaming.nix
       (import ./media.nix {
         user=username;
-        inherit home pkgs;
+        inherit pkgs;
       })
       (import ./rice.nix {
         user=username;
-        inherit home pkgs;
+        inherit pkgs;
       })
       ./security.nix
       ./terminal-emulators.nix
