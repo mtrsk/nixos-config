@@ -30,7 +30,7 @@ font pango:Roboto Mono For Powerline 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty --config=$HOME/.config/kitty/kitty.conf
+bindsym $mod+Return exec kitty --config="$HOME/.config/kitty/kitty.conf"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -139,7 +139,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec --no-startup-id "$HOME/.i3/power.sh"
+bindsym $mod+Shift+e exec --no-startup-id "$HOME/.i3/scripts/power.sh"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

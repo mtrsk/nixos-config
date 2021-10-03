@@ -3,7 +3,9 @@
 {
   imports =
     [
+      # Directories
       ./development
+      # Files
       ./browsers.nix
       ./chats.nix
       ./common.nix

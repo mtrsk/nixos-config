@@ -6,15 +6,17 @@
       url = "github:nix-community/emacs-overlay/master";
       inputs.nixpkgs.follows = "unstable";
     };
+
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-21.05" ;
+
     home = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, home, nixpkgs,  ... }@inputs:
+  outputs = { self, emacs, home, nixpkgs,  ... }@inputs:
   let
     lib = nixpkgs.lib;
 

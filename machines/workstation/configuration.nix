@@ -79,10 +79,15 @@
   networking.hostName = "caladan";
   networking.networkmanager.enable = true;
 
-  #networking.extraHosts = let
-  #  hostsPath = "https://raw.githubusercontent.com/StevenBlack/hosts/master/alternates/porn/hosts";
-  #  hostsFile = builtins.fetchurl hostsPath;
-  #in builtins.readFile "${hostsFile}";
+  networking.extraHosts = let
+    version = "3.9.8";
+    hostsPath = "https://raw.githubusercontent.com/StevenBlack/hosts/${version}/alternates/porn/hosts";
+    sha256 = "1wgjvn7knq8r3lpfkrlbxw3313f169wiacawx6y1ak9rx7axy0nl";
+    hostsFile = builtins.fetchurl {
+      url = hostsPath;
+      sha256 = sha256;
+    };
+  in builtins.readFile "${hostsFile}";
 
   # Misc
 
@@ -107,10 +112,10 @@
 
   # List packages installed in system profile. To search, run:
   environment.systemPackages = with pkgs; [
+    gnome3.adwaita-icon-theme
     gparted
     networkmanagerapplet
-    # Gnome
-    gnome3.adwaita-icon-theme
+    stevenblack-blocklist
   ];
 
   # Programs

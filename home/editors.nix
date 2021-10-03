@@ -1,23 +1,18 @@
-{pkgs, lib, config, ...}:
+{ pkgs, lib, config, ... }:
 
-#let
-#  pluginGit = ref: repo: pkgs.vimUtils.buildVimPluginFrom2Nix {
-#    pname = "${lib.strings.sanitizeDerivationName repo}";
-#    version = ref;
-#    src = builtins.fetchGit {
-#      url = "https://github.com/${repo}.git";
-#      ref = ref;
-#    };
-#  };
-#
-#  # always installs latest version
-#  plugin = pluginGit "HEAD";
-#
-#in
-{
-  home.packages = with pkgs; [
-    vscode
-  ];
+let vimPrivatePlugins = {
+  vim-taskjuggler = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-taskjuggler";
+    src = pkgs.fetchFromGitHub {
+      owner = "kalafut";
+      repo = "vim-taskjuggler";
+      rev = "e94c9a0b06022d11a34310ad5f82c1c2bcd86fb7";
+      sha256 = "0f8smjl6wi52p8n1hhl5zhk8i3lpsfndxxdammyybw2vz17s0j8q";
+    };
+  };
+};
+in {
+  home.packages = with pkgs; [ vscode ];
 
   programs.neovim = {
     enable = true;
@@ -27,7 +22,7 @@
       (lib.strings.fileContents ../dotfiles/neovim/ide.vim)
     ];
 
-    plugins = with pkgs.vimPlugins; [
+    plugins = with pkgs.vimPlugins // (vimPrivatePlugins); [
       # you can use plugins from the pkgs
       vim-which-key
       # Base
@@ -65,7 +60,6 @@
       vim-hindent
       # Html
       emmet-vim
-      # LaTeX
       # Nix
       vim-nix
       # Python
@@ -74,8 +68,15 @@
       # Terraform
       vim-terraform
       # Extras
-      #(plugin "kalafut/vim-taskjuggler")
+      vim-taskjuggler
     ];
+  };
+
+  xdg.configFile = {
+    neovim = {
+      source = ../dotfiles/neovim;
+      recursive = true;
+    };
   };
 
   home.sessionVariables = {
