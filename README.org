@@ -2,12 +2,21 @@
 
 My NixOS configuration files.
 
+** TODO List [2/5]
+
+   - [X] Use home-manager for user-related configurations
+   - [X] Integration with Nix-flakes
+   - [ ] Integration with the [[https://github.com/nix-community/impermanence][impermanence module]]
+   - [ ] Integration with one of the following secret management tools:
+     - [[https://github.com/ryantm/agenix][agenix]]
+     - [[https://github.com/Mic92/sops-nix][sops-nix]]
+   - [ ] Add this entire config into CI
+
 ** How to use it?
 
-- Clone this repo in whatever place you find better
-- Pick a definition in the flake.nix
-
-*** Example
+   - Clone this repo
+   - Pick a definition in the flake.nix
+   - Build it
 
 #+BEGIN_SRC bash
 sudo nixos-rebuild switch --flake .#caladan
