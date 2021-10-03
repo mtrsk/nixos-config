@@ -16,6 +16,18 @@
     script = builtins.readFile ../dotfiles/polybar/launch.sh;
   };
 
+  #xdg.configFile = {
+  #  i3 = {
+  #    source = ../dotfiles/i3wm;
+  #    recursive = true;
+  #  };
+  #};
+
+  home.file.".i3" = {
+    source = ../dotfiles/i3wm;
+    recursive = true;
+  };
+
   home.sessionVariables = {
     SPACESHIP_EXIT_CODE_SHOW = "true";
   };

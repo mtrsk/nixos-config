@@ -29,6 +29,7 @@
           ./documentation.nix
           ./fonts.nix
           ./machines/workstation/configuration.nix
+          ./overlays
           home.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
