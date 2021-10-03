@@ -139,7 +139,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec --no-startup-id $HOME/.config/i3/power.sh
+bindsym $mod+Shift+e exec --no-startup-id "$HOME/.i3/power.sh"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -195,7 +195,7 @@ bindsym --release $mod+Print exec scrot -s
 bindsym Mod1+e exec emacs
 bindsym Mod1+r exec kitty -e ranger
 bindsym Mod1+n exec kitty -e ncmpcpp
-bindsym Mod1+w exec --no-startup-id $HOME/.config/i3/dm-common.sh
+bindsym Mod1+w exec --no-startup-id "$HOME/.i3/scripts/dm-common.sh"
 
 # -------------------------
 #      i3-gaps config
@@ -228,7 +228,6 @@ client.placeholder      $bg      $bg      $fg      $color6   $color6
 
 client.background       $bg
 
-exec_always --no-startup-id $HOME/.config/i3/scripts/wallpaper.sh
-exec_always --no-startup-id conky
-exec_always --no-startup-id $HOME/.config/i3wm/scripts/two-monitors.sh
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always --no-startup-id "$HOME/.i3/scripts/wallpaper.sh"
+exec_always --no-startup-id "$HOME/.i3/scripts/two-monitors.sh"
+exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"

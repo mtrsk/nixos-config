@@ -10,7 +10,7 @@ My NixOS configuration files.
 *** Example
 
 #+BEGIN_SRC bash
-nixos-rebuild build --flake .#caladan
+sudo nixos-rebuild switch --flake .#caladan
 #+END_SRC
 
 ** Why should I use it?
