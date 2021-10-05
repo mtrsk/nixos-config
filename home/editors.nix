@@ -16,67 +16,60 @@ in {
 
   programs.neovim = {
     enable = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
+    withPython3 = true;
 
+    # https://github.com/nix-community/home-manager/issues/1907#issuecomment-934316296
     extraConfig = builtins.concatStringsSep "\n" [
-      (lib.strings.fileContents ../dotfiles/neovim/init.vim)
-      (lib.strings.fileContents ../dotfiles/neovim/ide.vim)
+      ''
+      luafile ${builtins.toString ../dotfiles/nvim/settings.lua}
+      luafile ${builtins.toString ../dotfiles/nvim/lsp.lua}
+      luafile ${builtins.toString ../dotfiles/nvim/ide.lua}
+      luafile ${builtins.toString ../dotfiles/nvim/tabs.lua}
+      luafile ${builtins.toString ../dotfiles/nvim/tree.lua}
+      ''
     ];
 
     plugins = with pkgs.vimPlugins // (vimPrivatePlugins); [
-      # you can use plugins from the pkgs
-      vim-which-key
       # Base
-      ale
-      deoplete-nvim
-      direnv-vim
-      LanguageClient-neovim
-      nerdtree
-      nerdtree-git-plugin
-      tabular
-      supertab
+      popup-nvim
+      plenary-nvim
+      nvim-treesitter
+      telescope-nvim
       vim-airline
-      vim-commentary
       vim-fugitive
       vim-markdown
-      vim-test
       vim-trailing-whitespace
       vim-surround
+      vim-which-key
+      # Eyecandy
       wal-vim
+      nvim-colorizer-lua
+      nvim-cursorline
+      nvim-web-devicons
+      # File Tree
+      nvim-tree-lua
+      # LSP
+      cmp-buffer
+      cmp-nvim-lsp
+      nvim-cmp
+      nvim-compe
+      nvim-lspconfig
+      # Tabs
+      barbar-nvim
       # ----------------------
       # Misc. Language Support
       # ----------------------
-      # Agda
-      agda-vim
-      # C
-      deoplete-clang
-      # Elixir
-      alchemist-vim
-      vim-elixir
-      # Elm
-      elm-vim
-      # Haskell
-      haskell-vim
-      intero-neovim
-      vim-hindent
-      # Html
-      emmet-vim
+      direnv-vim
       # Nix
       vim-nix
-      # Python
-      deoplete-jedi
-      jedi-vim
       # Terraform
       vim-terraform
       # Extras
       vim-taskjuggler
     ];
-  };
-
-  xdg.configFile = {
-    neovim = {
-      source = ../dotfiles/neovim;
-      recursive = true;
-    };
   };
 
   home.sessionVariables = {

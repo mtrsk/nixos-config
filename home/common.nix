@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     curl
     exiftool
+    fd
     file
     ffmpeg
     htop
@@ -13,9 +14,11 @@
     nix-prefetch-git
     pciutils    # lspci
     psmisc      # pkill, killall, pstree, fuser
+    ripgrep
     sshfs
     smartmontools
     tree
+    tree-sitter
     unar
     unzip
     usbutils    # lsusb

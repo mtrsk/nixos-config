@@ -8,10 +8,15 @@
     };
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-21.05" ;
 
     home = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Utilities
+    eww = {
+      url = "github:elkowar/eww";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

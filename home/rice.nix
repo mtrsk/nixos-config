@@ -16,12 +16,12 @@
     script = builtins.readFile ../dotfiles/polybar/launch.sh;
   };
 
-  #xdg.configFile = {
-  #  i3 = {
-  #    source = ../dotfiles/i3wm;
-  #    recursive = true;
-  #  };
-  #};
+  xdg.configFile = {
+    polybar = {
+      source = ../dotfiles/polybar;
+      recursive = true;
+    };
+  };
 
   home.file.".i3" = {
     source = ../dotfiles/i3wm;

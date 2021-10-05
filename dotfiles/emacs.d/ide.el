@@ -96,46 +96,46 @@
 (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
 (lsp-register-client
  (make-lsp-client :new-connection (lsp-stdio-connection '("rnix-lsp"))
-		       :major-modes '(nix-mode)
-		       :server-id 'nix))
+		          :major-modes '(nix-mode)
+		          :server-id 'nix))
 
 ;;; F#
 (use-package comint
- ;; This is based on
- ;; https://oleksandrmanzyuk.wordpress.com/2011/10/23/a-persistent-command-history-in-emacs/
- ;; The idea is to store sessions of comint based modes. For example, to enable
- ;; reading/writing of command history in, say, inferior-haskell-mode buffers,
- ;; simply add turn-on-comint-history to inferior-haskell-mode-hook by adding
- ;; it to the :hook directive
- :config
- (defun comint-write-history-on-exit (process event)
- (comint-write-input-ring)
- (let ((buf (process-buffer process)))
-   (when (buffer-live-p buf)
-     (with-current-buffer buf
-       (insert (format "\nProcess %s %s" process event))))))
+  ;; This is based on
+  ;; https://oleksandrmanzyuk.wordpress.com/2011/10/23/a-persistent-command-history-in-emacs/
+  ;; The idea is to store sessions of comint based modes. For example, to enable
+  ;; reading/writing of command history in, say, inferior-haskell-mode buffers,
+  ;; simply add turn-on-comint-history to inferior-haskell-mode-hook by adding
+  ;; it to the :hook directive
+  :config
+  (defun comint-write-history-on-exit (process event)
+    (comint-write-input-ring)
+    (let ((buf (process-buffer process)))
+      (when (buffer-live-p buf)
+        (with-current-buffer buf
+          (insert (format "\nProcess %s %s" process event))))))
 
-(defun turn-on-comint-history ()
- (let ((process (get-buffer-process (current-buffer))))
-   (when process
-     (setq comint-input-ring-file-name
-       (format "~/.emacs.d/inferior-%s-history"
-           (process-name process)))
-     (comint-read-input-ring)
-     (set-process-sentinel process
-               #'comint-write-history-on-exit))))
+  (defun turn-on-comint-history ()
+    (let ((process (get-buffer-process (current-buffer))))
+      (when process
+        (setq comint-input-ring-file-name
+              (format "~/.emacs.d/inferior-%s-history"
+                      (process-name process)))
+        (comint-read-input-ring)
+        (set-process-sentinel process
+                              #'comint-write-history-on-exit))))
 
-(defun mapc-buffers (fn)
- (mapc (lambda (buffer)
-     (with-current-buffer buffer
-       (funcall fn)))
-       (buffer-list)))
+  (defun mapc-buffers (fn)
+    (mapc (lambda (buffer)
+            (with-current-buffer buffer
+              (funcall fn)))
+          (buffer-list)))
 
-(defun comint-write-input-ring-all-buffers ()
-(mapc-buffers 'comint-write-input-ring))
+  (defun comint-write-input-ring-all-buffers ()
+    (mapc-buffers 'comint-write-input-ring))
 
-(add-hook 'kill-emacs-hook 'comint-write-input-ring-all-buffers)
-(add-hook 'kill-buffer-hook 'comint-write-input-ring))
+  (add-hook 'kill-emacs-hook 'comint-write-input-ring-all-buffers)
+  (add-hook 'kill-buffer-hook 'comint-write-input-ring))
 
 ;; (use-package eglot-fsharp
 ;;   :ensure 
