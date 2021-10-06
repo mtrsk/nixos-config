@@ -15,15 +15,17 @@
     };
 
     # Utilities
-    nix-colors.url = "github:misterio77/nix-colors";
-
     eww = {
       url = "github:elkowar/eww";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hosts.url = "github:StevenBlack/hosts";
+
+    nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, emacs, home, nixpkgs, ... }@inputs:
+  outputs = { self, home, hosts, nixpkgs, ... }@inputs:
   let
     lib = nixpkgs.lib;
 
@@ -39,6 +41,12 @@
           ./fonts.nix
           ./machines/workstation/configuration.nix
           ./overlays
+          hosts.nixosModule {
+            networking.stevenBlackHosts = {
+              enable = true;
+              blockPorn = true;
+            };
+          }
           home.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

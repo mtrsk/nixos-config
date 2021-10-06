@@ -93,6 +93,21 @@
         "type": "github"
       }
     },
+    "flake-utils_2": {
+      "locked": {
+        "lastModified": 1631561581,
+        "narHash": "sha256-3VQMV5zvxaVLvqqUrNz3iJelLw30mIVSfZmAaauM3dA=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "7e5bf3925f6fbdfaf50a2a7ca0be2879c4261d19",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "home": {
       "inputs": {
         "nixpkgs": [
@@ -110,6 +125,25 @@
       "original": {
         "owner": "nix-community",
         "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "hosts": {
+      "inputs": {
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1633530712,
+        "narHash": "sha256-XJo7yhc78Of8l9JtHc/PF/LDeBq725KZZN/8MLoHzl0=",
+        "owner": "StevenBlack",
+        "repo": "hosts",
+        "rev": "1d346c35b42bca77f43ef6613fd24e75a094a3cd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "StevenBlack",
+        "repo": "hosts",
         "type": "github"
       }
     },
@@ -161,6 +195,19 @@
     },
     "nixpkgs_2": {
       "locked": {
+        "lastModified": 1633267966,
+        "narHash": "sha256-gFKvZ5AmV/dDTKXVxacPbXe4R0BsFpwtVaQxuIm2nnk=",
+        "path": "/nix/store/k13ripsl4n2p6wf2ksy5m017ryykx4qc-source",
+        "rev": "7daf35532d2d8bf5e6f7f962e6cd13a66d01a71d",
+        "type": "path"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
         "lastModified": 1633351077,
         "narHash": "sha256-z38JG4Bb0GtM1aF1pANVdp1dniMP23Yb3HnRoJRy2uU=",
         "owner": "NixOS",
@@ -180,8 +227,9 @@
         "emacs": "emacs",
         "eww": "eww",
         "home": "home",
+        "hosts": "hosts",
         "nix-colors": "nix-colors",
-        "nixpkgs": "nixpkgs_2"
+        "nixpkgs": "nixpkgs_3"
       }
     },
     "rust-analyzer-src": {
