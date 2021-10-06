@@ -15,13 +15,15 @@
     };
 
     # Utilities
+    nix-colors.url = "github:misterio77/nix-colors";
+
     eww = {
       url = "github:elkowar/eww";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, emacs, home, nixpkgs,  ... }@inputs:
+  outputs = { self, emacs, home, nixpkgs, ... }@inputs:
   let
     lib = nixpkgs.lib;
 

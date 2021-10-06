@@ -11,7 +11,7 @@
   programs.git = {
     enable = true;
 
-    userEmail = "marcos.schonfinkel@protonmail.com";
+    userEmail = "marcos.schonfinkel@gmail.com";
     userName = "Marcos Benevides";
 
     aliases = {

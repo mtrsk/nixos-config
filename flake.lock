@@ -2,11 +2,11 @@
   "nodes": {
     "emacs": {
       "locked": {
-        "lastModified": 1633362790,
-        "narHash": "sha256-p0GpcAgaS4DpBbyafz5tUrGKeuJDnLuDExu9cIJDbjc=",
+        "lastModified": 1633475826,
+        "narHash": "sha256-18HWCVRM/uWtsOsjDUf63yFzBII0Q9VU7ysQfTW14hM=",
         "owner": "nix-community",
         "repo": "emacs-overlay",
-        "rev": "448fd2e006decbb1f56822f199f0580204aedaea",
+        "rev": "365c08e471d81dc2aebe86c62ebe3258b49cd7ac",
         "type": "github"
       },
       "original": {
@@ -100,11 +100,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1633372222,
-        "narHash": "sha256-uh2D+VCQnz/8QasGY8yZs+VHJ2XQyZldRtPvcaIq5rY=",
+        "lastModified": 1633475692,
+        "narHash": "sha256-TlFBDh8Qz4fFQrLzKvhHax1KYHyd1H5BZiffDTLDVmk=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "88f9b333845d3d905463368efed5eabe304d75c2",
+        "rev": "592da767bd46a206a1a8200a48b829a59a06b969",
         "type": "github"
       },
       "original": {
@@ -128,6 +128,21 @@
       "original": {
         "owner": "nmattia",
         "repo": "naersk",
+        "type": "github"
+      }
+    },
+    "nix-colors": {
+      "locked": {
+        "lastModified": 1633318162,
+        "narHash": "sha256-rr6BMT4o66KWU9yXVv9W/yB/zMCVZC+zb4OvRftc/h8=",
+        "owner": "misterio77",
+        "repo": "nix-colors",
+        "rev": "182b4b8709b8ffe4e9774a4c5d6877bf6bb9a21c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "misterio77",
+        "repo": "nix-colors",
         "type": "github"
       }
     },
@@ -165,6 +180,7 @@
         "emacs": "emacs",
         "eww": "eww",
         "home": "home",
+        "nix-colors": "nix-colors",
         "nixpkgs": "nixpkgs_2"
       }
     },
