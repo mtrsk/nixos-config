@@ -1,4 +1,4 @@
-{ pkgs, config, home, hosts, nix-colors, ... }:
+{ pkgs, config, home, nix-colors, ... }:
 
 {
   imports = [
