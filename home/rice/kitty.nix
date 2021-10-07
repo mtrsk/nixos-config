@@ -1,4 +1,4 @@
-{ pkgs, nix-colors, colorscheme, ... }:
+{ pkgs, config, nix-colors, colorscheme, ... }:
 
 {
   programs.kitty = {

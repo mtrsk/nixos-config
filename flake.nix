@@ -53,6 +53,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.leto = import ./users/leto;
           }
+          nix-colors.homeManagerModule
         ];
 
         specialArgs = { inherit inputs nix-colors system; };
