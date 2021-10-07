@@ -25,7 +25,7 @@
     nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, home, hosts, nixpkgs, ... }@inputs:
+  outputs = { self, home, hosts, nix-colors, nixpkgs, ... }@inputs:
   let
     lib = nixpkgs.lib;
 
@@ -55,7 +55,7 @@
           }
         ];
 
-        specialArgs = { inherit inputs system; };
+        specialArgs = { inherit inputs nix-colors system; };
       };
     };
   };

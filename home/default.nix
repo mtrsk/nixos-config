@@ -1,11 +1,13 @@
-{pkgs, username, ...}:
+{pkgs, config, nix-colors, username, ...}:
 
 {
   imports =
     [
       # Directories
       ./development
-      ./rice
+      (import ./rice {
+        inherit pkgs config nix-colors;
+      })
       # Files
       ./browsers.nix
       ./chats.nix

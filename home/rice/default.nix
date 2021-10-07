@@ -5,6 +5,6 @@ let
 in
 {
   imports = [
-    (import ./kitty.nix { inherit pkgs colorscheme; })
+    (import ./kitty.nix { inherit pkgs colorscheme nix-colors; })
   ];
 }
