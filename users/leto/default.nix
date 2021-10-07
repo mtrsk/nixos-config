@@ -1,10 +1,10 @@
-{ pkgs, config, home, nix-colors, ... }:
+{ pkgs, config, home, inputs, ... }:
 
 {
   imports = [
     (import ../../home {
       username="leto";
-      inherit config home pkgs nix-colors;
+      inherit config home pkgs inputs;
     })
   ];
 

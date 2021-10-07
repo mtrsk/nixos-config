@@ -56,7 +56,7 @@
           nix-colors.homeManagerModule
         ];
 
-        specialArgs = { inherit inputs nix-colors system; };
+        specialArgs = { inherit inputs system; };
       };
     };
   };
