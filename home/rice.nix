@@ -27,8 +27,4 @@
     source = ../dotfiles/i3wm;
     recursive = true;
   };
-
-  home.sessionVariables = {
-    SPACESHIP_EXIT_CODE_SHOW = "true";
-  };
 }

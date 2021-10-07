@@ -9,10 +9,10 @@
   ];
 
   home.packages = with pkgs; [
+    aria
     arandr
     xclip
     gimp
     krita
-    transmission-gtk
   ];
 }
