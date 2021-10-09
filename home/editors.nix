@@ -72,6 +72,13 @@ in {
     ];
   };
 
+  xdg.configFile = {
+    nvim = {
+      source = ../dotfiles/nvim;
+      recursive = true;
+    };
+  };
+
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
