@@ -2,7 +2,10 @@
 
 {
   home.packages = with pkgs; [
+    age
     lynis
+    magic-wormhole
+    tarsnap
     tomb
     zbar # for pass-otp
   ];
