@@ -28,6 +28,16 @@
       enable = true;
     };
 
+    extraConfig = {
+      core = {
+        editor = "nvim";
+      };
+
+      init = {
+        defaultBranch = "main";
+      };
+    };
+
     includes = [
       {
         condition = "gitdir:~/Work/";
