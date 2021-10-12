@@ -75,6 +75,7 @@
         alert
         # Org
         helm-org-rifle
+        org-appear
         org-books
         org-drill
         org-elp

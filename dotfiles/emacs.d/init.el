@@ -9,6 +9,7 @@
 (load-file "~/.emacs.d/evil.el")
 (load-file "~/.emacs.d/git.el")
 (load-file "~/.emacs.d/ide.el")
+(load-file "~/.emacs.d/roam.el")
 (load-file "~/.emacs.d/ui.el")
 
 (require 'ox-org)
@@ -22,54 +23,20 @@
                ("\\subsection\{%s\}" . "\\subsection*\{%s\}")
                ("\\subsubsection\{%s\}" . "\\subsubsection*\{%s\}")))
 
-(use-package direnv
- :config
- (direnv-mode))
+;; Org-Mode initial setup
+(use-package org
+  :bind
+  (("C-c l" . org-store-link)
+   ("C-c a" . org-agenda)
+   ("C-c c" . org-capture)))
 
 ;; Allows to see which commands are being called:
 ;; - command-log-mode
 ;; - clm/open-command-log-buffer
 (use-package command-log-mode)
 
-(use-package es-mode
-  :init (add-to-list 'auto-mode-alist '("\\.es$" . es-mode))
-  :hook ((es-result-mode . hs-minor-mode)))
-
-(use-package elpy
-  :commands elpy-enable
-  ;; Only call `elpy-enable` when needed.
-  ;; See: https://emacs.stackexchange.com/q/10065/22105
-  :init (with-eval-after-load 'python (elpy-enable))
-  :config
-  (setq elpy-rpc-virtualenv-path 'current)
-  ;; by default, elpy uses flymake. This forces it to use flycheck instead
-  ;; See:
-  ;;     - https://github.com/jorgenschaefer/elpy/wiki/Customizations#use-flycheck-instead-of-flymake
-  ;;     - https://github.com/jorgenschaefer/elpy/issues/137
-  (when (require 'flycheck nil t)
-    (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-    (add-hook 'elpy-mode-hook 'flycheck-mode)))
-
-(use-package org-roam
-      :ensure t
-      :custom
-      (org-roam-directory (file-truename "~/Notes"))
-      :bind (("C-c n l" . org-roam-buffer-toggle)
-             ("C-c n f" . org-roam-node-find)
-             ("C-c n g" . org-roam-graph)
-             ("C-c n i" . org-roam-node-insert)
-             ("C-c n c" . org-roam-capture)
-             ;; Dailies
-             ("C-c n j" . org-roam-dailies-capture-today))
-      :config
-      (org-roam-setup))
-
 (use-package rg
   :config (rg-enable-default-bindings))
-
-
-(use-package vimrc-mode
-  :init (add-to-list 'auto-mode-alist '("\\.vim\\(rc\\)?\\'" . vimrc-mode)))
 
 (use-package undo-tree
   :init (global-undo-tree-mode))

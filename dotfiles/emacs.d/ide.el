@@ -1,3 +1,8 @@
+;; direnv
+(use-package direnv
+  :config
+  (direnv-mode))
+
 (use-package company
   :commands company-tng-configure-default
   :custom
@@ -92,6 +97,12 @@
 (use-package dockerfile-mode
   :config (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode)))
 
+;;; Javascript
+
+(use-package es-mode
+  :init (add-to-list 'auto-mode-alist '("\\.es$" . es-mode))
+  :hook ((es-result-mode . hs-minor-mode)))
+
 ;;; Nix
 (add-to-list 'lsp-language-id-configuration '(nix-mode . "nix"))
 (lsp-register-client
@@ -138,7 +149,7 @@
   (add-hook 'kill-buffer-hook 'comint-write-input-ring))
 
 ;; (use-package eglot-fsharp
-;;   :ensure 
+;;   :ensure
 ;;   :config
 ;;   (add-hook 'inferior-fsharp-mode-hook 'turn-on-comint-history))
 
@@ -193,3 +204,8 @@
 ;;; YAML
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-mode))
+
+;;; Vim
+(use-package vimrc-mode
+  :init (add-to-list 'auto-mode-alist '("\\.vim\\(rc\\)?\\'" . vimrc-mode)))
+
