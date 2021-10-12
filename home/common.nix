@@ -12,6 +12,7 @@
     jq
     lsof
     nix-prefetch-git
+    ouch
     pciutils    # lspci
     psmisc      # pkill, killall, pstree, fuser
     ripgrep
