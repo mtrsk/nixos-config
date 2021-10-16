@@ -24,6 +24,7 @@
     unzip
     usbutils    # lsusb
     scrot
+    shotgun
     wget
     zip
   ];
