@@ -10,5 +10,7 @@
     vault
     # Pulumi
     pulumi-bin
+    # Terraform
+    terracognita
   ];
 }
