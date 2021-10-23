@@ -31,7 +31,7 @@
       vim="nvim";
     };
     history = {
-      size = 2000;
+      size = 5000;
       ignoreDups = true;
     };
     initExtra = builtins.readFile ../dotfiles/zsh/zshrc;
