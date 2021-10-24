@@ -25,6 +25,7 @@ in {
     extraConfig = builtins.concatStringsSep "\n" [
       ''
       luafile ${builtins.toString ../dotfiles/nvim/settings.lua}
+      luafile ${builtins.toString ../dotfiles/nvim/line.lua}
       luafile ${builtins.toString ../dotfiles/nvim/lsp.lua}
       luafile ${builtins.toString ../dotfiles/nvim/ide.lua}
       luafile ${builtins.toString ../dotfiles/nvim/tabs.lua}
@@ -38,7 +39,6 @@ in {
       plenary-nvim
       nvim-treesitter
       telescope-nvim
-      vim-airline
       vim-fugitive
       vim-markdown
       vim-trailing-whitespace
@@ -59,6 +59,8 @@ in {
       nvim-lspconfig
       # Tabs
       barbar-nvim
+      # Status Line
+      lualine-nvim
       # ----------------------
       # Misc. Language Support
       # ----------------------

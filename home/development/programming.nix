@@ -11,6 +11,7 @@
     hadolint
     shellcheck
     sqlcheck
+    yamllint
     # Other stuff
     siege
     taskjuggler
