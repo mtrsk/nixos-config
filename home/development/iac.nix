@@ -2,6 +2,9 @@
 
 {
   home.packages = with pkgs; [
+    # Dhall
+    dhall
+    dhall-json
     # Hashicorp
     nomad
     nomad-autoscaler
