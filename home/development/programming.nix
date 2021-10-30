@@ -5,8 +5,9 @@
     # Languages tooling
     cachix
     nixfmt
-    sumneko-lua-language-server
     rnix-lsp
+    sumneko-lua-language-server
+    terraform-ls
     # Linters
     hadolint
     shellcheck

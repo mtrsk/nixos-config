@@ -1,6 +1,11 @@
 -- Languages
+vim.o.completeopt = "menuone,noselect"
 
 -- F#
+vim.cmd [[
+    autocmd BufNewFile,BufRead *.fs,*.fsx,*.fsi set filetype=fsharp
+]]
+
 require'lspconfig'.fsautocomplete.setup{}
 
 -- Lua
@@ -10,9 +15,9 @@ require'lspconfig'.sumneko_lua.setup{}
 require'lspconfig'.rnix.setup{}
 
 -- Terraform
--- require'lspconfig'.terraformls.setup{}
-
-vim.o.completeopt = "menuone,noselect"
+require'lspconfig'.terraformls.setup{}
+vim.g.terraform_fmt_on_save = 1
+vim.g.terraform_align = 1
 
 -- Autocompletion setup
 require'compe'.setup {

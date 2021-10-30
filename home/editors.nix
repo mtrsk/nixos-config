@@ -27,7 +27,6 @@ in {
       luafile ${builtins.toString ../dotfiles/nvim/settings.lua}
       luafile ${builtins.toString ../dotfiles/nvim/line.lua}
       luafile ${builtins.toString ../dotfiles/nvim/lsp.lua}
-      luafile ${builtins.toString ../dotfiles/nvim/ide.lua}
       luafile ${builtins.toString ../dotfiles/nvim/tabs.lua}
       luafile ${builtins.toString ../dotfiles/nvim/tree.lua}
       ''
