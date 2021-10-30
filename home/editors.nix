@@ -36,9 +36,7 @@ in {
     plugins = with pkgs.vimPlugins // (vimPrivatePlugins); [
       # Base
       popup-nvim
-      plenary-nvim
       nvim-treesitter
-      telescope-nvim
       vim-fugitive
       vim-markdown
       vim-trailing-whitespace
@@ -51,6 +49,9 @@ in {
       nvim-web-devicons
       # File Tree
       nvim-tree-lua
+      # Find/Filter
+      plenary-nvim
+      telescope-nvim
       # LSP
       cmp-buffer
       cmp-nvim-lsp

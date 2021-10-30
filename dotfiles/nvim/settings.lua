@@ -55,5 +55,7 @@ opt.compatible = false
 opt.hidden = true
 opt.shortmess = "atI"
 
+-- Telescope
+
 -- Eyecandy
 require 'colorizer'.setup()
