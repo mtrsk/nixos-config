@@ -14,3 +14,6 @@
          ("C-M-i"   . completion-at-point))
   :config
   (org-roam-setup))
+
+;; This would only display the title, without any extra whitespace
+(setq org-roam-node-display-template "${title}")
