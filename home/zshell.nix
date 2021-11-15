@@ -15,6 +15,17 @@
     enable = true;
     enableAutosuggestions = true;
     enableCompletion = true;
+    plugins = [
+      {
+        name = "zsh-autosuggestions";
+        src = pkgs.fetchFromGitHub {
+          owner = "jeffreytse";
+          repo = "zsh-vi-mode";
+          rev = "v0.8.5";
+          sha256 = "1wgkqy89qp1kkg64brm42rx3apsfhmpada57vci0lwib3lg2mrhh";
+        };
+      }
+    ];
     shellAliases = {
       icat="kitty +kitten icat";
       hstat="curl -o /dev/null --silent --head --write-out '%{http_code}\n' $1";

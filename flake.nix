@@ -2,9 +2,14 @@
   description = "Nixos Configuration";
 
   inputs = {
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     emacs = {
       url = "github:nix-community/emacs-overlay/master";
-      inputs.nixpkgs.follows = "unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -44,7 +49,7 @@
           hosts.nixosModule {
             networking.stevenBlackHosts = {
               enable = true;
-              blockPorn = true;
+              # blockPorn = true;
             };
           }
           home.nixosModules.home-manager
