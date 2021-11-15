@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     discord
-    ferdi
+    # ferdi
     slack
     signal-desktop
     tdesktop
