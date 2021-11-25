@@ -4,12 +4,13 @@
   home.packages = with pkgs; [
     # Languages tooling
     cachix
+    dhall-lsp-server
     nixfmt
     rnix-lsp
     sumneko-lua-language-server
     terraform-ls
     # Linters
-    # hadolint
+    hadolint
     shellcheck
     sqlcheck
     yamllint
