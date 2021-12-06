@@ -187,8 +187,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 # Mod5 => Alt_GR
 
 # Mod4 + Shift + Key
-bindsym $mod+Shift+f exec firefox
-bindsym $mod+Shift+p exec firefox -private-window
+# bindsym $mod+Shift+f exec firefox
+bindsym $mod+Shift+f exec brave
 
 # Mod4 + Key
 bindsym --release $mod+Print exec scrot -s
