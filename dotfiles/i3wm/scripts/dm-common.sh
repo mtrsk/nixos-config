@@ -84,7 +84,7 @@ case "$category" in
     case "$choice" in
       "Transmission")
         notify-send "Transmission launched"
-        transmission-gtk
+        transmission-qt
         ;;
     esac
     ;;
