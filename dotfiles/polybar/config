@@ -332,8 +332,7 @@ ramp-volume-2 = 
 
 [module/wired-network]
 type = internal/network
-# interface = enp4s0
-interface = enp8s0
+interface = enp7s0
 
 ; Available tags:
 ;   <label-connected> (default)
