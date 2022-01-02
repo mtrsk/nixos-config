@@ -106,7 +106,6 @@
     gnome3.adwaita-icon-theme
     gparted
     networkmanagerapplet
-    stevenblack-blocklist
   ];
 
   # Programs
