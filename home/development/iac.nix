@@ -6,6 +6,7 @@
     dhall
     dhall-json
     # Hashicorp
+    kbst
     nomad
     nomad-autoscaler
     packer

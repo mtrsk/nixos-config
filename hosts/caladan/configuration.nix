@@ -90,7 +90,8 @@
   services.xserver = {
     layout = "br";
     xkbOptions = "ctrl:nocaps";
-    videoDrivers = [ "nvidia" ];
+    # videoDrivers = [ "nvidia" ];
+    videoDrivers = [ "amdgpu" ];
     dpi = 100;
     desktopManager.xterm.enable = false;
     displayManager.sddm.enable = true;

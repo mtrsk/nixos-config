@@ -39,7 +39,7 @@
         modules = [
           ./documentation.nix
           ./fonts.nix
-          ./machines/workstation/configuration.nix
+          ./hosts/caladan/configuration.nix
           ./overlays
           hosts.nixosModule {
             networking.stevenBlackHosts = {
