@@ -12,7 +12,6 @@ in
     mpv
     ncmpcpp
     graphviz
-    # polar-bookshelf
     poppler_utils
     obs-studio
     ranger
