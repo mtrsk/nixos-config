@@ -10,7 +10,6 @@
       ./hardware-configuration.nix
 
       # Services
-      # ../../services/compton.nix
       ../../services/fail2ban.nix
       ../../services/journald.nix
       ../../services/swaywm.nix
@@ -80,6 +79,7 @@
     libinput.enable = true;
   };
 
+  # Hardware
   hardware.opengl = {
     enable = true;
     driSupport = true;
@@ -94,13 +94,6 @@
 
   hardware.cpu.intel.updateMicrocode = true;
   hardware.enableRedistributableFirmware = true;
-
-  # Configure keymap in X11
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.groups.leto.gid = 1000;
@@ -123,22 +116,12 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim
     wget
-    firefox
   ];
 
   environment.sessionVariables = {
     "XKB_DEFAULT_LAYOUT" = "br(thinkpad)";
   };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # List services that you want to enable:
 
