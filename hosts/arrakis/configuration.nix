@@ -15,7 +15,7 @@
       ../../services/journald.nix
       ../../services/swaywm.nix
       ../../services/localization.nix
-      ../../services/pulseaudio.nix
+      ../../services/pipewire.nix
 
       # Virtualisation
       ../../virtualisation/docker.nix
@@ -99,10 +99,6 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # Enable sound.
-  # sound.enable = true;
-  hardware.pulseaudio.enable = true;
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -116,7 +112,10 @@
     extraGroups = [
      "audio"
      "disk"
+     "input"
      "networkmanager"
+     "tty"
+     "video"
      "wheel"
     ];
   };
