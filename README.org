@@ -2,9 +2,10 @@
 
 My NixOS configuration files.
 
-** TODO List [2/5]
+** TODO List [3/6]
 
    - [X] Use home-manager for user-related configurations
+   - [X] Migrate to ~wayland~ + ~sway~
    - [X] Integration with Nix-flakes
    - [ ] Integration with the [[https://github.com/nix-community/impermanence][impermanence module]]
    - [ ] Integration with one of the following secret management tools:
@@ -19,7 +20,9 @@ My NixOS configuration files.
    - Build it
 
 #+BEGIN_SRC bash
-sudo nixos-rebuild switch --flake .#caladan
+  sudo nixos-rebuild switch --flake .#caladan
+  # or
+  sudo nixos-rebuild switch --flake .#arrakis
 #+END_SRC
 
 ** Why should I use it?

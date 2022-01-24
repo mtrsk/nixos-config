@@ -58,6 +58,32 @@
 
         specialArgs = { inherit inputs system; };
       };
+
+      arrakis = lib.nixosSystem {
+        inherit system;
+
+        modules = [
+          ./documentation.nix
+          ./fonts.nix
+          ./hosts/arrakis/configuration.nix
+          ./overlays
+          hosts.nixosModule {
+            networking.stevenBlackHosts = {
+              enable = true;
+              blockPorn = true;
+            };
+          }
+          home.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.leto = import ./users/arrakis.nix;
+          }
+          nix-colors.homeManagerModule
+        ];
+
+        specialArgs = { inherit inputs system; };
+      };
     };
   };
 }

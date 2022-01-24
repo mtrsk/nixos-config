@@ -20,10 +20,6 @@
         user=username;
         inherit pkgs;
       })
-      (import ./rice.nix {
-        user=username;
-        inherit pkgs;
-      })
       ./security.nix
       ./udiskie.nix
       ./zshell.nix
