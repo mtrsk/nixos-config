@@ -1,4 +1,4 @@
-{pkgs, config, inputs, username, ...}:
+{pkgs, config, inputs, username, system, ...}:
 
 {
   imports =
@@ -6,7 +6,7 @@
       # Directories
       ./development
       (import ./rice {
-        inherit pkgs config inputs;
+        inherit pkgs config inputs system;
       })
       # Files
       ./browsers.nix

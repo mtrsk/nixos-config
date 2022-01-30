@@ -1,20 +1,13 @@
-{ inputs, system, pkgs, config, ... }:
+{ pkgs, config, inputs, system, ... }:
 
-let
-  overlay = final: prev: {
-    "eww" = inputs.eww.packages.${system}.eww;
-  };
-in
 {
-  nixpkgs.overlays = [ overlay ];
-
   home.packages = with pkgs; [
-    eww
+    eww-wayland
   ];
 
-  xdg.configFile = {
-    "eww/" = {
-      source = ../../dotfiles/eww;
-    };
-  };
+  #xdg.configFile = {
+  #  "eww/" = {
+  #    source = ../../dotfiles/eww;
+  #  };
+  #};
 }

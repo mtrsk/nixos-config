@@ -2,7 +2,7 @@
 
 {
   imports = [
-    (import ../home {
+    (import ../../home {
       username="leto";
       inherit config home pkgs inputs system;
     })
@@ -10,7 +10,6 @@
 
   home.packages = with pkgs; [
     aria
-    arandr
     gimp
     krita
   ];

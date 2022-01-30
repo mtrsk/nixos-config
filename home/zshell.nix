@@ -16,7 +16,6 @@
     enableAutosuggestions = true;
     enableCompletion = true;
     shellAliases = {
-      icat="kitty +kitten icat";
       hstat="curl -o /dev/null --silent --head --write-out '%{http_code}\n' $1";
       l="ls -l";
       ls="ls -h --group-directories-first --color=auto";
@@ -26,7 +25,6 @@
       poc="pass otp --clip";
       r="ranger";
       xcc="xclip -sel clipboard";
-      sshk="kitty +kitten ssh";
       vi="nvim";
       vim="nvim";
     };

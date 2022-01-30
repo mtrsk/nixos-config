@@ -123,6 +123,9 @@
     "XKB_DEFAULT_LAYOUT" = "br(thinkpad)";
   };
 
+  # https://nix-community.github.io/home-manager/options.html#opt-programs.zsh.enableCompletion
+  environment.pathsToLink = [ "/share/zsh" ];
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.

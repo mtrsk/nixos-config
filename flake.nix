@@ -14,11 +14,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nixos-hardware.url = github:NixOS/nixos-hardware/master;
+
     # Utilities
-    eww = {
-      url = "github:elkowar/eww";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #eww = {
+    #  url = "github:elkowar/eww";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
     hosts.url = "github:StevenBlack/hosts";
 
@@ -51,7 +53,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.leto = import ./users/leto;
+            home-manager.users.leto = import ./hosts/caladan/users.nix;
           }
           nix-colors.homeManagerModule
         ];
@@ -77,9 +79,10 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.leto = import ./users/arrakis.nix;
+            home-manager.users.leto = import ./hosts/arrakis/users.nix;
           }
           nix-colors.homeManagerModule
+          inputs.nixos-hardware.nixosModules.lenovo-thinkpad-l13
         ];
 
         specialArgs = { inherit inputs system; };
