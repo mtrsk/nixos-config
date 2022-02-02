@@ -10,7 +10,6 @@ map('n', '<Leader>f', ':NvimTreeFocus<CR>', options)
 
 -- Package options
 local g = vim.g
-g.nvim_tree_ignore = {".git", "node_modules", ".cache"}
 
 -- Integration with tabs
 local tree ={}

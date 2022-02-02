@@ -59,19 +59,19 @@
     };
   };
 
-  systemd.user.services.swayidle = {
-    description = "Idle Manager for Wayland";
-    documentation = [ "man:swayidle(1)" ];
-    wantedBy = [ "sway-session.target" ];
-    partOf = [ "graphical-session.target" ];
-    path = [ pkgs.bash ];
-    serviceConfig = {
-      ExecStart = '' ${pkgs.swayidle}/bin/swayidle -w -d \
-        timeout 300 '${pkgs.sway}/bin/swaymsg "output * dpms off"' \
-        resume '${pkgs.sway}/bin/swaymsg "output * dpms on"'
-      '';
-    };
-  };
+  #systemd.user.services.swayidle = {
+  #  description = "Idle Manager for Wayland";
+  #  documentation = [ "man:swayidle(1)" ];
+  #  wantedBy = [ "sway-session.target" ];
+  #  partOf = [ "graphical-session.target" ];
+  #  path = [ pkgs.bash ];
+  #  serviceConfig = {
+  #    ExecStart = '' ${pkgs.swayidle}/bin/swayidle -w -d \
+  #      timeout 300 '${pkgs.sway}/bin/swaymsg "output * dpms off"' \
+  #      resume '${pkgs.sway}/bin/swaymsg "output * dpms on"'
+  #    '';
+  #  };
+  #};
 
   services.xserver = {
     enable = true;
@@ -88,24 +88,6 @@
       "xdg/waybar/styles.css".source = ../dotfiles/waybar/style.css;
     };
   };
-
-  environment.systemPackages = with pkgs; [
-    (
-      pkgs.writeTextFile {
-        name = "startsway";
-        destination = "/bin/startsway";
-        executable = true;
-        text = ''
-          #! ${pkgs.bash}/bin/bash
-
-          # first import environment variables from the login manager
-          systemctl --user import-environment
-          # then start the service
-          exec systemctl --user start sway.service
-        '';
-      }
-    )
-  ];
 
   programs.waybar.enable = true;
 }

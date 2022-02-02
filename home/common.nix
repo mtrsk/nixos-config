@@ -7,6 +7,7 @@
     fd
     file
     ffmpeg
+    flameshot
     htop
     gnumake
     jq
@@ -24,8 +25,6 @@
     unar
     unzip
     usbutils    # lsusb
-    scrot
-    shotgun
     wget
     zip
   ];
