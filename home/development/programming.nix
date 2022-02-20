@@ -10,6 +10,7 @@
     sumneko-lua-language-server
     terraform-ls
     # Linters
+    dockle
     hadolint
     shellcheck
     sqlcheck

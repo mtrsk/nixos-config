@@ -182,6 +182,7 @@
 ;;; Terraform/HCL
 (require 'terraform-mode)
 (add-to-list 'auto-mode-alist '("\\.tf\\'" . terraform-mode))
+(add-to-list 'auto-mode-alist '("\\.tfvars\\'" . terraform-mode))
 (add-to-list 'auto-mode-alist '("\\.pkr.hcl\\'" . terraform-mode))
 (add-hook 'terraform-mode-hook #'terraform-format-on-save-mode)
 

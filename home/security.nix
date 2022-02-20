@@ -5,6 +5,7 @@
     age
     lynis
     magic-wormhole
+    openssl
     tarsnap
     tomb
     zbar # for pass-otp

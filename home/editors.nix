@@ -41,6 +41,7 @@ in {
       vim-trailing-whitespace
       vim-surround
       vim-which-key
+      hologram-nvim
       # Eyecandy
       wal-vim
       nvim-colorizer-lua

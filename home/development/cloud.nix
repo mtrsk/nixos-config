@@ -7,7 +7,6 @@
     azure-cli
     azure-storage-azcopy
     heroku
-    oci-cli
     # Firecracker Micro-VM
     firecracker
     firectl

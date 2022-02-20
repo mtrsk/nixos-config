@@ -24,7 +24,7 @@
       psc="pass --clip";
       poc="pass otp --clip";
       r="ranger";
-      xcc="xclip -sel clipboard";
+      rsync="rsync -chavzP --stats";
       vi="nvim";
       vim="nvim";
     };

@@ -43,10 +43,12 @@
 
 ;; Set default font
 (set-face-attribute 'default nil
-                    :family "Hack"
+                    :family "Iosevka"
                     :height 150
                     :weight 'normal
                     :width 'normal)
+(set-fontset-font "fontset-default" 'han (font-spec :family "WenQuanYi Zen Hei"))
+;; (set-fontset-font "fontset-default" 'han (font-spec :family "WenQuanYi Zen Hei Mono"))
 
 ;; <ESC> cancels all
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)

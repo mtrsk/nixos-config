@@ -6,16 +6,25 @@
   # fonts.fontconfig = {
   #   enable = true;
   #   hinting.enable = true;
-  #   includeUserConf = true;
+  #   defaultFonts = {
+  #     serif = [ "Hack" "Ubuntu" ];
+  #     sansSerif = [ "Hack" "Ubuntu" ];
+  #     monospace = [ "Hack" "Ubuntu" ];
+  #   };
   # };
 
   fonts.fonts = with pkgs; [
+    # Chinese
+    arphic-ukai
+    arphic-uming
+    wqy_zenhei
+    # Other
     font-awesome_5
     hack-font
     iosevka
     jetbrains-mono
-    mplus-outline-fonts
-    nerdfonts
+    # mplus-outline-fonts
+    # nerdfonts
     powerline-fonts
     profont
     proggyfonts

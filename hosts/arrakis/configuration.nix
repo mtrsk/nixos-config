@@ -95,6 +95,8 @@
   hardware.cpu.intel.updateMicrocode = true;
   hardware.enableRedistributableFirmware = true;
 
+  hardware.bluetooth.enable = false;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.groups.leto.gid = 1000;
   users.users.leto = {
