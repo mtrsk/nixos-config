@@ -24,7 +24,7 @@
     iosevka
     jetbrains-mono
     # mplus-outline-fonts
-    # nerdfonts
+    nerdfonts
     powerline-fonts
     profont
     proggyfonts
