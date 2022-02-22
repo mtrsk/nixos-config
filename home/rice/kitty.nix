@@ -13,6 +13,20 @@
       # Audio
       enable_audio_bell = "no";
 
+      # Shell & Editor
+      shell = "${pkgs.zsh}/bin/zsh";
+      editor = "${pkgs.neovim}/bin/nvim";
+
+        # Cursor
+      cursor_shape = "block";
+
+      # Tabs
+      tab_bar_edge = "top";
+
+      # Transparency
+      background_opacity = "0.95";
+      dynamic_background_opacity = "no";
+
       # Colorschemes
       #active_border_color = "#${config.colors.base08}";
       #inactive_border_color = "#${config.colorscheme.colors.base00}";
@@ -38,20 +52,6 @@
       #color13 = "#${colorscheme.colors.base13}";
       #color14 = "#${colorscheme.colors.base14}";
       #color15 = "#${colorscheme.colors.base15}";
-
-      # Cursor
-      cursor_shape = "block";
-
-      # Tabs
-      tab_bar_edge = "top";
-
-      # Transparency
-      background_opacity = "0.95";
-      dynamic_background_opacity = "no";
     };
-
-    extraConfig = ''
-      include ~/.cache/wal/colors-kitty.conf
-    '';
   };
 }
