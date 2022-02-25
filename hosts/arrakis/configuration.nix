@@ -71,7 +71,6 @@
 
   console.useXkbConfig = true;
 
-  # Enable the Plasma 5 Desktop Environment.
   services.xserver = {
     layout = "br(thinkpad)";
     xkbOptions = "ctrl:nocaps";
@@ -107,6 +106,7 @@
     extraGroups = [
      "audio"
      "disk"
+     "docker"
      "input"
      "networkmanager"
      "tty"
