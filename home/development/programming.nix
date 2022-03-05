@@ -7,6 +7,7 @@
     dhall-lsp-server
     nixfmt
     rnix-lsp
+    poetry
     sumneko-lua-language-server
     terraform-ls
     # Linters

@@ -11,6 +11,6 @@
   };
 
   environment.systemPackages = (with pkgs; [
-    docker_compose
+    docker-compose
   ]);
 }
