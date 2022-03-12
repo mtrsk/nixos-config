@@ -3,7 +3,7 @@
 {
   services.udiskie = {
     enable = true;
-    notify = false;
-    tray = "always";
+    notify = true;
+    tray = "auto";
   };
 }
