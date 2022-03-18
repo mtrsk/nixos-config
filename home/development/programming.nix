@@ -5,6 +5,7 @@
     # Languages tooling
     cachix
     dhall-lsp-server
+    insomnia
     nixfmt
     rnix-lsp
     poetry
