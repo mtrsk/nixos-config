@@ -30,6 +30,8 @@
       export QT_WAYLAND_DISABLE_WINDOW_DECORATION=1
       export _JAVA_AWT_WM_NONTRANSPARENTIG=1
       export MOZ_ENABLE_WAYLAND=1
+      export XDG_SESSION_TYPE=wayland
+      export XDG_CURRENT_DESKTOP=sway
     '';
   };
 
@@ -86,6 +88,17 @@
       "sway/config".source = ../dotfiles/sway/config;
       "xdg/waybar/config".source = ../dotfiles/waybar/config;
       "xdg/waybar/styles.css".source = ../dotfiles/waybar/style.css;
+    };
+  };
+
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
+      ];
+      gtkUsePortal = true;
     };
   };
 
