@@ -31,13 +31,13 @@
   fileSystems."/nix" =
     { device = "/dev/disk/by-uuid/4dd26403-372e-431f-ae12-4187aa858246";
       fsType = "ext4";
+      neededForBoot = true;
+      options = [ "noatime" ];
     };
 
   fileSystems."/var" =
     { device = "/dev/disk/by-uuid/8456df82-d270-4a67-89e7-059fa894bcff";
       fsType = "ext4";
-      neededForBoot = true;
-      options = [ "noatime" ];
     };
 
   swapDevices =
