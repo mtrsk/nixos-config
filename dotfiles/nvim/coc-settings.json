@@ -1,7 +1,7 @@
 {
   // diagnostic-languageserver
   "diagnostic-languageserver.filetypes": {
-    "dockerfile": "hadolint",
+    "Dockerfile": "hadolint",
     "sh": "shellcheck",
     "yaml": [ "yamllint" ],
     "systemd": "systemd-analyze"
@@ -13,7 +13,7 @@
       "trace.server": "verbose",
       "filetypes": ["nix"]
     }
-  }
+  },
   // Python
   "python.formatting.provider": "black",
   "python.linting.flake8Enabled": true,
