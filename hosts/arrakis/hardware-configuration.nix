@@ -36,6 +36,8 @@
   fileSystems."/var" =
     { device = "/dev/disk/by-uuid/8456df82-d270-4a67-89e7-059fa894bcff";
       fsType = "ext4";
+      neededForBoot = true;
+      options = [ "noatime" ];
     };
 
   swapDevices =
