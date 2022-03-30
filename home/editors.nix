@@ -32,6 +32,14 @@ in {
       ''
     ];
 
+    extraPackages = with pkgs; [
+      (python3.withPackages (ps: with ps; [
+        black
+        flake8
+      ]))
+      nodejs
+    ];
+
     plugins = with pkgs.vimPlugins // (vimPrivatePlugins); [
       # Base
       popup-nvim
@@ -42,6 +50,13 @@ in {
       vim-surround
       vim-which-key
       hologram-nvim
+      # CoC
+      coc-diagnostic
+      coc-nvim
+      coc-lua
+      coc-pyright
+      coc-vimlsp
+      coc-yaml
       # Eyecandy
       wal-vim
       nvim-colorizer-lua
