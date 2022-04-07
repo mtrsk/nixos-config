@@ -8,7 +8,7 @@
     azure-storage-azcopy
     heroku
     # Databases
-    dbeaver
+    # dbeaver
     # Firecracker Micro-VM
     firecracker
     firectl

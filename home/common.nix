@@ -14,6 +14,7 @@
     lsof
     nix-prefetch-git
     ouch
+    parallel
     pciutils    # lspci
     psmisc      # pkill, killall, pstree, fuser
     ripgrep
