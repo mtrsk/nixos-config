@@ -27,10 +27,6 @@ in
     enable = true;
   };
 
-  services.dunst = {
-    enable = true;
-  };
-
   services.mpd = {
     enable = true;
     dataDir = builtins.toPath "/home/${user}/.mpd";

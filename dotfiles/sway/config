@@ -198,6 +198,11 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #
+# Extra quality of life commands:
+#
+bindsym Print exec grim -g "$(slurp -d)"
+
+#
 # Startup commands
 #
 
