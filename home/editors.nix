@@ -49,6 +49,7 @@ in {
       vim-trailing-whitespace
       vim-surround
       vim-which-key
+      vim-visual-multi
       hologram-nvim
       # CoC
       coc-diagnostic
