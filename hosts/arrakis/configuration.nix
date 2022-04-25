@@ -130,6 +130,9 @@
 
   # List services that you want to enable:
 
+  # Programs
+  programs.steam.enable = true;
+
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
