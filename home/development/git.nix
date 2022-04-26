@@ -38,7 +38,7 @@
       };
 
       safe = {
-        directory = "/etc/nixos";
+        directory = "/home/leto/NixOS";
       };
     };
 

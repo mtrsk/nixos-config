@@ -13,7 +13,7 @@
     terraform
     vault
     # Pulumi
-    # pulumi-bin
+    pulumi-bin
     # Terraform
     terracognita
   ];
