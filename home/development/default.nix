@@ -26,6 +26,8 @@
     keyMode = "vi";
 
     extraConfig = ''
+# Copy to Wayland
+set -s copy-command 'wl-copy'
 # Setting the prefix from C-b to C-a
 set -g prefix C-a
 # Free the original Ctrl-b prefix keybinding
