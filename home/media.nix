@@ -15,7 +15,7 @@ in
     poppler_utils
     obs-studio
     ranger
-    youtube-dl
+    yt-dlp
     waifu2x-converter-cpp
   ];
 

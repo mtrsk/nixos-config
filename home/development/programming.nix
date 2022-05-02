@@ -9,6 +9,7 @@
     nixfmt
     rnix-lsp
     poetry
+    postman
     sumneko-lua-language-server
     terraform-ls
     # Linters

@@ -11,6 +11,7 @@
     htop
     gnumake
     jq
+    kooha
     lsof
     nix-prefetch-git
     ouch
