@@ -7,5 +7,6 @@
     slack
     signal-desktop
     tdesktop
+    teams
   ];
 }
