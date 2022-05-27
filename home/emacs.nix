@@ -1,5 +1,6 @@
 { pkgs, home, ... }:
 
+
 {
   # Treemacs requires python3
   home.packages = with pkgs; [
@@ -36,14 +37,14 @@
         eshell-syntax-highlighting
         fsharp-mode
         haskell-mode
-        nix-mode
-        python-mode
+        #nix-mode
+        #python-mode
         sqlformat
         ## Tooling
         direnv
         lsp-mode
         lsp-ui
-        magit
+        #magit
         ## Ops
         plantuml-mode
         terraform-mode
@@ -63,10 +64,10 @@
         treemacs-evil
         treemacs-projectile
         treemacs-all-the-icons
-        treemacs-magit
+        #treemacs-magit
         swiper
         rainbow-delimiters
-        rg
+        #rg
         undo-tree
         vimrc-mode
         web-mode
@@ -80,7 +81,7 @@
         org-drill
         org-elp
         org-pdftools
-        org-ql
+        #org-ql
         org-roam
         org-superstar
         # Ricing
