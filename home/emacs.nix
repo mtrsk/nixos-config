@@ -37,14 +37,13 @@
         eshell-syntax-highlighting
         fsharp-mode
         haskell-mode
-        #nix-mode
-        #python-mode
+        nix-mode
         sqlformat
         ## Tooling
         direnv
         lsp-mode
         lsp-ui
-        #magit
+        magit
         ## Ops
         plantuml-mode
         terraform-mode
@@ -81,7 +80,7 @@
         org-drill
         org-elp
         org-pdftools
-        #org-ql
+        org-ql
         org-roam
         org-superstar
         # Ricing

@@ -52,12 +52,12 @@ in {
       vim-visual-multi
       hologram-nvim
       # CoC
-      #coc-diagnostic
-      #coc-nvim
-      #coc-lua
-      #coc-pyright
-      #coc-vimlsp
-      #coc-yaml
+      coc-diagnostic
+      coc-nvim
+      coc-lua
+      coc-pyright
+      coc-vimlsp
+      coc-yaml
       # Eyecandy
       wal-vim
       nvim-colorizer-lua
