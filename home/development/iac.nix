@@ -12,6 +12,8 @@
     packer
     terraform
     vault
+    # Nix
+    morph
     # Pulumi
     pulumi-bin
     # Terraform

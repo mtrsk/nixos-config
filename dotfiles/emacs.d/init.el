@@ -3,6 +3,7 @@
 
 (eval-when-compile
   (require 'use-package))
+(setq use-package-compute-statistics t)
 
 (load-file "~/.emacs.d/custom.el")
 (load-file "~/.emacs.d/edit.el")
@@ -35,8 +36,8 @@
 ;; - clm/open-command-log-buffer
 (use-package command-log-mode)
 
-(use-package rg
-  :config (rg-enable-default-bindings))
+;; (use-package rg
+;;   :config (rg-enable-default-bindings))
 
 (use-package undo-tree
   :init (global-undo-tree-mode))
