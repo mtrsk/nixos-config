@@ -24,4 +24,6 @@
       ./udiskie.nix
       ./zshell.nix
     ];
+
+  home.stateVersion = "22.05";
 }
