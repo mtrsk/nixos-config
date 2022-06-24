@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     curl
+    dig
     exiftool
     fd
     file
