@@ -132,6 +132,7 @@
 
   # Programs
   programs.steam.enable = true;
+  programs.nm-applet.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

@@ -49,7 +49,7 @@
         terraform-mode
         yaml-mode
         # Email
-        notmuch
+        #notmuch
         # Extra
         auto-dim-other-buffers
         atom-one-dark-theme
