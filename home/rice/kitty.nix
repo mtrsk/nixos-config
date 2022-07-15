@@ -27,6 +27,9 @@
       background_opacity = "0.95";
       dynamic_background_opacity = "no";
 
+      # Window
+      confirm_os_window_close = "0";
+
       # Colorschemes
       #active_border_color = "#${config.colors.base08}";
       #inactive_border_color = "#${config.colorscheme.colors.base00}";
