@@ -4,6 +4,11 @@
 
 { config, pkgs, ... }:
 
+let
+  kbdLayout = "us";
+  kbdModel = "pc105";
+  #layout = "br(thinkpad)";
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -72,7 +77,7 @@
   console.useXkbConfig = true;
 
   services.xserver = {
-    layout = "br(thinkpad)";
+    layout = kbdLayout;
     xkbOptions = "ctrl:nocaps";
     videoDrivers = ["intel"];
     libinput.enable = true;
@@ -122,7 +127,7 @@
   ];
 
   environment.sessionVariables = {
-    "XKB_DEFAULT_LAYOUT" = "br(thinkpad)";
+    "XKB_DEFAULT_LAYOUT" = "${kbdLayout}";
   };
 
   # https://nix-community.github.io/home-manager/options.html#opt-programs.zsh.enableCompletion

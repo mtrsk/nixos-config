@@ -83,6 +83,7 @@
         org-ql
         org-roam
         org-superstar
+        org-tree-slide
         # Ricing
         ewal
       ]));
