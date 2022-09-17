@@ -5,9 +5,8 @@
 { config, pkgs, ... }:
 
 let
-  kbdLayout = "us";
-  kbdModel = "pc105";
-  #layout = "br(thinkpad)";
+  #kbdLayout = "us";
+  kbdLayout = "br(thinkpad)";
 in
 {
   imports =
