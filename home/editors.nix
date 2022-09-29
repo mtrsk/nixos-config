@@ -47,7 +47,7 @@ in {
       vim-fugitive
       vim-markdown
       vim-trailing-whitespace
-      vim-surround
+      nvim-surround
       vim-which-key
       vim-visual-multi
       hologram-nvim

@@ -49,7 +49,7 @@ in
     dracula-theme # gtk theme
     glib # gsettings
     grim # screenshot functionality
-    gnome3.adwaita-icon-theme  # default gnome cursors
+    gnome.adwaita-icon-theme  # default gnome cursors
     mako # notification system developed by swaywm maintainer
     slurp # screenshot functionality
     sway

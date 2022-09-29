@@ -55,6 +55,9 @@ opt.compatible = false
 opt.hidden = true
 opt.shortmess = "atI"
 
+-- Surround
+require("nvim-surround").setup({})
+
 -- Telescope
 
 -- Eyecandy
