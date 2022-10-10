@@ -7,7 +7,6 @@
     dhall-lsp-server
     nixfmt
     rnix-lsp
-    poetry
     postman
     sumneko-lua-language-server
     terraform-ls
