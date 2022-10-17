@@ -17,7 +17,7 @@
       shell = "${pkgs.zsh}/bin/zsh";
       editor = "${pkgs.neovim}/bin/nvim";
 
-        # Cursor
+      # Cursor
       cursor_shape = "block";
 
       # Tabs

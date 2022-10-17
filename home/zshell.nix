@@ -20,7 +20,7 @@
       l="ls -l";
       ls="ls -h --group-directories-first --color=auto";
       la="ls -lAh --group-directories-first --color=auto";
-      pss="pass show";
+      psf="pass find";
       psc="pass --clip";
       poc="pass otp --clip";
       r="ranger";
