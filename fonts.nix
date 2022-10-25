@@ -21,10 +21,10 @@
     # Other
     font-awesome_5
     hack-font
-    #iosevka
+    iosevka
     jetbrains-mono
     # mplus-outline-fonts
-    nerdfonts
+    #nerdfonts
     powerline-fonts
     profont
     proggyfonts
