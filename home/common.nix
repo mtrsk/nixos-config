@@ -17,6 +17,8 @@
     nix-prefetch-git
     ouch
     parallel
+    pinentry
+    pinentry-curses
     pciutils    # lspci
     psmisc      # pkill, killall, pstree, fuser
     ripgrep
