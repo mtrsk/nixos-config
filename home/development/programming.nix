@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     # Languages tooling
+    buf
     cachix
     dhall-lsp-server
     nixfmt
@@ -20,5 +21,7 @@
     siege
     taskjuggler
     plantuml
+    #
+    dotnet-sdk_7
   ];
 }
