@@ -2,15 +2,18 @@
 
 {
   home.packages = with pkgs; [
-    # Languages tooling
+    # CLIs
     buf
     cachix
+    # Language-Related
     dhall-lsp-server
     nixfmt
     rnix-lsp
-    postman
     sumneko-lua-language-server
     terraform-ls
+    # Tools
+    bloomrpc
+    postman
     # Linters
     dockle
     hadolint
@@ -22,6 +25,6 @@
     taskjuggler
     plantuml
     #
-    dotnet-sdk_7
+    dotnet-sdk
   ];
 }
