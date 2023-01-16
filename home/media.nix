@@ -12,6 +12,7 @@ in
     mpv
     ncmpcpp
     graphviz
+    koreader
     poppler_utils
     obs-studio
     ranger
