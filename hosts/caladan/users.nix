@@ -11,12 +11,14 @@
       ../../home/editors.nix
       ../../home/emacs.nix
       ../../home/gaming.nix
+      ../../home/ranger.nix
       ../../home/rice
       ../../home/security.nix
       ../../home/zshell.nix
     ];
 
   home.packages = with pkgs; [
+    azuredatastudio
     jetbrains.rider
     remmina
   ];
