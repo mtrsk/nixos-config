@@ -8,40 +8,37 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
+  boot.initrd.availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
+  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/d5f672ab-6578-4f63-9c01-2798813eba84";
+    { device = "/dev/disk/by-uuid/d1b16c38-0e01-4fe3-a392-27b77a277e28";
       fsType = "ext4";
     };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/7B9A-3132";
+  fileSystems."/boot/efi" =
+    { device = "/dev/disk/by-uuid/F840-C8E4";
       fsType = "vfat";
     };
 
-  fileSystems."/tmp" =
-    { device = "/dev/disk/by-uuid/b9c93d10-b71e-415e-901e-cd984c98ade8";
-      fsType = "ext4";
-    };
-
-  fileSystems."/var" =
-    { device = "/dev/disk/by-uuid/f246ec0f-3dd9-426c-92a9-3791b4a6e77f";
-      fsType = "ext4";
-    };
-
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/5bbf03fa-558a-453d-9554-b2a4e5df3fc2";
+    { device = "/dev/disk/by-uuid/283453b0-106d-4777-b5a2-811219725bb4";
       fsType = "ext4";
     };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-uuid/8d192ac1-7b4d-44ec-b5e1-7dcb685c00ef"; }
-    ];
+  swapDevices = [ ];
 
+  # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
+  # (the default) this is the recommended approach. When using systemd-networkd it's
+  # still possible to use this option, but it's recommended to use it in conjunction
+  # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
+  networking.useDHCP = lib.mkDefault true;
+  # networking.interfaces.enp4s0.useDHCP = lib.mkDefault true;
+
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
   # high-resolution display
   hardware.video.hidpi.enable = lib.mkDefault true;
 }

@@ -1,18 +1,25 @@
-{ pkgs, config, home, inputs, ... }:
+{ pkgs, config, home, inputs, system, ... }:
 
 {
-  imports = [
-    (import ../../home {
-      username="leto";
-      inherit config home pkgs inputs;
-    })
-  ];
+  imports =
+    [
+      # Directories
+      ../../home/development
+      ../../home/browsers.nix
+      ../../home/chats.nix
+      ../../home/common.nix
+      ../../home/editors.nix
+      ../../home/emacs.nix
+      ../../home/gaming.nix
+      ../../home/rice
+      ../../home/security.nix
+      ../../home/zshell.nix
+    ];
 
   home.packages = with pkgs; [
-    aria
-    arandr
-    xclip
-    gimp
-    krita
+    jetbrains.rider
+    remmina
   ];
+
+  home.stateVersion = "22.11";
 }
