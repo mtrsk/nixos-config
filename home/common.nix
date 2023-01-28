@@ -9,11 +9,13 @@
     file
     ffmpeg
     flameshot
-    htop
+    graphviz
     gnumake
+    htop
     jq
     kooha
     lsof
+    magic-wormhole
     nix-prefetch-git
     ouch
     parallel
@@ -31,6 +33,7 @@
     unzip
     usbutils    # lsusb
     wget
+    yt-dlp
     zip
   ];
 }

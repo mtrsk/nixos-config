@@ -27,7 +27,7 @@
       rsync="rsync -chavzP --stats";
       vi="nvim";
       vim="nvim";
-      ssh="kitty +kitten ssh";
+      sshk="kitty +kitten ssh";
     };
     history = {
       size = 5000;

@@ -24,10 +24,6 @@ in
     enable = true;
   };
 
-  programs.zathura = {
-    enable = true;
-  };
-
   services.mpd = {
     enable = true;
     dataDir = builtins.toPath "/home/${user}/.mpd";

@@ -4,7 +4,6 @@
   home.packages = with pkgs; [
     age
     lynis
-    #magic-wormhole
     openssl
     tarsnap
     tomb
