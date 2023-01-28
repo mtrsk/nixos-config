@@ -29,6 +29,9 @@
     defaultCacheTtlSsh = 34560000;
     maxCacheTtl = 34560000;
     maxCacheTtlSsh = 34560000;
+    sshKeys = [
+      "23C94318A1D57DA26574677539EC504CB2A49981"
+    ];
   };
 
   services.lorri.enable = true;
