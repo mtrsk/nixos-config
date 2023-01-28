@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
+      ../../services/localization.nix
       # Virtualisation
       ../../virtualisation/docker.nix
     ];
@@ -26,33 +27,27 @@
    '';
   };
 
+  # Hardware
+  hardware.cpu.amd.updateMicrocode = true;
+  hardware.enableRedistributableFirmware = true;
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+
+  # Networking
+
   networking.hostName = "caladan"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
   networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Fortaleza";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "pt_BR.UTF-8";
-    LC_IDENTIFICATION = "pt_BR.UTF-8";
-    LC_MEASUREMENT = "pt_BR.UTF-8";
-    LC_MONETARY = "pt_BR.UTF-8";
-    LC_NAME = "pt_BR.UTF-8";
-    LC_NUMERIC = "pt_BR.UTF-8";
-    LC_PAPER = "pt_BR.UTF-8";
-    LC_TELEPHONE = "pt_BR.UTF-8";
-    LC_TIME = "pt_BR.UTF-8";
-  };
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -60,8 +55,6 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  #services.xserver.displayManager.lightdm.enable = true;
-  #services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -69,7 +62,6 @@
     xkbVariant = "";
     videoDrivers = [ "nvidia" ];
   };
-  hardware.opengl.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -98,10 +90,15 @@
   users.users.leto = {
     isNormalUser = true;
     description = "leto";
-    extraGroups = [ "docker" "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-    #  thunderbird
+    extraGroups = [
+      "audio"
+      "disk"
+      "docker"
+      "input"
+      "networkmanager"
+      "tty"
+      "video"
+      "wheel"
     ];
   };
 
