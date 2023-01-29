@@ -1,4 +1,4 @@
-{
+{ 
   description = "Nixos Configuration";
 
   inputs = {
@@ -15,12 +15,6 @@
     };
 
     nixos-hardware.url = github:NixOS/nixos-hardware/master;
-
-    # Utilities
-    #eww = {
-    #  url = "github:elkowar/eww";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
 
     hosts.url = "github:StevenBlack/hosts";
 

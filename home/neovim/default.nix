@@ -1,7 +1,7 @@
 { pkgs, lib, config, ... }:
 
 let
-  dotfiles = builtins.toString ../../dotfiles/nvim;
+  dotfiles = f: "${builtins.toString ../../dotfiles/nvim}/${f}.lua";
   vimPlugins = import ./packages.nix { inherit pkgs config lib; };
 in
 {
@@ -15,12 +15,11 @@ in
     # https://github.com/nix-community/home-manager/issues/1907#issuecomment-934316296
     extraConfig = builtins.concatStringsSep "\n" [
       ''
-      luafile ${dotfiles}/settings.lua}
-      luafile ${dotfiles}/line.lua}
-      luafile ${dotfiles}/lsp.lua}
-      luafile ${dotfiles}/tabs.lua}
-      luafile ${dotfiles}/files.lua}
-      luafile ${dotfiles}/treesitter.lua}
+      luafile ${dotfiles "settings"}
+      luafile ${dotfiles "line"}
+      luafile ${dotfiles "lsp"}
+      luafile ${dotfiles "tabs"}
+      luafile ${dotfiles "files"}
       ''
     ];
 
@@ -33,7 +32,7 @@ in
 
   xdg.configFile = {
     nvim = {
-      source = ../dotfiles/nvim;
+      source = ../../dotfiles/nvim;
       recursive = true;
     };
   };

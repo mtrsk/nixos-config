@@ -19,8 +19,6 @@ in
     private.tokyonight-nvim
   ];
   ui = with plugins; [
-    # Buffer
-    bufferline-nvim
     # File Tree
     nvim-tree-lua
     # Find/Filter
