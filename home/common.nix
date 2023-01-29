@@ -34,6 +34,7 @@
     usbutils    # lsusb
     wget
     yt-dlp
+    xclip
     zip
   ];
 }

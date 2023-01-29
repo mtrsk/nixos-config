@@ -20,10 +20,12 @@ in
       luafile ${dotfiles "lsp"}
       luafile ${dotfiles "tabs"}
       luafile ${dotfiles "files"}
+      luafile ${dotfiles "treesitter"}
       ''
     ];
 
     extraPackages = with pkgs; [
+      clang
       tree-sitter
     ];
 

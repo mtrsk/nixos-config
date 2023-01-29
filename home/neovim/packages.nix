@@ -1,4 +1,4 @@
-{ pkgs, config, lib }:
+{ pkgs, config, lib, ... }:
 
 let
   plugins = pkgs.vimPlugins;
@@ -6,7 +6,6 @@ let
 in
 {
   base = with plugins; [
-    nvim-treesitter
     nvim-surround
     vim-which-key
     vim-visual-multi
@@ -32,6 +31,22 @@ in
   lsp = with plugins // private; [
     nvim-cmp
     nvim-lspconfig
+    (nvim-treesitter.withPlugins (p:
+      [
+        p.c
+        p.bash
+        p.dockerfile
+        p.gitignore
+        p.lua
+        p.markdown
+        p.nix
+        p.proto
+        p.scheme
+        p.sql
+        p.terraform
+        p.yaml
+      ]
+    ))
     # Snippets
     luasnip
     private.cmp-git
@@ -44,6 +59,7 @@ in
   ];
   tooling = with plugins; [
     direnv-vim
+    Ionide-vim
     vim-nix
     vim-terraform
   ];
