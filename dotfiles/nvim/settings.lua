@@ -8,7 +8,7 @@ vim.cmd [[
     set noerrorbells
     set noswapfile
 
-    colorscheme wal
+    colorscheme tokyonight
 ]]
 
 -- Maps
@@ -61,4 +61,7 @@ require("nvim-surround").setup({})
 -- Telescope
 
 -- Eyecandy
-require 'colorizer'.setup()
+require 'colorizer'.setup({})
+
+vim.opt.termguicolors = true
+require("bufferline").setup({})
