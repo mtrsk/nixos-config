@@ -1,6 +1,6 @@
 * NixOS Configuration
 
-My NixOS configuration files.
+My NixOS configuration files, used in my personal systems and work machines.
 
 ** TODO List [3/6]
 
@@ -28,3 +28,8 @@ My NixOS configuration files.
 ** Why should I use it?
 
 You probably shouldn't.
+
+** Screenshots
+
++ Neovim
+[[./docs/neovim.png]]
