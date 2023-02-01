@@ -23,8 +23,20 @@
     hack-font
     iosevka
     jetbrains-mono
-    # mplus-outline-fonts
     nerdfonts
+    (nerdfonts.override {
+      fonts = [
+        "DroidSansMono"
+        "FiraCode"
+        "Hack"
+        "Iosevka"
+        "JetBrainsMono"
+        "Monoid"
+        "NerdFontsSymbolsOnly"
+        "SourceCodePro"
+        "SpaceMono"
+      ];
+    })
     powerline-fonts
     profont
     proggyfonts
