@@ -5,6 +5,7 @@
     # CLIs
     buf
     cachix
+    protobuf
     # Language-Related
     dhall-lsp-server
     nixfmt
