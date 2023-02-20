@@ -28,7 +28,7 @@ vim.g.terraform_fmt_on_save = 1
 vim.g.terraform_align = 1
 
 -- Lua
-require'lspconfig'.sumneko_lua.setup {
+require'lspconfig'.lua_ls.setup {
   settings = {
     Lua = {
       runtime = {
@@ -116,7 +116,7 @@ require('lspconfig')['rnix'].setup {
     capabilities = capabilities
 }
 
-require('lspconfig')['sumneko_lua'].setup {
+require('lspconfig')['lua_ls'].setup {
     capabilities = capabilities
 }
 

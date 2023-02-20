@@ -8,9 +8,9 @@
     protobuf
     # Language-Related
     dhall-lsp-server
+    lua-language-server
     nixfmt
     rnix-lsp
-    sumneko-lua-language-server
     terraform-ls
     # Tools
     bloomrpc
