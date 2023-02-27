@@ -27,5 +27,6 @@
     plantuml
     #
     dotnet-sdk
+    sqlite
   ];
 }
