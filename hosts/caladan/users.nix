@@ -21,6 +21,8 @@
     azuredatastudio
     jetbrains.rider
     remmina
+    gimp
+    krita
   ];
 
   home.stateVersion = "22.11";
