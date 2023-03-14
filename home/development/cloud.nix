@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     # Cloud-provider CLIs
-    awscli
+    awscli2
     heroku
     # Databases
     # dbeaver
