@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     # Cloud-provider CLIs
     awscli2
-    heroku
+    flyctl
     # Databases
     # dbeaver
     # Firecracker Micro-VM
