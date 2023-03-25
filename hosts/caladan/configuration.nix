@@ -61,6 +61,7 @@
     layout = "us";
     xkbVariant = "";
     videoDrivers = [ "nvidia" ];
+    dpi = 180;
   };
 
   # Enable CUPS to print documents.
