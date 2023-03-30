@@ -15,6 +15,7 @@
     # Tools
     bloomrpc
     postman
+    insomnia
     # Linters
     dockle
     hadolint
