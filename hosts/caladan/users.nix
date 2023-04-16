@@ -19,10 +19,12 @@
 
   home.packages = with pkgs; [
     azuredatastudio
+    jetbrains.idea-community
     jetbrains.rider
     remmina
     gimp
     krita
+    mpv
   ];
 
   home.stateVersion = "22.11";
