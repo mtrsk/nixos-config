@@ -6,6 +6,8 @@
     buf
     cachix
     protobuf
+    maven
+    jdk11
     # Language-Related
     dhall-lsp-server
     lua-language-server
