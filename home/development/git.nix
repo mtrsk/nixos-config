@@ -16,6 +16,9 @@
 
     aliases = {
       commit = "commit -S";
+      a = "add";
+      c = "commit -m";
+      po = "push origin";
       list-staged = "diff --staged";
       list-conflicts = "diff --name-only --diff-filter=U";
     };
