@@ -106,7 +106,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  programs.steam.enable = true;
   programs.noisetorch.enable = true;
 
   # List packages installed in system profile. To search, run:
