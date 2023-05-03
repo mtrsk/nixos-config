@@ -16,7 +16,5 @@
     morph
     # Pulumi
     pulumi-bin
-    # Terraform
-    terracognita
   ];
 }
