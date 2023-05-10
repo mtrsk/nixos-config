@@ -31,6 +31,8 @@
         # Formatting
         format-all
         # Deveopment
+        ## Documentation
+        mermaid-mode
         ## Languages
         dockerfile-mode
         elpy
