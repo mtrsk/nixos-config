@@ -15,9 +15,9 @@
     rnix-lsp
     terraform-ls
     # Tools
-    bloomrpc
     postman
     insomnia
+    grpcurl
     # Linters
     dockle
     hadolint
