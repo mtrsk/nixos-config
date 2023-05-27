@@ -84,6 +84,7 @@
         org-pdftools
         org-ql
         org-roam
+        org-roam-ui
         org-superstar
         org-tree-slide
         # Ricing
