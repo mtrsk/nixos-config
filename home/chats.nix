@@ -5,7 +5,5 @@
     discord
     slack
     signal-desktop
-    #tdesktop
-    teams
   ];
 }
