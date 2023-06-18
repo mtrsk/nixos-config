@@ -188,8 +188,10 @@
 
 ;;; Shell
 (use-package eshell-syntax-highlighting
-  :ensure t
+  :after eshell-mode
+  :ensure t ;; Install if not already installed.
   :config
+  ;; Enable in all Eshell buffers.
   (eshell-syntax-highlighting-global-mode +1))
 
 ;;; SQL
