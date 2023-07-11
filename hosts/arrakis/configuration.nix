@@ -14,8 +14,8 @@ in
       ./hardware-configuration.nix
 
       # Services
-      ../../services/fail2ban.nix
-      ../../services/journald.nix
+      #../../services/fail2ban.nix
+      #../../services/journald.nix
       ../../services/swaywm.nix
       ../../services/localization.nix
       ../../services/pipewire.nix
@@ -87,6 +87,11 @@ in
     libinput.enable = true;
   };
 
+  # Enable the GNOME Desktop Environment.
+  #services.xserver.displayManager.gdm.enable = true;
+  #services.xserver.desktopManager.gnome.enable = true;
+
+
   # Hardware
   hardware.opengl = {
     enable = true;
@@ -128,6 +133,10 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     wget
+    networkmanagerapplet
+    openvpn3
+    networkmanager-openvpn
+    gnome.networkmanager-openvpn
   ];
 
   environment.sessionVariables = {
