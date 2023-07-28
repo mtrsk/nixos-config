@@ -13,7 +13,7 @@
   #   };
   # };
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     # Chinese
     arphic-ukai
     arphic-uming
