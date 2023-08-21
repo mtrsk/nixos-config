@@ -6,6 +6,7 @@
     buf
     cachix
     protobuf
+    synth
     # Language-Related
     dhall-lsp-server
     lua-language-server
