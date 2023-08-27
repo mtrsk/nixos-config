@@ -8,7 +8,6 @@
     protobuf
     synth
     # Language-Related
-    dhall-lsp-server
     lua-language-server
     nixfmt
     rnix-lsp
@@ -18,8 +17,8 @@
     insomnia
     grpcurl
     # Linters
-    dockle
-    hadolint
+    #dockle
+    #hadolint
     shellcheck
     sqlcheck
     yamllint
@@ -29,6 +28,5 @@
     plantuml
     #
     dotnet-sdk
-    sqlite
   ];
 }

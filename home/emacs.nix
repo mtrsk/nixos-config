@@ -38,7 +38,7 @@
         elpy
         eshell-syntax-highlighting
         fsharp-mode
-        haskell-mode
+        #haskell-mode
         nix-mode
         sqlformat
         ## Tooling
