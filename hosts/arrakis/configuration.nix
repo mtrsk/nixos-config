@@ -134,9 +134,9 @@ in
   environment.systemPackages = with pkgs; [
     wget
     networkmanagerapplet
-    openvpn3
-    networkmanager-openvpn
-    gnome.networkmanager-openvpn
+    #openvpn3
+    #networkmanager-openvpn
+    #gnome.networkmanager-openvpn
   ];
 
   environment.sessionVariables = {
