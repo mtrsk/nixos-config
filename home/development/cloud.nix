@@ -6,7 +6,7 @@
     awscli2
     flyctl
     # Databases
-    # dbeaver
+    dbeaver
     # Firecracker Micro-VM
     firecracker
     firectl
