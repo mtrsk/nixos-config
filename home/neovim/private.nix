@@ -14,16 +14,6 @@ in
     };
   };
 
-  tokyonight-nvim = plugin {
-    name = "tokyonight.nvim";
-    src = pkgs.fetchFromGitHub {
-      owner = "folke";
-      repo = "tokyonight.nvim";
-      rev = "affb21a81e6d7de073378eb86d02864c594104d9";
-      sha256 = "0q37ldqajhp46g0ikc3yfnq9bgmghqdb8884rc56sraql9g0nwmi";
-    };
-  };
-
   cmp-git = plugin {
     name = "cmp-git";
     src = pkgs.fetchFromGitHub {

@@ -7,6 +7,6 @@
     kompose
     kubectl
     kubernetes-helm
-    lens
+    k9s
   ];
 }

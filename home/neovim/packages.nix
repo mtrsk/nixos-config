@@ -12,10 +12,11 @@ in
     hologram-nvim
   ];
   eyecandy = with plugins // private; [
+    kanagawa-nvim
     nvim-colorizer-lua
     nvim-cursorline
     nvim-web-devicons
-    private.tokyonight-nvim
+    tokyonight-nvim
   ];
   ui = with plugins; [
     # File Tree
