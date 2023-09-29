@@ -50,7 +50,7 @@ in
     ))
     # Snippets
     luasnip
-    private.cmp-git
+    cmp-git
     # CMP Plugins
     cmp-cmdline
     cmp_luasnip
