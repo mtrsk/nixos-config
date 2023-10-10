@@ -38,9 +38,11 @@
         elpy
         eshell-syntax-highlighting
         fsharp-mode
-        #haskell-mode
+        # haskell-mode
         nix-mode
         sqlformat
+        # Latex
+        org-fragtog
         ## Tooling
         direnv
         lsp-mode

@@ -212,3 +212,7 @@
 (use-package vimrc-mode
   :init (add-to-list 'auto-mode-alist '("\\.vim\\(rc\\)?\\'" . vimrc-mode)))
 
+;;; Latex
+(setq org-preview-latex-default-process 'dvisvgm) ;No blur when scaling
+
+(add-hook 'org-mode-hook 'org-fragtog-mode)

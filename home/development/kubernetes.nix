@@ -8,5 +8,6 @@
     kubectl
     kubernetes-helm
     k9s
+    lens
   ];
 }
