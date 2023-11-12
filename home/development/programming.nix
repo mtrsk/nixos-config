@@ -13,9 +13,7 @@
     rnix-lsp
     terraform-ls
     # Tools
-    postman
-    insomnia
-    grpcurl
+    #postman
     # Linters
     #dockle
     #hadolint
