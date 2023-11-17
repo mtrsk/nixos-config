@@ -15,7 +15,7 @@ in
 
       # Services
       #../../services/fail2ban.nix
-      #../../services/journald.nix
+      ../../services/journald.nix
       ../../services/swaywm.nix
       ../../services/localization.nix
       ../../services/pipewire.nix
@@ -51,7 +51,15 @@ in
     package = pkgs.nixVersions.stable;
     extraOptions = ''
       experimental-features = nix-command flakes
-   '';
+    '';
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
+    optimise = {
+      automatic = true;
+    };
   };
 
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
