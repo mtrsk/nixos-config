@@ -13,7 +13,7 @@
     rnix-lsp
     terraform-ls
     # Tools
-    #postman
+    postman
     # Linters
     #dockle
     #hadolint

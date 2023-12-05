@@ -18,13 +18,12 @@
     ];
 
   home.packages = with pkgs; [
-    azuredatastudio
-    jetbrains.idea-community
     jetbrains.rider
     remmina
     gimp
     krita
     mpv
+    gnomeExtensions.freon
   ];
 
   home.stateVersion = "22.11";
