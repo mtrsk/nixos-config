@@ -18,12 +18,13 @@
     ];
 
   home.packages = with pkgs; [
+    gnomeExtensions.freon
     jetbrains.rider
-    remmina
     gimp
     krita
     mpv
-    gnomeExtensions.freon
+    remmina
+    postman
   ];
 
   home.stateVersion = "22.11";
