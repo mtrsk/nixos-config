@@ -101,6 +101,7 @@
     description = "leto";
     extraGroups = [
       "audio"
+      "dialout"
       "disk"
       "docker"
       "input"
