@@ -20,10 +20,9 @@
     wqy_zenhei
     # Other
     font-awesome_5
-    hack-font
-    iosevka
-    jetbrains-mono
-    nerdfonts
+    #hack-font
+    #iosevka
+    #jetbrains-mono
     (nerdfonts.override {
       fonts = [
         "DroidSansMono"
@@ -39,7 +38,7 @@
     })
     powerline-fonts
     profont
-    proggyfonts
+    #proggyfonts
     recursive
     roboto
     roboto-mono

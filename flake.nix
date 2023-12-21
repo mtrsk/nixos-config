@@ -1,5 +1,5 @@
 { 
-  description = "Nixos Configuration";
+  description = "NixOS Configuration";
 
   inputs = {
     emacs = {

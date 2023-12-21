@@ -17,8 +17,11 @@
     aliases = {
       commit = "commit -S";
       a = "add";
+      ap = "add -p";
       c = "commit -m";
       po = "push origin";
+      pof = "push -f origin";
+      pro = "pull --rebase origin";
       list-staged = "diff --staged";
       list-conflicts = "diff --name-only --diff-filter=U";
     };
