@@ -17,7 +17,7 @@
     #dockle
     #hadolint
     shellcheck
-    sqlcheck
+    #sqlcheck
     yamllint
     # Other stuff
     siege
