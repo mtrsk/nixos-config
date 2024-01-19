@@ -19,6 +19,7 @@
     nix-prefetch-git
     ouch
     parallel
+    pavucontrol
     pinentry
     pinentry-curses
     pciutils    # lspci
