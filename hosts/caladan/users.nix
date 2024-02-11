@@ -18,7 +18,7 @@
     ];
 
   home.packages = with pkgs; [
-    gnomeExtensions.freon
+    #gnomeExtensions.freon
     jetbrains.rider
     gimp
     krita
