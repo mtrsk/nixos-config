@@ -11,6 +11,6 @@
   home.packages = with pkgs; [
     aria
     gimp
-    jetbrains.rider
+    #jetbrains.rider
   ];
 }

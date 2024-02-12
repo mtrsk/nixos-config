@@ -89,8 +89,8 @@ in
   #services.xserver.desktopManager.gnome.enable = true;
 
   services.xserver = {
-    layout = kbdLayout;
-    xkbOptions = "ctrl:nocaps";
+    xkb.layout = kbdLayout;
+    xkb.options = "ctrl:nocaps";
     videoDrivers = ["intel"];
     libinput.enable = true;
   };
@@ -157,7 +157,7 @@ in
   # List services that you want to enable:
 
   # Programs
-  programs.steam.enable = true;
+  #programs.steam.enable = true;
   programs.nm-applet.enable = true;
 
   # Enable the OpenSSH daemon.
