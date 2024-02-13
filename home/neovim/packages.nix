@@ -6,10 +6,11 @@ let
 in
 {
   base = with plugins; [
+    hologram-nvim
     nvim-surround
+    toggleterm-nvim
     vim-which-key
     vim-visual-multi
-    hologram-nvim
   ];
   eyecandy = with plugins // private; [
     kanagawa-nvim
