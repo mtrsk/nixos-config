@@ -17,7 +17,6 @@ in
     obs-studio
     ranger
     yt-dlp
-    waifu2x-converter-cpp
   ];
 
   programs.newsboat = {

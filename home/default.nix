@@ -12,7 +12,6 @@
       ./browsers.nix
       ./chats.nix
       ./common.nix
-      ./crypto.nix
       ./editors.nix
       ./emacs.nix
       ./gaming.nix

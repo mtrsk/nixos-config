@@ -2,28 +2,22 @@
 
 {
   home.packages = with pkgs; [
-    # CLIs
-    buf
-    cachix
-    protobuf
-    synth
+    # SDKs
+    dotnet-sdk
     # Language-Related
     lua-language-server
     nixfmt
     rnix-lsp
     terraform-ls
     # Tools
-    # Linters
     #dockle
     #hadolint
     shellcheck
     #sqlcheck
     yamllint
     # Other stuff
-    siege
+    #siege
     taskjuggler
     plantuml
-    #
-    dotnet-sdk
   ];
 }

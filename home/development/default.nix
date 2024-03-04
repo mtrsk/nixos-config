@@ -5,7 +5,6 @@
     [
       ./cloud.nix
       ./git.nix
-      ./iac.nix
       ./kubernetes.nix
       ./programming.nix
     ];

@@ -5,7 +5,6 @@
     age
     lynis
     openssl
-    tarsnap
     tomb
     zbar # for pass-otp
   ];

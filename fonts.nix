@@ -14,10 +14,6 @@
   # };
 
   fonts.packages = with pkgs; [
-    # Chinese
-    arphic-ukai
-    arphic-uming
-    wqy_zenhei
     # Other
     font-awesome_5
     (nerdfonts.override {
@@ -39,7 +35,7 @@
     roboto
     roboto-mono
     roboto-slab
-    source-code-pro
-    symbola
+    #source-code-pro
+    #symbola
   ];
 }
