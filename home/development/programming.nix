@@ -4,6 +4,7 @@
   home.packages = with pkgs; [
     # SDKs
     dotnet-sdk
+    protobuf
     # Language-Related
     lua-language-server
     nixfmt
