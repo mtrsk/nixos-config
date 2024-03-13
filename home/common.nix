@@ -20,7 +20,7 @@
     ouch
     parallel
     pavucontrol
-    pinentry
+    #pinentry
     pinentry-curses
     pciutils    # lspci
     psmisc      # pkill, killall, pstree, fuser
