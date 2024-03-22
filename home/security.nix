@@ -3,7 +3,6 @@
 {
   home.packages = with pkgs; [
     age
-    lynis
     openssl
     tomb
     zbar # for pass-otp

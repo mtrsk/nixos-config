@@ -33,6 +33,4 @@
       "23C94318A1D57DA26574677539EC504CB2A49981"
     ];
   };
-
-  services.lorri.enable = true;
 }

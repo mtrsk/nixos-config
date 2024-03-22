@@ -16,7 +16,6 @@ in
     poppler_utils
     obs-studio
     ranger
-    yt-dlp
   ];
 
   programs.newsboat = {

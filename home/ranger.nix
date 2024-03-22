@@ -7,14 +7,8 @@ let
 in
 {
   home.packages = with pkgs; [
-    koreader
-    obs-studio
     ranger
   ];
-
-  programs.newsboat = {
-    enable = true;
-  };
 
   xdg.configFile = {
     "ranger" = {

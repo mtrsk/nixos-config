@@ -22,9 +22,4 @@
       recursive = true;
     };
   };
-
-  home.file.".i3" = {
-    source = ../dotfiles/i3wm;
-    recursive = true;
-  };
 }

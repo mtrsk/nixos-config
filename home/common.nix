@@ -3,6 +3,7 @@
 {
   home.packages = with pkgs; [
     curl
+    croc
     dig
     exiftool
     fd
@@ -15,9 +16,7 @@
     jq
     kooha
     lsof
-    magic-wormhole
     nix-prefetch-git
-    ouch
     parallel
     pavucontrol
     #pinentry
@@ -34,7 +33,6 @@
     unzip
     usbutils    # lsusb
     wget
-    yt-dlp
     xclip
     zip
   ];
