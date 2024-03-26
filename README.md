@@ -6,10 +6,10 @@ My NixOS configuration files, used in my personal systems and work machines.
 
    - [X] Use home-manager for user-related configurations
    - [X] Integration with Nix-flakes
-   - [X] Integration with the [[https://github.com/nix-community/impermanence][impermanence module]]
+   - [X] Integration with the [impermanence](https://github.com/nix-community/impermanence) module
    - [ ] Integration with one of the following secret management tools:
-     - [[https://github.com/ryantm/agenix][agenix]]
-     - [[https://github.com/Mic92/sops-nix][sops-nix]]
+     - [agenix](https://github.com/ryantm/agenix)
+     - [sops-nix](https://github.com/Mic92/sops-nix)
    - [ ] Add this entire config into CI
 
 ## How to use it?
