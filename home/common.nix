@@ -16,6 +16,7 @@
     jq
     kooha
     lsof
+    neofetch
     nix-prefetch-git
     parallel
     pavucontrol

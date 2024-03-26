@@ -14,14 +14,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    impermanence.url = "github:nix-community/impermanence";
+
     nixos-hardware.url = github:NixOS/nixos-hardware/master;
 
     hosts.url = "github:StevenBlack/hosts";
-
-    nix-colors.url = "github:misterio77/nix-colors";
   };
 
-  outputs = { self, home, hosts, nix-colors, nixpkgs, ... }@inputs:
+  outputs = { self, impermanence, home, hosts, nixpkgs, ... }@inputs:
   let
     lib = nixpkgs.lib;
 
@@ -49,20 +49,19 @@
             home-manager.useUserPackages = true;
             home-manager.users.leto = import ./hosts/caladan/users.nix;
           }
-          nix-colors.homeManagerModule
         ];
 
         specialArgs = { inherit inputs system; };
       };
 
-      arrakis = lib.nixosSystem {
+      euclid = lib.nixosSystem {
         inherit system;
 
+        specialArgs = { inherit inputs system; };
+
         modules = [
-          ./documentation.nix
-          ./fonts.nix
-          ./hosts/arrakis/configuration.nix
-          ./overlays
+          impermanence.nixosModules.impermanence
+          ./hosts/euclid/configuration.nix
           hosts.nixosModule {
             networking.stevenBlackHosts = {
               enable = true;
@@ -73,13 +72,10 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.leto = import ./hosts/arrakis/users.nix;
+            home-manager.users.mbenevides = import ./hosts/euclid/home.nix;
           }
-          nix-colors.homeManagerModule
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-l13
         ];
-
-        specialArgs = { inherit inputs system; };
       };
     };
   };
