@@ -20,12 +20,12 @@
         program = "${pkgs.zsh}/bin/zsh";
       };
 
-      url = {
-        launcher = {
-          program = "brave";
-          args = [];
-        };
-      };
+      #url = {
+      #  launcher = {
+      #    program = "brave";
+      #    args = [];
+      #  };
+      #};
 
     };
   };

@@ -61,6 +61,8 @@
 
         modules = [
           impermanence.nixosModules.impermanence
+          ./documentation.nix
+          ./fonts.nix
           ./hosts/euclid/configuration.nix
           hosts.nixosModule {
             networking.stevenBlackHosts = {

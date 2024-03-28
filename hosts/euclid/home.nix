@@ -10,7 +10,7 @@
       ../../home/development
       ../../home/common.nix
       ../../home/editors.nix
-      #../../home/security.nix
+      ../../home/security.nix
       ../../home/rice/alacritty.nix
       ../../home/zshell.nix
     ];

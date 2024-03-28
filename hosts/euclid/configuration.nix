@@ -10,6 +10,11 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./persist.nix
+      # Pre-configured Services
+      ../../services/journald.nix
+      ../../services/localization.nix
+      ../../services/pipewire.nix
+      ../../services/swaywm.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -53,30 +58,13 @@
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
 
-  # Set your time zone.
-  time.timeZone = "America/Fortaleza";
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkb.options in tty.
-  # };
-
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  #services.xserver.displayManager.gdm.enable = true;
+  #services.xserver.desktopManager.gnome.enable = true;
 
-  console.useXkbConfig = true;
   services.xserver = {
     xkb.layout = "br(thinkpad),us";
     xkb.options = "ctrl:nocaps,";
@@ -84,19 +72,8 @@
     libinput.enable = true;
   };
 
-  # Configure keymap in X11
-  # services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
   # Enable CUPS to print documents.
   # services.printing.enable = true;
-
-  # Enable sound.
-  sound.enable = true;
-  # hardware.pulseaudio.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.mutableUsers = true;
@@ -108,11 +85,11 @@
       initialHashedPassword = "$y$j9T$JsFrd8Zq5TGeWtUXeOezs1$NH56hCrMdCfOmHH4MqdibR7ZD7H09yKGJQ3OI2ybk65";
       extraGroups = [ 
         "audio"
-	"disk"
-	"input"
-	"networkmanager"
-	"tty"
-	"video"
+        "disk"
+        "input"
+        "networkmanager"
+        "tty"
+        "video"
       	"wheel"
       ];
       packages = with pkgs; [
