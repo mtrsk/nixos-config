@@ -29,7 +29,14 @@ in
       tree-sitter
     ];
 
-    plugins = vimPlugins.base ++ vimPlugins.eyecandy ++ vimPlugins.ui ++ vimPlugins.lsp ++ vimPlugins.tooling;
+    plugins = builtins.concatLists [
+      vimPlugins.base
+      vimPlugins.eyecandy
+      vimPlugins.ui
+      vimPlugins.lsp
+      vimPlugins.prv
+      vimPlugins.tooling
+    ];
   };
 
   xdg.configFile = {

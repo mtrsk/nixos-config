@@ -20,7 +20,7 @@ vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 
 -- Nix
-require'lspconfig'.rnix.setup{}
+require'lspconfig'.nil_ls.setup{}
 
 -- Terraform
 require'lspconfig'.terraformls.setup{}
@@ -112,7 +112,7 @@ sources = cmp.config.sources({
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-require('lspconfig')['rnix'].setup {
+require('lspconfig')['nil_ls'].setup {
     capabilities = capabilities
 }
 

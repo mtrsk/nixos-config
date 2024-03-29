@@ -12,7 +12,7 @@ in
     vim-which-key
     vim-visual-multi
   ];
-  eyecandy = with plugins // private; [
+  eyecandy = with plugins; [
     kanagawa-nvim
     nvim-colorizer-lua
     nvim-cursorline
@@ -59,6 +59,7 @@ in
     cmp-path
     cmp-treesitter
   ];
+  prv = with private; [ vim-taskjuggler ];
   tooling = with plugins; [
     direnv-vim
     Ionide-vim

@@ -14,14 +14,21 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      # optionally choose not to download darwin deps (saves some resources on Linux)
+      inputs.agenix.inputs.darwin.follows = "";
+    };
+
     impermanence.url = "github:nix-community/impermanence";
 
-    nixos-hardware.url = github:NixOS/nixos-hardware/master;
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     hosts.url = "github:StevenBlack/hosts";
   };
 
-  outputs = { self, impermanence, home, hosts, nixpkgs, ... }@inputs:
+  outputs = { self, agenix, impermanence, home, hosts, nixpkgs, ... }@inputs:
   let
     lib = nixpkgs.lib;
 
@@ -61,6 +68,9 @@
 
         modules = [
           impermanence.nixosModules.impermanence
+          agenix.nixosModules.default {
+            age.secrets."defaults.json".file = ./secrets/defaults.json.age;
+          }
           ./documentation.nix
           ./fonts.nix
           ./hosts/euclid/configuration.nix

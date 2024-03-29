@@ -20,6 +20,9 @@
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
   nix = {
     package = pkgs.nixVersions.stable;
     extraOptions = ''
@@ -29,9 +32,6 @@
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 7d";
-    };
-    optimise = {
-      automatic = true;
     };
   };
 
@@ -113,9 +113,6 @@
       "wheel"
     ];
   };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   programs.noisetorch.enable = true;
 
