@@ -26,13 +26,28 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     hosts.url = "github:StevenBlack/hosts";
+
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    #deploy-rs.url = "github:serokell/deploy-rs";
   };
 
-  outputs = { self, agenix, impermanence, home, hosts, nixpkgs, ... }@inputs:
+  outputs = { self, agenix, impermanence, home, hosts, nixos-generators, nixpkgs, ... }@inputs:
   let
     lib = nixpkgs.lib;
 
     system = "x86_64-linux";
+
+    # see https://github.com/NixOS/nixpkgs/issues/154163
+    armOverlays = [
+      (final: super: {
+        makeModulesClosure = x:
+          super.makeModulesClosure (x // { allowMissing = true; });
+      })
+    ];
   in
   {
     nixosConfigurations = {
@@ -88,6 +103,33 @@
             home-manager.users.mbenevides = import ./hosts/euclid/home.nix;
           }
           inputs.nixos-hardware.nixosModules.lenovo-thinkpad-l13
+        ];
+      };
+
+      # Libre Potato
+      # nix build -L ".#nixosConfigurations.godel.config.system.build.sdImage"
+      godel = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = [
+          ({ config, pkgs, ... }: { nixpkgs.overlays = armOverlays; })
+          "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+          {
+            nixpkgs.config.allowUnsupportedSystem = true;
+            nixpkgs.hostPlatform.system = "armv7l-linux";
+            nixpkgs.buildPlatform.system = "x86_64-linux";
+          }
+          ./hosts/godel/configuration.nix
+        ];
+      };
+
+      # Libre Potato
+      # nix build -L ".#nixosConfigurations.godel.config.system.build.sdImage"
+      lobachevsky = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = [
+          ({ config, pkgs, ... }: { nixpkgs.overlays = armOverlays; })
+          "${nixpkgs}/nixos/modules/installer/sd-card/sd-image-aarch64.nix"
+          ./hosts/lobachevsky/configuration.nix
         ];
       };
     };
