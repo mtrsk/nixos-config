@@ -8,7 +8,6 @@
     # Language-Related
     lua-language-server
     nil
-    nixfmt
     terraform-ls
     # Tools
     #dockle

@@ -67,9 +67,11 @@ in
     includes = [
       {
         condition = "gitdir:~/Code/";
-        contents.user = main;
-        commit = {
-          gpgSign = true;
+        contents = {
+          user = main;
+          commit = {
+            gpgSign = true;
+          };
         };
       }
 
@@ -85,9 +87,11 @@ in
 
       {
         condition = "gitdir:~/.password-store/";
-        contents.user = main;
-        commit = {
-          gpgSign = true;
+        contents = {
+          user = main;
+          commit = {
+            gpgSign = true;
+          };
         };
       }
     ];
