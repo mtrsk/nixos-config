@@ -68,9 +68,10 @@
 
         modules = [
           impermanence.nixosModules.impermanence
-          agenix.nixosModules.default {
-            age.secrets."defaults.json".file = ./secrets/defaults.json.age;
-          }
+          #agenix.nixosModules.default {
+          #  age.secrets."defaults.json".file = ./secrets/defaults.json.age;
+          #  age.identity.paths = "/run/user/1000/gnupg/S.gpg-agent.ssh";
+          #}
           ./documentation.nix
           ./fonts.nix
           ./hosts/euclid/configuration.nix

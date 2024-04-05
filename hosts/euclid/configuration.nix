@@ -6,7 +6,7 @@
 
 let
   # Only default values, so it's ok
-  defaults = builtins.toJSON (builtins.readFile config.age.secrets."defaults.json".path);
+  defaultHashedPassword = "$y$j9T$UNSK1lk2lvwLeM8wVrZEH0$psfcAq6VAgsIpGkybqizkDmkB0ozv36R0F39fvMVDx2";
 in
 {
   imports =
@@ -83,10 +83,10 @@ in
   users.mutableUsers = true;
   users.users = {
     # test
-    root.initialHashedPassword = defaults.credentials.root.hashedPassword;
+    root.initialHashedPassword = defaultHashedPassword;
     mbenevides = {
       isNormalUser = true;
-      initialHashedPassword = defaults.credentials.user.hashedPassword;
+      initialHashedPassword = defaultHashedPassword;
       extraGroups = [ 
         "audio"
         "disk"

@@ -7,7 +7,7 @@ My NixOS configuration files, used in my personal systems and work machines.
    - [X] Use home-manager for user-related configurations
    - [X] Integration with Nix-flakes
    - [X] Integration with the [impermanence](https://github.com/nix-community/impermanence) module
-   - [X] Integration with one of the following secret management tools:
+   - [ ] Integration with one of the following secret management tools:
      - :white_check_mark: [agenix](https://github.com/ryantm/agenix) 
      - :x: [sops-nix](https://github.com/Mic92/sops-nix)
    - [ ] Declarative disk partitions with [disko](https://github.com/nix-community/disko) 
