@@ -20,6 +20,9 @@
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  # https://github.com/nix-community/nixos-generators?tab=readme-ov-file#cross-compiling
+  boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
