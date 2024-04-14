@@ -18,7 +18,7 @@ in
       ../../services/journald.nix
       ../../services/localization.nix
       ../../services/pipewire.nix
-      ../../services/swaywm.nix
+      #../../services/swaywm.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -38,6 +38,10 @@ in
   nix.nixPath = [ "/etc/nix/path" ];
 
   environment.etc =
+    {
+      "xdg/waybar/config".source = ../../dotfiles/waybar/config;
+      "xdg/waybar/styles.css".source = ../../dotfiles/waybar/style.css;
+    } //
     lib.mapAttrs'
       (name: value: {
         name = "nix/path/${name}";
@@ -69,6 +73,38 @@ in
   #services.xserver.displayManager.gdm.enable = true;
   #services.xserver.desktopManager.gnome.enable = true;
 
+  # Hyprland
+  services.dbus.enable = true;
+
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      intel-vaapi-driver
+      libvdpau-va-gl
+    ];
+    extraPackages32 = with pkgs.pkgsi686Linux; [ intel-media-driver ];
+  };
+  hardware.cpu.intel.updateMicrocode = true;
+
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+  };
+
+  services.displayManager = {
+    defaultSession = "hyprland";
+    #sddm.enable = true;
+  };
+
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+  };
+  programs.xwayland.enable = true;
+
+
+  # Xserver
   services.xserver = {
     xkb.layout = "br(thinkpad),us";
     xkb.options = "ctrl:nocaps,";

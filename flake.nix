@@ -26,9 +26,13 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     hosts.url = "github:StevenBlack/hosts";
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
   };
 
-  outputs = { self, agenix, impermanence, home, hosts, nixpkgs, ... }@inputs:
+  outputs = { self, agenix, hyprland, impermanence, home, hosts, nixpkgs, ... }@inputs:
   let
     lib = nixpkgs.lib;
 
