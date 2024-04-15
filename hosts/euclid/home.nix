@@ -7,6 +7,7 @@
   imports =
     [
       # Directories
+      ../../home/browsers.nix
       ../../home/development
       ../../home/common.nix
       ../../home/editors.nix

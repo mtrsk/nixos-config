@@ -70,14 +70,9 @@ in
     };
   };
 
-  services.xserver = {
-    enable = true;
-    displayManager = {
-      defaultSession = "sway";
-      #gdm.enable = true;
-      #gdm.wayland = true;
-      sddm.enable = true;
-    };
+  services.displayManager = {
+    defaultSession = "sway";
+    sddm.enable = true;
   };
 
   environment = {
