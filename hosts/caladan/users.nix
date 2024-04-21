@@ -9,7 +9,7 @@
       ../../home/chats.nix
       ../../home/common.nix
       ../../home/editors.nix
-      ../../home/emacs.nix
+      #../../home/emacs.nix
       ../../home/gaming.nix
       ../../home/ranger.nix
       ../../home/rice
