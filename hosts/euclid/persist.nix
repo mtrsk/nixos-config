@@ -13,6 +13,7 @@
       # previous boots.
       "/etc/machine-id"
       { file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
+      { file = "/var/users/mbenevides"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
     ];
     users.mbenevides = {
       directories = [

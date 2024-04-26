@@ -12,6 +12,7 @@
       ../../home/common.nix
       ../../home/editors.nix
       ../../home/security.nix
+      ../../home/ranger.nix
       ../../home/rice/alacritty.nix
       ../../home/zshell.nix
     ];

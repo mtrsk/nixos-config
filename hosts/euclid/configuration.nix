@@ -4,10 +4,6 @@
 
 { config, inputs, lib, pkgs, ... }:
 
-let
-  # Only default values, so it's ok
-  defaultHashedPassword = "$y$j9T$UNSK1lk2lvwLeM8wVrZEH0$psfcAq6VAgsIpGkybqizkDmkB0ozv36R0F39fvMVDx2";
-in
 {
   imports =
     [
@@ -79,14 +75,15 @@ in
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.mutableUsers = true;
+  users.mutableUsers = false;
   users.users = {
-    # test
-    root.initialHashedPassword = defaultHashedPassword;
+    # root.hashedPassword = lib.removeSuffix "\n" (builtins.readFile "/nix/persist/var/users/root");
+    #root.password = lib.removeSuffix "\n" (builtins.readFile "/nix/persist/var/users/root");
+    root.hashedPassword = "$y$j9T$6zLPFDkAeDgRk2Aw4JUTL1$adKhB4NX2bJ3hn4jHLiNd40plkUr0Dmy3GaRzVacGa.";
     mbenevides = {
       isNormalUser = true;
-      initialHashedPassword = defaultHashedPassword;
+      #password = "test";
+      hashedPassword = "$y$j9T$6zLPFDkAeDgRk2Aw4JUTL1$adKhB4NX2bJ3hn4jHLiNd40plkUr0Dmy3GaRzVacGa.";
       extraGroups = [ 
         "audio"
         "disk"
