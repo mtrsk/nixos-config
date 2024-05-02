@@ -9,6 +9,7 @@
       # Directories
       ../../home/browsers.nix
       ../../home/development
+      ../../home/chats.nix
       ../../home/common.nix
       ../../home/editors.nix
       ../../home/security.nix
