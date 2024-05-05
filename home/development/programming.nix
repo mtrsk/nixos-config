@@ -3,7 +3,7 @@
 {
   home.packages = with pkgs; [
     # SDKs
-    dotnet-sdk
+    dotnet-sdk_8
     protobuf
     # Language-Related
     lua-language-server
