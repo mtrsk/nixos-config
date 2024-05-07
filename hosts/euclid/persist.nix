@@ -22,6 +22,7 @@
         ".config/Signal"
         ".local/share/sddm"
         ".local/share/direnv"
+        ".nuget"
         "Code"
         "Documents"
         "Downloads"

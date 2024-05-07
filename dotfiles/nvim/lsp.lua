@@ -19,6 +19,25 @@ end
 vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
 vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 
+-- Setup
+--local on_attach = require("plugins.configs.lspconfig").on_attach
+--local capabilities = require("plugins.configs.lspconfig").capabilities
+--
+--local lspconfig = require "lspconfig"
+--local util = require "lspconfig/util"
+require "lspconfig"
+
+-- F#
+require("ionide").setup {
+    autostart = true,
+    --on_attach = on_attach,
+    --capabilities = capabilities,
+}
+
+--let g:fsharp#fsi_keymap = "custom"
+--let g:fsharp#fsi_keymap_send   = "<C-e>"
+--let g:fsharp#fsi_keymap_toggle = "<C-@>"
+
 -- Nix
 require'lspconfig'.nil_ls.setup{}
 

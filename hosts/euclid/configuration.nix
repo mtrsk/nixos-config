@@ -15,6 +15,9 @@
       ../../services/localization.nix
       ../../services/pipewire.nix
       ../../services/swaywm.nix
+
+      # Virtualisation
+      ../../virtualisation/docker.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -87,6 +90,7 @@
       extraGroups = [ 
         "audio"
         "disk"
+        "docker"
         "input"
         "networkmanager"
         "tty"
@@ -96,6 +100,8 @@
       packages = with pkgs; [
         firefox
         tree
+        networkmanagerapplet
+        pavucontrol
       ];
     };
   };
