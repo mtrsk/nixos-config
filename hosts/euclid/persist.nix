@@ -19,6 +19,7 @@
     users.mbenevides = {
       directories = [
         ".config/BraveSoftware"
+        ".config/Signal"
         ".local/share/sddm"
         ".local/share/direnv"
         "Code"
