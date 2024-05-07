@@ -64,12 +64,12 @@
   # Enable the GNOME Desktop Environment.
   #services.xserver.displayManager.gdm.enable = true;
   #services.xserver.desktopManager.gnome.enable = true;
+  services.libinput.enable = true;
 
   services.xserver = {
     xkb.layout = "br(thinkpad),us";
     xkb.options = "ctrl:nocaps,";
     videoDrivers = ["intel"];
-    libinput.enable = true;
   };
 
   # Enable CUPS to print documents.

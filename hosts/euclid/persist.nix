@@ -14,9 +14,11 @@
       "/etc/machine-id"
       { file = "/var/keys/secret_file"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
       { file = "/var/users/mbenevides"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
+      { file = "/var/users/root"; parentDirectory = { mode = "u=rwx,g=,o="; }; }
     ];
     users.mbenevides = {
       directories = [
+        ".config/BraveSoftware"
         ".local/share/sddm"
         ".local/share/direnv"
         "Code"
