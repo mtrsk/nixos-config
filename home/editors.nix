@@ -61,8 +61,8 @@ in
 
     extensions = with pkgs.vscode-extensions; [
       # .NET
-      ionide.ionide-fsharp
       ms-dotnettools.csharp
+      ionide.ionide-fsharp
 
       # Nix
       jnoortheen.nix-ide
@@ -81,6 +81,7 @@ in
       esbenp.prettier-vscode
       gruntfuggly.todo-tree
       mkhl.direnv
+
       vscodevim.vim
     ];
   };

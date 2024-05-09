@@ -10,6 +10,7 @@
     nil
     terraform-ls
     # Tools
+    postman
     #dockle
     #hadolint
     shellcheck

@@ -21,6 +21,20 @@ in
     userEmail = "marcos.schonfinkel@gmail.com";
     userName = "Marcos Benevides";
 
+    ignores = [
+      # nix
+      "result"
+
+      # direnv/devenv
+      ".envrc"
+      ".direnv"
+      ".devenv"
+      ".pre-commit-config.yaml"
+
+      # vscode
+      ".vscode"
+    ];
+
     aliases = {
       # Aliases
       commit = "commit -S";

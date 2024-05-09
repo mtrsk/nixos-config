@@ -23,9 +23,10 @@
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.kernel.sysctl = {
-    "kernel.sysrq" = 120;
+    "kernel.sysrq" = 128;
   }; 
 
   # This will add each flake input as a registry
@@ -98,20 +99,12 @@
       	"wheel"
       ];
       packages = with pkgs; [
-        firefox
         tree
         networkmanagerapplet
         pavucontrol
       ];
     };
   };
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  # environment.systemPackages = with pkgs; [
-  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #   wget
-  # ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
