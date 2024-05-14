@@ -39,4 +39,6 @@ You probably shouldn't.
 ## Screenshots
 
 - Neovim
-[[./docs/neovim.png]]
+
+![Neovim01](./docs/neovim.png)
+

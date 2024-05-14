@@ -34,9 +34,21 @@ require("ionide").setup {
     --capabilities = capabilities,
 }
 
---let g:fsharp#fsi_keymap = "custom"
---let g:fsharp#fsi_keymap_send   = "<C-e>"
---let g:fsharp#fsi_keymap_toggle = "<C-@>"
+-- https://github.com/ionide/Ionide-vim?tab=readme-ov-file#settings
+vim.g["fsharp#lsp_auto_setup"] = 1
+vim.g["fsharp#lsp_recommended_colorscheme"] = 1
+vim.g["fsharp#automatic_workspace_init"] = 1
+vim.g["fsharp#linter"] = 1
+vim.g["fsharp#unused_opens_analyzer"] = 1
+vim.g["fsharp#unused_declarations_analyzer"] = 1
+vim.g["fsharp#exclude_project_directories"] = [".devenv", ".direnv", "paket-files", "result"]
+vim.g["fsharp#show_signature_on_cursor_move"] = 1
+vim.g["fsharp#fsi_focus_on_send"] = 1
+
+-- custom mapping
+vim.g["fsharp#fsi_keymap"] = "custom"
+vim.g["fsharp#fsi_keymap_send"] = "<leader>-i"
+vim.g["fsharp#fsi_keymap_toggle"] = "<leader>-@"
 
 -- Nix
 require'lspconfig'.nil_ls.setup{}
