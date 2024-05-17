@@ -17,8 +17,5 @@
     #sqlcheck
     yamllint
     # Other stuff
-    #siege
-    taskjuggler
-    plantuml
   ];
 }
