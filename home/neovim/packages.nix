@@ -62,6 +62,8 @@ in
   prv = with private; [ vim-taskjuggler ];
   tooling = with plugins; [
     direnv-vim
+    gitsigns-nvim
+    neogit
     Ionide-vim
     vim-nix
     vim-terraform

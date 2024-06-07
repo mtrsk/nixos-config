@@ -19,6 +19,7 @@ in
       luafile ${dotfiles "line"}
       luafile ${dotfiles "lsp"}
       luafile ${dotfiles "tabs"}
+      luafile ${dotfiles "git"}
       luafile ${dotfiles "files"}
       luafile ${dotfiles "treesitter"}
       ''
