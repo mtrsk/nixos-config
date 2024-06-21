@@ -40,7 +40,7 @@
         fsharp-mode
         # haskell-mode
         nix-mode
-        #sqlformat
+        sqlformat
         # Latex
         org-fragtog
         ## Tooling
