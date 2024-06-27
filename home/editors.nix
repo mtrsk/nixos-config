@@ -14,7 +14,8 @@ in
 
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium;
+    # package = pkgs.vscodium;
+    package = pkgs.vscode-fhs;
     userSettings = {
       "update.mode" = "none";
 
@@ -83,6 +84,7 @@ in
       mkhl.direnv
 
       vscodevim.vim
+      ms-vsliveshare.vsliveshare
     ];
   };
 
