@@ -91,6 +91,9 @@
         org-tree-slide
         # Ricing
         ewal
+        # Blogging
+        #ox-hugo
+        #citeproc
       ]));
   };
 

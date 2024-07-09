@@ -27,7 +27,8 @@
     ripgrep
     sshfs
     smartmontools
-    transmission_4-qt
+    #transmission_4-qt
+    qbittorrent-qt5
     tree
     tree-sitter
     unar
