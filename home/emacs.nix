@@ -67,7 +67,7 @@
         treemacs-evil
         treemacs-projectile
         treemacs-all-the-icons
-        #treemacs-magit
+        treemacs-magit
         swiper
         rainbow-delimiters
         #rg

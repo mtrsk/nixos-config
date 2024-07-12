@@ -16,6 +16,7 @@
     autosuggestion.enable = true;
     enableCompletion = true;
     shellAliases = {
+      nix-clean="nix-collect-garbage -d --delete-old && sudo nix-collect-garbage -d --delete-old";
       hstat="curl -o /dev/null --silent --head --write-out '%{http_code}\n' $1";
       l="ls -l";
       ls="ls -h --group-directories-first --color=auto";

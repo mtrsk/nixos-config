@@ -16,6 +16,7 @@
   fonts.packages = with pkgs; [
     # Other
     font-awesome_5
+    iosevka
     (nerdfonts.override {
       fonts = [
         "DroidSansMono"
@@ -35,7 +36,5 @@
     roboto
     roboto-mono
     roboto-slab
-    #source-code-pro
-    #symbola
   ];
 }
