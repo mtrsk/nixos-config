@@ -81,7 +81,9 @@
   };
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  #services.printing = {
+  #  enable = true;
+  #};
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -121,6 +123,7 @@
   };
 
   programs.noisetorch.enable = true;
+  programs.steam.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
