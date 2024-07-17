@@ -86,7 +86,6 @@
   #};
 
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -123,7 +122,6 @@
   };
 
   programs.noisetorch.enable = true;
-  programs.steam.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
