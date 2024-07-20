@@ -27,13 +27,25 @@ vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
 --local util = require "lspconfig/util"
 require "lspconfig"
 -- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+-- Elixir
+local elixir_ls_path = os.getenv("ELIXIR_LS_PATH")
+require 'lspconfig'.elixirls.setup {
+    -- cmd = { "elixir-ls" },
+    filetypes = { "elixir", "eelixir", "heex", "surface" },
+    capabilities = capabilities,
+    -- root_dir = root_pattern("mix.exs", ".git") or vim.loop.os_homedir(),
+}
+
+-- Erlang
+require 'lspconfig'.erlangls.setup{}
 
 -- F#
 require("ionide").setup {
     autostart = true,
     --on_attach = on_attach,
-    --capabilities = capabilities,
+    capabilities = capabilities,
 }
 
 -- https://github.com/ionide/Ionide-vim?tab=readme-ov-file#settings
