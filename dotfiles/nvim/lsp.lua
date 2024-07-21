@@ -30,16 +30,19 @@ require "lspconfig"
 local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Elixir
+-- Every Elixir devenv needs to have this envar defined
 local elixir_ls_path = os.getenv("ELIXIR_LS_PATH")
 require 'lspconfig'.elixirls.setup {
-    -- cmd = { "elixir-ls" },
+    cmd = { elixir_ls_path },
     filetypes = { "elixir", "eelixir", "heex", "surface" },
     capabilities = capabilities,
     -- root_dir = root_pattern("mix.exs", ".git") or vim.loop.os_homedir(),
 }
 
 -- Erlang
-require 'lspconfig'.erlangls.setup{}
+require 'lspconfig'.erlangls.setup{
+    capabilities = capabilities,
+}
 
 -- F#
 require("ionide").setup {

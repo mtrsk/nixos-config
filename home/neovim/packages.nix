@@ -38,7 +38,10 @@ in
         p.c
         p.bash
         p.dockerfile
+        p.erlang
+        p.elixir
         p.gitignore
+        p.haskell
         p.lua
         p.markdown
         p.nix
