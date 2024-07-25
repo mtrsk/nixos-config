@@ -16,6 +16,5 @@
     shellcheck
     #sqlcheck
     yamllint
-    # Other stuff
   ];
 }
