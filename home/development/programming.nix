@@ -16,5 +16,6 @@
     shellcheck
     #sqlcheck
     yamllint
+    #jetbrains.rider
   ];
 }
