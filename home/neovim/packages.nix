@@ -6,8 +6,8 @@ let
 in
 {
   base = with plugins; [
+    autoclose-nvim
     hologram-nvim
-    nvim-surround
     toggleterm-nvim
     vim-which-key
     vim-visual-multi

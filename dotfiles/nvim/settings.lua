@@ -7,15 +7,24 @@ vim.cmd [[
     set nowritebackup
     set noerrorbells
     set noswapfile
-
-    colorscheme tokyonight-night
 ]]
 
+vim.cmd.colorscheme("tokyonight-night")
+
+-------
 -- Maps
+-------
 -- I define most of my shortcuts in different files, this section contains
 -- only the generic ones.
 vim.keymap.set("n", " ", "<Nop>", { silent = true, remap = false })
 g.mapleader = " "
+
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+
+-- I always forget the regex replace syntax
+vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+-------
 
 -- Performance
 opt.lazyredraw = true;
@@ -34,7 +43,7 @@ opt.tabstop = 4
 opt.shiftwidth = 4
 opt.shiftround = true
 opt.expandtab = true
-opt.scrolloff = 3
+opt.scrolloff = 8
 
 -- Set clipboard to use system clipboard
 opt.clipboard = "unnamedplus"
@@ -50,18 +59,20 @@ opt.viminfofile = "NONE"
 
 -- Miscellaneous quality of life
 opt.ignorecase = true
+opt.incsearch = true
 opt.ttimeoutlen = 5
 opt.compatible = false
 opt.hidden = true
 opt.shortmess = "atI"
 
--- Surround
-require("nvim-surround").setup({})
+-- Autoclose
+require("autoclose").setup()
 
 -- Telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>lg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>gf', builtin.git_files, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
@@ -74,9 +85,18 @@ require("toggleterm").setup{
   shading_factor = 2,
   start_in_insert = true,
   insert_mappings = true,
-  direction = "float",
+  direction = "vertical",
   close_on_exit = true,
   shell = vim.o.shell,
+  size = function(term)
+    if term.direction == "horizontal" then
+      return 15
+    elseif term.direction == "vertical" then
+      return vim.o.columns * 0.4
+    else
+      return 30
+    end
+  end,
   float_opts = {
     border = "curved",
     winblend = 0,
