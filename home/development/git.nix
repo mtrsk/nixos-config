@@ -46,6 +46,9 @@ in
       cm = "commit -m";
       ds = "diff --staged";
       dc = "diff --name-only --diff-filter=U";
+      fo = "fetch origin";
+      lo = "log --oneline";
+      ls = "log -S";
       po = "push origin";
       pof = "push -f origin";
       pro = "pull --rebase origin";
