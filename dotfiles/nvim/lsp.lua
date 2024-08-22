@@ -61,6 +61,14 @@ vim.g["fsharp#unused_declarations_analyzer"] = 1
 vim.g["fsharp#show_signature_on_cursor_move"] = 1
 vim.g["fsharp#fsi_focus_on_send"] = 1
 
+-- Just
+require("nvim-treesitter.configs").setup({
+  highlight = {
+    enable = true,
+    disable = { "just" },
+  },
+})
+
 -- Nix
 require'lspconfig'.nil_ls.setup{}
 

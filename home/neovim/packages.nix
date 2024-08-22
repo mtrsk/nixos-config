@@ -41,8 +41,13 @@ in
         p.erlang
         p.elixir
         p.gitignore
+        p.gleam
         p.haskell
+        p.json
+        p.just
+        p.latex
         p.lua
+        p.make
         p.markdown
         p.nix
         p.proto
@@ -68,6 +73,7 @@ in
     gitsigns-nvim
     neogit
     Ionide-vim
+    vim-just
     vim-nix
     vim-terraform
   ];
