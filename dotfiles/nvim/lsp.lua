@@ -61,6 +61,9 @@ vim.g["fsharp#unused_declarations_analyzer"] = 1
 vim.g["fsharp#show_signature_on_cursor_move"] = 1
 vim.g["fsharp#fsi_focus_on_send"] = 1
 
+-- Gleam
+require 'lspconfig'.gleam.setup({})
+
 -- Just
 require("nvim-treesitter.configs").setup({
   highlight = {

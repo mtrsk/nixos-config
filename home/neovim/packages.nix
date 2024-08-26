@@ -71,6 +71,7 @@ in
   tooling = with plugins; [
     direnv-vim
     gitsigns-nvim
+    gleam-vim
     neogit
     Ionide-vim
     vim-just
