@@ -62,7 +62,11 @@ vim.g["fsharp#show_signature_on_cursor_move"] = 1
 vim.g["fsharp#fsi_focus_on_send"] = 1
 
 -- Gleam
-require 'lspconfig'.gleam.setup({})
+require 'lspconfig'.gleam.setup({
+	cmd = { "gleam", "lsp" },
+	filetypes = { "gleam" },
+    capabilities = capabilities
+})
 
 -- Just
 require("nvim-treesitter.configs").setup({

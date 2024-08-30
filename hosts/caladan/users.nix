@@ -20,6 +20,7 @@
   home.packages = with pkgs; [
     #gnomeExtensions.freon
     jetbrains.rider
+    jetbrains.idea-ultimate
     gimp
     krita
     mpv
