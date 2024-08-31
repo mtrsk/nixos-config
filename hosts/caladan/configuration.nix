@@ -71,6 +71,10 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
+  hardware.nvidia = {
+    open = false;
+    nvidiaSettings = true;
+  };
   services.xserver = {
     xkb = {
       layout = "us";
