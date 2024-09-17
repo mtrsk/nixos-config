@@ -68,11 +68,6 @@ in
       # Nix
       jnoortheen.nix-ide
 
-      # Python
-      ms-python.python
-      ms-toolsai.jupyter
-      ms-pyright.pyright
-
       # Markdown
       yzhang.markdown-all-in-one
 
