@@ -5,7 +5,6 @@
   (require 'use-package))
 (setq use-package-compute-statistics t)
 
-(load-file "~/.emacs.d/custom.el")
 (load-file "~/.emacs.d/edit.el")
 (load-file "~/.emacs.d/evil.el")
 (load-file "~/.emacs.d/git.el")

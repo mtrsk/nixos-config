@@ -26,6 +26,7 @@
     mpv
     remmina
     postman
+    firefox
   ];
 
   home.stateVersion = "22.11";
