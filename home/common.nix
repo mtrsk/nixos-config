@@ -28,7 +28,7 @@
     sshfs
     smartmontools
     #transmission_4-qt
-    qbittorrent-qt5
+    #qbittorrent-qt
     tree
     tree-sitter
     unar
