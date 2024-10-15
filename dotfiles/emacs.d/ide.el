@@ -97,8 +97,12 @@
 (use-package dockerfile-mode
   :config (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode)))
 
-;;; Javascript
 
+;;graphviz dot
+(use-package graphviz-dot-mode :ensure t
+  :mode (("\\.dot\\'" . graphviz-dot-mode)))
+
+;;; Javascript
 (use-package es-mode
   :init (add-to-list 'auto-mode-alist '("\\.es$" . es-mode))
   :hook ((es-result-mode . hs-minor-mode)))

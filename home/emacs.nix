@@ -1,6 +1,5 @@
 { pkgs, home, ... }:
 
-
 {
   # Treemacs requires python3
   home.packages = with pkgs; [
@@ -31,13 +30,13 @@
         # Formatting
         format-all
         # Deveopment
-        ## Documentation
-        mermaid-mode
         ## Languages
         dockerfile-mode
         elpy
         eshell-syntax-highlighting
         fsharp-mode
+        # graphviz
+        graphviz-dot-mode
         # haskell-mode
         nix-mode
         sqlformat
@@ -91,9 +90,6 @@
         org-tree-slide
         # Ricing
         ewal
-        # Blogging
-        #ox-hugo
-        #citeproc
       ]));
   };
 
