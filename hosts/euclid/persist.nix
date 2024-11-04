@@ -3,6 +3,7 @@
   environment.persistence."/nix/persist" = {
     hideMounts = true;
     directories = [
+      "/var/lib/nixos"
       "/var/log"
       "/var/lib/systemd/coredump"
       "/etc/NetworkManager/system-connections"

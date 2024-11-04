@@ -58,7 +58,7 @@ in
     xwayland
     wayland
     waybar
-    wf-recorder
+    #wf-recorder
     wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
     wofi
   ];

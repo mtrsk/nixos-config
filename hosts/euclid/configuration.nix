@@ -85,6 +85,7 @@
     #root.password = lib.removeSuffix "\n" (builtins.readFile "/nix/persist/var/users/root");
     root.hashedPassword = "$y$j9T$6zLPFDkAeDgRk2Aw4JUTL1$adKhB4NX2bJ3hn4jHLiNd40plkUr0Dmy3GaRzVacGa.";
     mbenevides = {
+      uid = 1000;
       isNormalUser = true;
       #password = "test";
       hashedPassword = "$y$j9T$6zLPFDkAeDgRk2Aw4JUTL1$adKhB4NX2bJ3hn4jHLiNd40plkUr0Dmy3GaRzVacGa.";
