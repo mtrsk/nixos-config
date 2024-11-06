@@ -14,7 +14,7 @@
       ../../services/journald.nix
       ../../services/localization.nix
       ../../services/pipewire.nix
-      ../../services/swaywm.nix
+      #../../services/swaywm.nix
 
       # Virtualisation
       ../../virtualisation/docker.nix
@@ -66,9 +66,17 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  #services.xserver.displayManager.gdm.enable = true;
-  #services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
   services.libinput.enable = true;
+
+  #programs.hyprland = {
+  #  enable = true;
+  #  # set the flake package
+  #  package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  #  # make sure to also set the portal package, so that they are in sync
+  #  portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  #};
 
   services.xserver = {
     xkb.layout = "br(thinkpad),us";
@@ -103,6 +111,7 @@
         tree
         networkmanagerapplet
         pavucontrol
+        wl-clipboard-rs
       ];
     };
   };

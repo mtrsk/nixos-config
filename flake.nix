@@ -18,6 +18,8 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    hyprland.url = "github:hyprwm/Hyprland";
+
     hosts.url = "github:StevenBlack/hosts";
   };
 
