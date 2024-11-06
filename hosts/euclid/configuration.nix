@@ -111,7 +111,17 @@
         tree
         networkmanagerapplet
         pavucontrol
-        wl-clipboard-rs
+        # wayland
+        glib # gsettings
+        grim # screenshot functionality
+        mako # notification system developed by swaywm maintainer
+        slurp # screenshot functionality
+        xwayland
+        wayland
+        waybar
+        #wf-recorder
+        wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
+        wofi
       ];
     };
   };
