@@ -17,19 +17,14 @@
     # Other
     font-awesome_5
     iosevka
-    (nerdfonts.override {
-      fonts = [
-        "DroidSansMono"
-        "FiraCode"
-        "Hack"
-        "Iosevka"
-        "JetBrainsMono"
-        "Monoid"
-        "NerdFontsSymbolsOnly"
-        "SourceCodePro"
-        "SpaceMono"
-      ];
-    })
+    # Nerdfonts
+    nerd-fonts.droid-sans-mono
+    nerd-fonts.fira-code
+    nerd-fonts.hack
+    nerd-fonts.iosevka
+    nerd-fonts.monoid
+    nerd-fonts.symbols-only
+    nerd-fonts.space-mono
     powerline-fonts
     profont
     recursive

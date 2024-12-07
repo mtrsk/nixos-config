@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -18,7 +18,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  # boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_6_11;
 
   # https://github.com/nix-community/nixos-generators?tab=readme-ov-file#cross-compiling
   boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
@@ -51,7 +53,6 @@
   };
 
   # Networking
-
   networking.hostName = "caladan"; # Define your hostname.
 
   # Configure network proxy if necessary
@@ -63,6 +64,34 @@
   # Set your time zone.
   time.timeZone = "America/Fortaleza";
 
+  # GPU Config
+  hardware.nvidia = {
+    # Use the NVidia open source kernel module
+    # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
+    open = false;
+
+    # Enable the Nvidia settings menu,
+	# accessible via `nvidia-settings`.
+    nvidiaSettings = true;
+
+    # Optionally, you may need to select the appropriate driver version for your specific GPU.
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
+  services.xserver = {
+    videoDrivers = [ "nvidia" ];
+    dpi = 180;
+  };
+
+  # hyprland setup
+  #programs.hyprland = {
+  #  enable = true;
+  #  # set the flake package
+  #  package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+  #  # make sure to also set the portal package, so that they are in sync
+  #  portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  #};
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
@@ -71,17 +100,11 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  hardware.nvidia = {
-    open = false;
-    nvidiaSettings = true;
-  };
   services.xserver = {
     xkb = {
       layout = "us";
       variant = "";
     };
-    videoDrivers = [ "nvidia" ];
-    dpi = 180;
   };
 
   # Enable CUPS to print documents.
