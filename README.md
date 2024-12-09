@@ -18,13 +18,6 @@ My NixOS configuration files, used in my personal systems and work machines.
 ## How to use it?
 
    - Clone this repo
-   - Generate some `agenix` files:
-```shell
-    RULES="./secrets/secrets.nix" nix run github:ryantm/agenix -- -e "defaults.json.age"
-    # or
-    chmod 700 ./mk_secrets.sh
-    ./mk_secrets.sh
-```
    - Pick a definition in the flake.nix
    - Build it
 

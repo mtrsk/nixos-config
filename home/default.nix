@@ -5,9 +5,6 @@
     [
       # Directories
       ./development
-      (import ./rice {
-        inherit pkgs config inputs system;
-      })
       # Files
       ./browsers.nix
       ./chats.nix
@@ -19,7 +16,9 @@
         user=username;
         inherit pkgs;
       })
+      ./ranger.nix
       ./security.nix
+      ./themes.nix
       ./udiskie.nix
       ./zshell.nix
     ];

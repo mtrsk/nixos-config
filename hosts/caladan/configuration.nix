@@ -9,9 +9,11 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
+      # Extra services
       ../../services/localization.nix
-
       ../../services/hyprland.nix
+      ../../services/theme.nix
+
       # Virtualisation
       ../../virtualisation/docker.nix
     ];
@@ -91,37 +93,6 @@
   services.xserver = {
     videoDrivers = [ "nvidia" ];
     dpi = 180;
-  };
-
-  # Styling Options
-  stylix = {
-    enable = true;
-    image = ../../wallpapers/nix-aurora.png;
-    polarity = "dark";
-    opacity.terminal = 0.9;
-    #cursor.package = pkgs.bibata-cursors;
-    #cursor.name = "Bibata-Modern-Ice";
-    cursor.size = 24;
-    fonts = {
-    #  monospace = {
-    #    package = pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; };
-    #    name = "JetBrainsMono Nerd Font Mono";
-    #  };
-    #  sansSerif = {
-    #    package = pkgs.montserrat;
-    #    name = "Montserrat";
-    #  };
-    #  serif = {
-    #    package = pkgs.montserrat;
-    #    name = "Montserrat";
-    #  };
-      sizes = {
-        applications = 16;
-        terminal = 16;
-        desktop = 14;
-        popups = 12;
-      };
-    };
   };
 
   # Enable the GNOME Desktop Environment.

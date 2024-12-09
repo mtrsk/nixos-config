@@ -30,6 +30,7 @@ in
           "custom/startmenu"
           "hyprland/window"
           "idle_inhibitor"
+          "tray"
         ];
         modules-right = [
           "custom/notification"
@@ -38,7 +39,6 @@ in
           "pulseaudio"
           "cpu"
           "memory"
-          "tray"
           "custom/exit"
           "clock"
         ];
@@ -46,11 +46,16 @@ in
         "hyprland/workspaces" = {
           format = "{name}";
           format-icons = {
-            "1" = "";
-            "2" = "";
-            "3" = "";
-            "4" = "";
-            "5" = "";
+            "1" = " ";
+            "2" = " ";
+            "3" = " ";
+            "4" = " ";
+            "5" = " ";
+            "6" = " ";
+            "7" = " ";
+            "8" = " ";
+            "9" = " ";
+            "0" = " ";
             active = "";
             default = "";
             urgent = "";
@@ -61,11 +66,20 @@ in
 
         "clock" = {
           format = "  {:L%H:%M}";
+          interval = "30";
           format-alt = "  {%d/%m/%y}";
           tooltip = true;
-          tooltip-format = "<tt><small>{calendar}</small></tt>";
+          tooltip-format = "<tt><big>{calendar}</big></tt>";
+          timezone = "America/Fortaleza";
           calendar = {
             mode = "month";
+            format = {
+              months = "<span color='#${config.stylix.base16Scheme.base04}'><b>{}</b></span>";
+              days = "<span color='#${config.stylix.base16Scheme.base05}'><b>{}</b></span>";
+              weeks = "<span color='#${config.stylix.base16Scheme.base07}'><b>W{}</b></span>";
+              weekdays = "<span color='#${config.stylix.base16Scheme.base06}'><b>{}</b></span>";
+              today = "<span color='#${config.stylix.base16Scheme.base0A}'><b><u>{}</u></b></span>";
+            };
           };
         };
 
@@ -97,15 +111,15 @@ in
 
         "network" = {
           format-icons = [
-            "󰤯"
-            "󰤟"
-            "󰤢"
-            "󰤥"
-            "󰤨"
+            "󰤯 "
+            "󰤟 "
+            "󰤢 "
+            "󰤥 "
+            "󰤨 "
           ];
           format-ethernet = "  {ipaddr}/{cidr}";
-          format-wifi = "  {essid} {signalStrength}%";
-          format-disconnected = "󰤮";
+          format-wifi = "  {essid} ({signalStrength}%)";
+          format-disconnected = "󰤮 ";
           tooltip = true;
           tooltip-format-ethernet = "{ifname} via {gwaddr}";
           tooltip-format-wifi = "  {essid} ({signalStrength}%)";
@@ -122,7 +136,7 @@ in
           format-bluetooth-muted = " {icon} {format_source}";
           format-muted = " {format_source}";
           format-source = " {volume}%";
-          format-source-muted = "";
+          format-source-muted = " ";
           format-icons = {
             headphone = "";
             hands-free = "";
@@ -164,13 +178,13 @@ in
           tooltip = false;
           format = "{icon} {}";
           format-icons = {
-            notification = "<span foreground='red'><sup></sup></span>";
+            notification = "<span foreground='#${config.stylix.base16Scheme.base02}'><sup></sup></span>";
             none = "";
-            dnd-notification = "<span foreground='red'><sup></sup></span>";
+            dnd-notification = "<span foreground='#${config.stylix.base16Scheme.base02}'><sup></sup></span>";
             dnd-none = "";
-            inhibited-notification = "<span foreground='red'><sup></sup></span>";
+            inhibited-notification = "<span foreground='#${config.stylix.base16Scheme.base02}'><sup></sup></span>";
             inhibited-none = "";
-            dnd-inhibited-notification = "<span foreground='red'><sup></sup></span>";
+            dnd-inhibited-notification = "<span foreground='#${config.stylix.base16Scheme.base02}'><sup></sup></span>";
             dnd-inhibited-none = "";
           };
           return-type = "json";
@@ -214,85 +228,113 @@ in
           border: none;
           min-height: 0px;
         }
+
         window#waybar {
           background: rgba(0,0,0,0);
         }
+
         #workspaces {
-          color: #${config.stylix.base16Scheme.base00};
+          color: #${config.stylix.base16Scheme.base04};
           background: #${config.stylix.base16Scheme.base01};
           margin: 4px 4px;
           padding: 5px 5px;
           border-radius: 16px;
         }
+
         #workspaces button {
           font-weight: bold;
           padding: 0px 5px;
           margin: 0px 3px;
           border-radius: 16px;
-          color: #${config.stylix.base16Scheme.base00};
-          background: linear-gradient(45deg, #${config.stylix.base16Scheme.base08}, #${config.stylix.base16Scheme.base0D});
+          color: #${config.stylix.base16Scheme.base04};
+          background: #${config.stylix.base16Scheme.base01};
           opacity: 0.5;
           transition: ${betterTransition};
         }
+
         #workspaces button.active {
           font-weight: bold;
           padding: 0px 5px;
           margin: 0px 3px;
           border-radius: 16px;
           color: #${config.stylix.base16Scheme.base00};
-          background: linear-gradient(45deg, #${config.stylix.base16Scheme.base08}, #${config.stylix.base16Scheme.base0D});
+          background: #${config.stylix.base16Scheme.base07};
           transition: ${betterTransition};
           opacity: 1.0;
           min-width: 40px;
         }
+
+        #workspaces button.focused {
+          border-bottom: 3px solid #${config.stylix.base16Scheme.base04};
+        }
+
+        #workspaces button.urgent {
+          color: #${config.stylix.base16Scheme.base09};
+          border-bottom: 3px solid #${config.stylix.base16Scheme.base06};
+        }
+
         #workspaces button:hover {
           font-weight: bold;
           border-radius: 16px;
           color: #${config.stylix.base16Scheme.base00};
-          background: linear-gradient(45deg, #${config.stylix.base16Scheme.base08}, #${config.stylix.base16Scheme.base0D});
+          background: #${config.stylix.base16Scheme.base07};
           opacity: 0.8;
           transition: ${betterTransition};
         }
+
         tooltip {
           background: #${config.stylix.base16Scheme.base00};
-          border: 1px solid #${config.stylix.base16Scheme.base08};
+          border: 1px solid #${config.stylix.base16Scheme.base04};
           border-radius: 12px;
         }
+
         tooltip label {
-          color: #${config.stylix.base16Scheme.base08};
+          color: #${config.stylix.base16Scheme.base04};
         }
-        #window, #pulseaudio, #network, #cpu, #memory, #disk, #idle_inhibitor {
+
+        #window,
+        #pulseaudio,
+        #network,
+        #cpu,
+        #memory,
+        #disk,
+        #tray, 
+        #idle_inhibitor {
           font-weight: bold;
           margin: 4px 0px;
-          margin-left: 7px;
+          margin-right: 7px;
           padding: 0px 18px;
-          background: #${config.stylix.base16Scheme.base04};
+          background: #${config.stylix.base16Scheme.base03};
           color: #${config.stylix.base16Scheme.base00};
           border-radius: 24px 10px 24px 10px;
         }
+
         #custom-startmenu {
           color: #${config.stylix.base16Scheme.base00};
-          background: linear-gradient(90deg, #${config.stylix.base16Scheme.base0E}, #${config.stylix.base16Scheme.base0C});
+          background: #${config.stylix.base16Scheme.base05};
           font-size: 28px;
           margin: 0px;
+          margin-right: 7px;
           padding: 0px 30px 0px 15px;
           border-radius: 0px 0px 40px 0px;
         }
+
         #battery,
-        #custom-notification, #tray, #custom-exit {
+        #custom-notification,
+        #custom-exit {
           font-weight: bold;
-          background: #${config.stylix.base16Scheme.base0F};
           color: #${config.stylix.base16Scheme.base00};
+          background: #${config.stylix.base16Scheme.base03};
           margin: 4px 0px;
           margin-right: 7px;
-          margin-left: 7px;
-          border-radius: 10px 24px 10px 24px;
+          border-radius: 24px 10px 24px 10px;
           padding: 0px 18px;
         }
+
         #clock {
           font-weight: bold;
+          background: #${config.stylix.base16Scheme.base05};
           color: #${config.stylix.base16Scheme.base00};
-          background: linear-gradient(90deg, #${config.stylix.base16Scheme.base0E}, #${config.stylix.base16Scheme.base0C});
           margin: 0px;
           padding: 0px 15px 0px 30px;
           border-radius: 0px 0px 0px 40px;

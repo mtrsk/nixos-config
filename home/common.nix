@@ -6,6 +6,7 @@
     croc
     dig
     exiftool
+    fastfetch
     fd
     file
     ffmpeg
@@ -16,7 +17,6 @@
     jq
     kooha
     lsof
-    neofetch
     nix-prefetch-git
     parallel
     pavucontrol
@@ -27,15 +27,12 @@
     ripgrep
     sshfs
     smartmontools
-    #transmission_4-qt
-    #qbittorrent-qt
     tree
     tree-sitter
     unar
     unzip
     usbutils    # lsusb
     wget
-    xclip
     zip
   ];
 }

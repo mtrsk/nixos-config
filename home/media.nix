@@ -8,14 +8,10 @@ in
 {
   home.packages = with pkgs; [
     feh
-    ffmpegthumbnailer
     mpv
     ncmpcpp
     graphviz
-    koreader
-    poppler_utils
     obs-studio
-    ranger
   ];
 
   programs.newsboat = {
@@ -49,10 +45,6 @@ in
   xdg.configFile = {
     "mpv" = {
       source = dpath "mpv";
-      recursive = true;
-    };
-    "ranger" = {
-      source = dpath "ranger";
       recursive = true;
     };
     "zathura/zathurarc".source = dpath "zathura/zathurarc";
