@@ -36,6 +36,7 @@
     usbutils    # lsusb
     wget
     xclip
+    zathura
     zip
   ];
 }

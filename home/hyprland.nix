@@ -61,11 +61,19 @@ in
 
         "clock" = {
           format = "  {:L%H:%M}";
+          interval = "60";
           format-alt = "  {%d/%m/%y}";
           tooltip = true;
-          tooltip-format = "<tt><small>{calendar}</small></tt>";
+          tooltip-format = "<tt><big>{calendar}</big></tt>";
           calendar = {
             mode = "month";
+            format = {
+              months = "<span color='#${config.stylix.base16Scheme.base04}'><b>{}</b></span>";
+              days = "<span color='#${config.stylix.base16Scheme.base05}'><b>{}</b></span>";
+              weeks = "<span color='#${config.stylix.base16Scheme.base04}'><b>W{}</b></span>";
+              weekdays = "<span color='#${config.stylix.base16Scheme.base0D}'><b>{}</b></span>";
+              today = "<span color='#${config.stylix.base16Scheme.base0A}'><b><u>{}</u></b></span>";
+            };
           };
         };
 
