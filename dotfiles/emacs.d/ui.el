@@ -50,9 +50,3 @@
   (setq org-superstar-special-todo-items t)
   (add-hook 'org-mode-hook (lambda ()
                              (org-superstar-mode 1))))
-
-;; Pywal colorschemes
-(use-package ewal
-  :init (setq ewal-use-built-in-always-p nil
-              ewal-use-built-in-on-failure-p t
-              ewal-json-file "~/.cache/wal/colors.json"))

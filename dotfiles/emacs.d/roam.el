@@ -18,4 +18,4 @@
 ;; This would only display the title, without any extra whitespace
 (setq org-roam-node-display-template "${title}")
 ;; https://jeffkreeftmeijer.com/org-unable-to-resolve-link/
-;;(org-id-update-id-locations (directory-files-recursively (file-truename "~/Code/Personal/mtrsk.github.io/notes") "\\.org$") )
+;;(org-id-update-id-locations (directory-files-recursively (file-truename "~/Code/Personal/schonfinkel.github.io/notes") "\\.org$") )

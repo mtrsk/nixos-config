@@ -88,8 +88,8 @@
         org-roam-ui
         org-superstar
         org-tree-slide
-        # Ricing
-        ewal
+        # Other
+        citeproc
       ]));
   };
 

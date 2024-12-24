@@ -49,6 +49,7 @@
       highlight
       mediainfo
       poppler_utils
+      zathura
     ];
   };
 
